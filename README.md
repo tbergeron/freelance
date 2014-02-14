@@ -21,6 +21,6 @@ Because every other project management tool focus on collaboration.
 ---
 
 - Q: **What needs a freelancer in your opinion?**
-- A: We need project management with task tracking, time tracking that actually exports to something useful, file management, a simple wiki and a good overview page.
+- A: We need project management with task tracking, time tracking that actually exports to something useful, file management, a simple wiki, a _daily todo_ widget in which you can drag a few tasks for the day and a good overview page.
 
 ---
