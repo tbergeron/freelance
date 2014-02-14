@@ -122,8 +122,9 @@ return array(
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
+        'Zizaco\Confide\ConfideServiceProvider',
 
-	),
+    ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -191,6 +192,7 @@ return array(
 
         // NOTE: tbergeron 2014-01-14
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
+        'Confide'    => 'Zizaco\Confide\ConfideFacade',
 
 	),
 
