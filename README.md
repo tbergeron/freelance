@@ -1,7 +1,7 @@
 freelance
 =========
 
-Because every other project management tool focus on collaboration.
+Because who the fuck needs a "like" button in a project management software?!
 
 ---
 
@@ -24,3 +24,5 @@ Because every other project management tool focus on collaboration.
 - A: We need project management with task tracking, time tracking that actually exports to something useful, file management, a simple wiki, a _daily todo_ widget in which you can drag a few tasks for the day and a good overview page.
 
 ---
+
+Other ideas: For developer it would be interesting to link repositories with projects, so we could reference tasks in commits/list commits per tasks. For designers and other document-oriented tasks it, file versioning could be a great idea. (_i.e. instead of adding a new file for every design revisions, simply upload a new revision on the same file_)
