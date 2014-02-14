@@ -5,7 +5,6 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-        "zizaco/confide": "3.1.x",
         "barryvdh/laravel-ide-helper": "1.*",
         "barryvdh/laravel-debugbar": "dev-master",
         "way/generators": "dev-master"

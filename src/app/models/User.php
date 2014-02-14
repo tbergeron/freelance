@@ -1,12 +1,13 @@
 <?php
 
-use Zizaco\Confide\ConfideUser;
+use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\Reminders\RemindableInterface;
 
 /**
  * An Eloquent Model: 'User'
  *
  */
-class User extends ConfideUser {
+class User extends BaseModel implements UserInterface, RemindableInterface {
 
 	/**
 	 * The database table used by the model.
