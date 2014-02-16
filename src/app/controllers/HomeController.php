@@ -1,23 +1,56 @@
 <?php
 
-class HomeController extends BaseController {
+class HomeController extends \BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+    public function __construct()
+    {
+        $this->beforeFilter('csrf', array('on' => 'post'));
+        $this->beforeFilter('auth', array('only' => array('dashboard')));
+    }
 
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
+    public function home()
+    {
+        if (Auth::check()) {
+            return Redirect::route('dashboard');
+        } else {
+            return Redirect::route('admin_login');
+        }
+    }
+
+    public function dashboard()
+    {
+        return View::make('home.dashboard');
+    }
+
+    public function getLogin()
+    {
+        if (Auth::check()) {
+            return Redirect::route('dashboard');
+        } else {
+            return View::make('login');
+        }
+    }
+
+    public function postLogin()
+    {
+        if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')), true)) {
+            return Redirect::route('dashboard')
+                ->withMessage(trans('app.logged_in'))
+                ->withType('info');
+        } else {
+            return Redirect::route('admin_login')
+                ->withMessage(trans('app.incorrect_username_or_password'))
+                ->withType('danger')
+                ->withInput();
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::route('admin_login')
+            ->withMessage(trans('app.logged_out'))
+            ->withType('info');
+    }
 
 }
