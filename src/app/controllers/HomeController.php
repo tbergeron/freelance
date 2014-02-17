@@ -13,13 +13,13 @@ class HomeController extends \BaseController {
         if (Auth::check()) {
             return Redirect::route('dashboard');
         } else {
-            return Redirect::route('admin_login');
+            return Redirect::route('login');
         }
     }
 
     public function dashboard()
     {
-        return View::make('home.dashboard');
+        return View::make('dashboard');
     }
 
     public function getLogin()
@@ -48,7 +48,7 @@ class HomeController extends \BaseController {
     public function logout()
     {
         Auth::logout();
-        return Redirect::route('admin_login')
+        return Redirect::route('login')
             ->withMessage(trans('app.logged_out'))
             ->withType('info');
     }

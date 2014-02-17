@@ -2,7 +2,7 @@
 
 @section('content')
 
-{{ Form::open(array('route' => 'admin_login', 'class' => 'form-signin', 'role' => 'form')) }}
+{{ Form::open(array('route' => 'login', 'class' => 'form-signin', 'role' => 'form')) }}
    <h2 class="please-login text-center">{{ trans('app.please_login') }}</h2>
 
 	@include('partials.messages')

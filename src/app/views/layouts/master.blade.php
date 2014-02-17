@@ -12,16 +12,21 @@
     </title>
 </head>
 <body>
+  
+  <h1>{{ Config::get('app.name') }}</h1>
+  
+  <div>
+    @if(Auth::check())
+    <a href="{{ URL::route('logout') }}">Logout</a>
+    @endif
+  </div>
 
-Tabarnak aweye donc!
-<br/>
-Contenu:
-<div>
-    @yield('content')
-</div>
-
-<script src="https://code.jquery.com/jquery.js"></script>
-@yield('scripts')
+  <div>
+      @yield('content')
+  </div>
+  
+  <script src="https://code.jquery.com/jquery.js"></script>
+  @yield('scripts')
 
 </body>
 </html>
