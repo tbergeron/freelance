@@ -28,9 +28,16 @@ class ProjectController extends BaseController {
      *
      * @return Response
      */
-    public function store()
+    public function postStore()
     {
-        //
+        $project = new Project;
+
+        if ($project->save(Input::all()))
+            return Redirect::action('ProjectController@getIndex')
+                ->withMessage(trans('project.create_success'))->withType('success');
+
+        else
+            return Redirect::back()->withInput()->withErrors($project->getErrors());
     }
 
     /**
@@ -41,7 +48,8 @@ class ProjectController extends BaseController {
      */
     public function getShow($id)
     {
-        return View::make('projects.show');
+        $project = Project::findOrFail($id);
+        return View::make('projects.show', compact('project'));
     }
 
     /**
@@ -52,7 +60,8 @@ class ProjectController extends BaseController {
      */
     public function getEdit($id)
     {
-        return View::make('projects.edit');
+        $project = Project::findOrFail($id);
+        return View::make('projects.edit', compact('project'));
     }
 
     /**
@@ -61,9 +70,16 @@ class ProjectController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function postUpdate($id)
     {
-        //
+        $project = Project::findOrFail($id);
+
+        if ($project->save(Input::all()))
+            return Redirect::action('ProjectController@getIndex')
+                ->withMessage(trans('project.update_success'))->withType('success');
+
+        else
+            return Redirect::back()->withInput()->withErrors($project->getErrors());
     }
 
     /**
@@ -74,7 +90,11 @@ class ProjectController extends BaseController {
      */
     public function getDestroy($id)
     {
-        //
+        $project = Project::findOrFail($id);
+        $project->delete();
+
+        return Redirect::action('ProjectController@getIndex')
+            ->withMessage(trans('project.destroy_success'))->withType('success');
     }
 
 }

@@ -16,12 +16,20 @@
 
 @include('partials.messages')
 
-@foreach ($projects as $project)
+<ul>
+    @foreach ($projects as $project)
 
-{{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
- -
-{{ Html::linkAction('ProjectController@getEdit', trans('project.edit'), ['id' => $project->id]) }}
+    <li>
+        {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
+         -
+        {{ Html::linkAction('ProjectController@getEdit', trans('project.edit'), ['id' => $project->id]) }}
+         -
+        <a href="{{ URL::action('ProjectController@getDestroy', $project->id) }}" onclick="return confirm('{{ trans('project.destroy_question', ['name' => $project->name]) }}')">
+            {{ trans('project.destroy') }}
+        </a>
+    </li>
 
-@endforeach
+    @endforeach
+</ul>
 
 @stop

@@ -39,12 +39,19 @@ class BaseModel extends Eloquent
      * @param array $data
      * @return bool
      */
-    public function save(array $data = array())
+    public function save(array $data = null)
     {
+        if (!$data) {
+            $data = $this->attributes;
+        }
+
+        parent::fill($data);
+
         $this->beforeValidate();
 
         if ($this->validate($data)) {
             $this->afterValidate();
+
             $this->beforeSave();
 
             $result = parent::save($data);

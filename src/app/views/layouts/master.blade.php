@@ -10,6 +10,8 @@
         @yield('title')
         {{ Config::get('app.name') }}
     </title>
+
+    {{ Html::style('css/main.css') }}
 </head>
 <body>
 
@@ -33,6 +35,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery.js"></script>
+{{ Html::script('js/main.js') }}
 @yield('scripts')
 
 </body>

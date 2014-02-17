@@ -2,6 +2,12 @@
 
 class BaseController extends Controller {
 
+    public function __construct()
+    {
+        $this->beforeFilter('csrf', ['on' => 'post']);
+        $this->beforeFilter('auth');
+    }
+
 	/**
 	 * Setup the layout used by the controller.
 	 *

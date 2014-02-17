@@ -10,3 +10,4 @@ Thumbs.db
 app/storage/*
 public/uploads/*
 public/packages/*
+app/database/production.sqlite
