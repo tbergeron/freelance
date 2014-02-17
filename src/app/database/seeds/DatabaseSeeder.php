@@ -2,17 +2,20 @@
 
 class DatabaseSeeder extends Seeder {
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
 	public function run()
 	{
 		Eloquent::unguard();
 
 		$this->call('UserTableSeeder');
-		$this->call('ProjectTableSeeder');
-	}
+		$this->command->info('User table seeded!');
 
+		$this->call('ProjectTableSeeder');
+		$this->command->info('Project table seeded!');
+
+		$this->call('TaskTableSeeder');
+		$this->command->info('Task table seeded!');
+
+		$this->call('MilestoneTableSeeder');
+		$this->command->info('Milestone table seeded!');
+	}
 }

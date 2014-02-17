@@ -2,14 +2,14 @@
 
 class ProjectTableSeeder extends Seeder {
 
-    public function run()
-    {
-        DB::table('users')->delete();
+	public function run()
+	{
+		//DB::table('projects')->delete();
 
-        Project::create([
-            'code' => 'PROJ',
-            'name' => 'Project Name'
-        ]);
-
-    }
+		// ProjectTableSeeder
+		Project::create(array(
+				'name' => 'Freelance Project Manager',
+				'code' => 'FREE'
+			));
+	}
 }
