@@ -1,23 +1,23 @@
 <?php
 
-class HomeController extends \BaseController {
+class UserController extends \BaseController {
 
     public function __construct()
     {
         $this->beforeFilter('csrf', array('on' => 'post'));
-        $this->beforeFilter('auth', array('only' => array('dashboard')));
+        $this->beforeFilter('auth', array('only' => array('getDashboard')));
     }
 
-    public function home()
+    public function getHome()
     {
         if (Auth::check()) {
-            return Redirect::route('dashboard');
+            return Redirect::action('UserController@getDashboard');
         } else {
-            return Redirect::route('login');
+            return Redirect::route('UserController@getLogin');
         }
     }
 
-    public function dashboard()
+    public function getDashboard()
     {
         return View::make('dashboard');
     }
@@ -25,7 +25,7 @@ class HomeController extends \BaseController {
     public function getLogin()
     {
         if (Auth::check()) {
-            return Redirect::route('dashboard');
+            return Redirect::action('UserController@getDashboard');
         } else {
             return View::make('login');
         }
@@ -33,22 +33,23 @@ class HomeController extends \BaseController {
 
     public function postLogin()
     {
-        if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')), true)) {
-            return Redirect::route('dashboard')
+        if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')), true)) {
+            return Redirect::action('UserController@getDashboard')
                 ->withMessage(trans('app.logged_in'))
                 ->withType('info');
+
         } else {
-            return Redirect::route('admin_login')
+            return Redirect::action('UserController@getLogin')
                 ->withMessage(trans('app.incorrect_username_or_password'))
                 ->withType('danger')
                 ->withInput();
         }
     }
 
-    public function logout()
+    public function getLogout()
     {
         Auth::logout();
-        return Redirect::route('login')
+        return Redirect::action('UserController@getLogin')
             ->withMessage(trans('app.logged_out'))
             ->withType('info');
     }

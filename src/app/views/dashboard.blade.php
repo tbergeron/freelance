@@ -1,13 +1,23 @@
 @extends('layouts.master')
 
+@section('title')
+{{ trans('app.dashboard') }} -
+@stop
+
 @section('content')
 
-<div class="page-header">
-  <h1>{{ Config::get('app.name') }}</h1>
-</div>
+<h2>{{ trans('app.dashboard') }}</h2>
 
 @include('partials.messages')
 
-{{ trans('app.welcome') }}
+<div>
+    {{ Html::linkAction('ProjectController@getIndex', 'Projects') }}
+</div>
+
+<br />
+
+<div>
+    {{ trans('app.welcome') }}
+</div>
 
 @stop

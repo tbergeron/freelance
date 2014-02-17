@@ -4,12 +4,14 @@ return array(
 
     // menu
     'home' => 'Home',
+    'dashboard' => 'Dashboard',
     'login' => 'Login',
     'logout' => 'Logout',
 
     'welcome' => 'Hello world',
 
     'please_login' => 'Please login.',
+    'email' => 'Email',
     'username' => 'Username',
     'password' => 'Password',
 
@@ -21,7 +23,7 @@ return array(
     'logged_out' => 'You are now logged out.',
     'logged_in' => 'You are now logged in.',
     'incorrect_username_or_password' => 'Your credentials are erronous. Please try again.',
-    'must_be_logged' => 'You must b logged in to access this page.',
+    'must_be_logged' => 'You must be logged in to access this page.',
 
     'created_at' => 'Published',
     'updated_at' => 'Updated',
@@ -37,13 +39,4 @@ return array(
 
     'submit' => 'Save',
 
-    'built_by' => 'Built by <a href="http://brainpad.org" target="_blank">Brainpad</a> &copy; :year',
-
-    'fr' => 'French',
-    'en' => 'English',
-
-    'version_fr' => 'Version Française',
-    'version_en' => 'English Version',
-
-    'need_help' => 'Need help?',
 );

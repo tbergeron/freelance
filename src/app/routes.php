@@ -6,12 +6,10 @@
 |--------------------------------------------------------------------------
 */
 
-// Home
-Route::get( '', 			    array('as' => 'home', 		  'uses' => 'HomeController@home'));
-Route::get( 'login', 		  array('as' => 'login', 		  'uses' => 'HomeController@getLogin'));
-Route::post('login', 		  array('as' => 'login', 		  'uses' => 'HomeController@postLogin'));
-Route::get( 'logout',     array('as' => 'logout', 	  'uses' => 'HomeController@logout'));
-Route::get( 'dashboard',  array('as' => 'dashboard',  'uses' => 'HomeController@dashboard'));
+Route::controller('project',    'ProjectController');
+Route::controller('user',       'UserController');
+
+Route::get('', 'UserController@getDashboard');
 
 // Navigation Active
 HTML::macro('menu_active', function ($route, $text) {

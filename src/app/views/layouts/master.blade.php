@@ -12,19 +12,28 @@
     </title>
 </head>
 <body>
-  
-  <div>
-    @if(Auth::check())
-    <a href="{{ URL::route('logout') }}">Logout</a>
-    @endif
-  </div>
 
-  <div>
-      @yield('content')
-  </div>
-  
-  <script src="https://code.jquery.com/jquery.js"></script>
-  @yield('scripts')
+<div class="page-header">
+    <h1>{{ Config::get('app.name') }}</h1>
+</div>
+
+<div>
+    <ul>
+        <li>{{ Html::linkAction('UserController@getDashboard', trans('app.dashboard')) }}</li>
+
+        @if(Auth::check())
+        <li>{{ Html::linkAction('ProjectController@getIndex', trans('project.index')) }}</li>
+        <li>{{ Html::linkAction('UserController@getLogout', trans('app.logout')) }}</li>
+        @endif
+    </ul>
+</div>
+
+<div>
+    @yield('content')
+</div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+@yield('scripts')
 
 </body>
 </html>

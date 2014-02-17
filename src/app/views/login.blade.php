@@ -2,15 +2,15 @@
 
 @section('content')
 
-{{ Form::open(array('route' => 'login', 'class' => 'form-signin', 'role' => 'form')) }}
-   <h2 class="please-login text-center">{{ trans('app.please_login') }}</h2>
+{{ Form::open(['action' => 'UserController@getLogin']) }}
+   <h2>{{ trans('app.please_login') }}</h2>
 
 	@include('partials.messages')
  
-   {{ Form::text('username', null, array('placeholder' => trans('app.username'), 'class' => 'form-control')) }}
-   {{ Form::password('password', array('placeholder' => trans('app.password'), 'class' => 'form-control')) }}
+   {{ Form::text('email', null, ['placeholder' => trans('app.email'), 'class' => 'form-control']) }}
+   {{ Form::password('password', ['placeholder' => trans('app.password'), 'class' => 'form-control']) }}
  
-   {{ Form::submit(trans('app.login'), array('class' => 'btn btn-lg btn-primary btn-block')) }}
+   {{ Form::submit(trans('app.login')) }}
 {{ Form::close() }}
 
 @stop
