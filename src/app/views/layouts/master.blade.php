@@ -13,8 +13,6 @@
 </head>
 <body>
   
-  <h1>{{ Config::get('app.name') }}</h1>
-  
   <div>
     @if(Auth::check())
     <a href="{{ URL::route('logout') }}">Logout</a>
