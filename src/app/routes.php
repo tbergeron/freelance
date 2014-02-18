@@ -10,6 +10,8 @@ Route::controller('task',       'TaskController');
 Route::controller('project',    'ProjectController');
 Route::controller('user',       'UserController');
 
+// TODO: Super-awesome route like /PROJ-001 to lead to a specific task
+
 Route::get('', 'UserController@getDashboard');
 
 // Navigation Active
