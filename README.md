@@ -5,6 +5,16 @@ Because who the fuck needs a "like" button in a project management software?!
 
 ---
 
+Get started by creating a `bootstrap/environment.php` so Laravel 
+
+```php
+<?php
+
+return 'development';
+```
+
+---
+
 - Q: **What happens if you're a freelancer who is working on multiple projects?**
 - A: You end up with a half-assed solution focusing on _sharing_ your progress instead of actually having something that _helps_ you focus on what's needed to be done.
 
