@@ -93,7 +93,7 @@ class TaskController extends BaseController {
         $task = Task::findOrFail($id);
         $task->delete();
 
-        return Redirect::action('TaskController@getIndex')
+        return Redirect::back()
             ->withMessage(trans('task.destroy_success'))->withType('success');
     }
 
@@ -107,6 +107,7 @@ class TaskController extends BaseController {
     {
         $project = Project::find($project_id);
         $tasks = $project->tasks;
+        
         return View::make('task.project', compact('project', 'tasks'));
     }
 }

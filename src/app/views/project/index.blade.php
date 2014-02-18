@@ -20,8 +20,10 @@
     @foreach ($projects as $project)
 
     <li>
-        {{ Html::linkAction('TaskController@getProject', $project->name, ['id' => $project->id]) }}
-         -
+        {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
+        -
+        {{ Html::linkAction('TaskController@getProject', trans('project.tasks'), ['id' => $project->id]) }}
+        -
         {{ Html::linkAction('ProjectController@getEdit', trans('project.edit'), ['id' => $project->id]) }}
          -
         <a href="{{ URL::action('ProjectController@getDestroy', $project->id) }}" onclick="return confirm('{{ trans('project.destroy_question', ['name' => $project->name]) }}')">

@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * An Eloquent Model: 'Milestone'
+ *
+ * @property integer $id
+ * @property integer $project_id
+ * @property string $name
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
+ */
 class Milestone extends BaseModel {
 
 	protected $table = 'milestones';

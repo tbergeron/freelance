@@ -2,6 +2,18 @@
 
 use Illuminate\Auth\UserInterface;
 
+/**
+ * An Eloquent Model: 'User'
+ *
+ * @property integer $id
+ * @property string $email
+ * @property string $password
+ * @property string $full_name
+ * @property \Carbon\Carbon $deleted_at
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
+ */
 class User extends BaseModel implements UserInterface {
 
     protected $table = 'users';

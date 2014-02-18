@@ -1,5 +1,21 @@
 <?php
 
+/**
+ * An Eloquent Model: 'Task'
+ *
+ * @property integer $id
+ * @property integer $project_id
+ * @property integer $milestone_id
+ * @property integer $user_id
+ * @property string $name
+ * @property string $description
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Project $project
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Comment[] $comments
+ * @property-read \Milestone $milestone
+ * @property-read \User $user
+ */
 class Task extends BaseModel {
 
 	protected $table = 'tasks';

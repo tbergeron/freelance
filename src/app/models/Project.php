@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * An Eloquent Model: 'Project'
+ *
+ * @property integer $id
+ * @property string $name
+ * @property string $code
+ * @property \Carbon\Carbon $deleted_at
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
+ */
 class Project extends BaseModel {
 
 	protected $table = 'projects';

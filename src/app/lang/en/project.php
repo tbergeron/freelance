@@ -8,5 +8,6 @@ return array(
     'edit' => 'Edit',
     'destroy' => 'Delete',
     'destroy_question' => 'Do you really want to DELETE the project :name?',
+    'tasks' => 'Tasks',
 
 );

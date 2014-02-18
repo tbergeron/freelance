@@ -6,7 +6,7 @@
 
 @section('content')
 
-<small>Project: {{ Html::linkAction('ProjectController@getShow', $task->project->name) }}</small>
+<small>Project: {{ Html::linkAction('ProjectController@getShow', $task->project->name, ['id' => $task->project->id]) }}</small>
 <h2>{{ $task->name }}</h2>
 
 <div>

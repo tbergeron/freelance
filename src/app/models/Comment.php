@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * An Eloquent Model: 'Comment'
+ *
+ * @property integer $id
+ * @property integer $user_id
+ * @property integer $task_id
+ * @property string $content
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Task $task
+ * @property-read \User $user
+ */
 class Comment extends BaseModel {
 
 	protected $table = 'comments';

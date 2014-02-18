@@ -12,4 +12,8 @@
 
 @include('partials.messages')
 
+<div>
+    {{ Html::linkAction('TaskController@getProject', 'Tasks', ['id' => $project->id]) }}
+</div>
+
 @stop
