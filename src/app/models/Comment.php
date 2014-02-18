@@ -19,4 +19,9 @@ class Comment extends BaseModel {
 		return $this->belongsTo('Task');
 	}
 
+	public function user()
+	{
+		return $this->belongsTo('User');
+	}
+
 }

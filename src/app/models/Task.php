@@ -20,7 +20,7 @@ class Task extends BaseModel {
 
 	public function comments()
 	{
-		return $this->hasMany('Comment');
+        return $this->hasMany('Comment')->orderBy('created_at', 'desc');
 	}
 
 	public function milestone()

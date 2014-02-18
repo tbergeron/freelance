@@ -2,78 +2,68 @@
 
 class CommentController extends BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-        return View::make('comments.index');
-	}
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function postStore()
+    {
+        $comment = new Comment;
+        
+        // assigning user to comment
+        $data = Input::all();
+        $data['user_id'] = Auth::user()->id;
+        
+        if ($comment->save($data))
+            return Redirect::back();
+        else
+            return Redirect::back()->withInput()->withErrors($comment->getErrors());
+    }
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-        return View::make('comments.create');
-	}
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function getEdit($id)
+    {
+        $comment = Comment::findOrFail($id);
+        return View::make('comment.edit', compact('comment'));
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function postUpdate($id)
+    {
+        $comment = Comment::findOrFail($id);
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-        return View::make('comments.show');
-	}
+        if ($comment->save(Input::all()))
+            return Redirect::action('CommentController@getIndex')
+                ->withMessage(trans('comment.update_success'))->withType('success');
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-        return View::make('comments.edit');
-	}
+        else
+            return Redirect::back()->withInput()->withErrors($comment->getErrors());
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function getDestroy($id)
+    {
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+        return Redirect::action('CommentController@getIndex')
+            ->withMessage(trans('comment.destroy_success'))->withType('success');
+    }
 
 }
