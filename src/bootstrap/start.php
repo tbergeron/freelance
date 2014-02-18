@@ -24,12 +24,10 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array(
-
-    'development' => ['localhost'],
-    'production' => ['freelance.brainpad.org'],
-
-));
+$env = $app->detectEnvironment(function ()
+{
+    return require __DIR__.'/environment.php';
+});
 
 /*
 |--------------------------------------------------------------------------
