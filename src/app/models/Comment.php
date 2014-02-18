@@ -17,8 +17,8 @@ class Comment extends BaseModel {
 	protected $table = 'comments';
 	public $timestamps = true;
 	protected $softDelete = false;
+	protected $fillable = array('content', 'task_id', 'user_id');
 	protected $guarded = array('id', 'timestamps');
-	protected $fillable = array('user_id', 'task_id', 'content');
 
     public static $rules = array(
         'user_id'  => 'required',

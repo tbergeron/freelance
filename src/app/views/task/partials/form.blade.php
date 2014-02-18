@@ -3,7 +3,7 @@ TODO: Use dropdowns for foreign keys
     <li>
         {{ Form::label('project_id', 'Project_id:') }}
         {{ $errors->first('project_id') }}
-        {{ Form::text('project_id') }}
+        {{ Form::text('project_id', $project_id) }}
     </li>
     <li>
         {{ Form::label('milestone_id', 'Milestone_id:') }}

@@ -10,8 +10,7 @@
 <h2>{{ trans('task.heading_with_name', ['name' => $project->name]) }}</h2>
 
 <div>
-    {{ Html::linkAction('TaskController@getCreate', trans('task.create')) }}
-    TODO: this link should pre-select the project
+    {{ Html::linkAction('TaskController@getCreate', trans('task.create'), ['project_id' => $project->id]) }}
 </div>
 
 <br/>

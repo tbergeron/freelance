@@ -15,6 +15,6 @@
 
 @include('partials.messages')
 
-@include('comment.partials.comments')
+@include('comment.partials.list')
 
 @stop

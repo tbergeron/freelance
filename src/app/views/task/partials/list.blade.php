@@ -1,17 +1,27 @@
-TODO: Add details to this list
-<ul>
+<table>
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Assignee</th>
+        <th>Created</th>
+        <th>Actions</th>
+    </tr>
+
     @foreach ($tasks as $task)
 
-    <li>
-        {{ Html::linkAction('TaskController@getShow', $task->name, ['id' => $task->id]) }}
-        - 
-        {{ Html::linkAction('TaskController@getEdit', trans('task.edit'), ['id' => $task->id]) }}
-        -
-        <a href="{{ URL::action('TaskController@getDestroy', $task->id) }}" onclick="return confirm('{{ trans('task.destroy_question', ['name' => $task->name]) }}')">
-            {{ trans('task.destroy') }}
-        </a>
-
-    </li>
+    <tr>
+        <td>{{ $task->code() }}</td>
+        <td>{{ Html::linkAction('TaskController@getShow', $task->name, ['id' => $task->id]) }}</td>
+        <td>{{ $task->user->full_name }}</td>
+        <td>{{ $task->created_at->diffForHumans() }}</td>
+        <td>
+            {{ Html::linkAction('TaskController@getEdit', trans('task.edit'), ['id' => $task->id]) }}
+            -
+            <a href="{{ URL::action('TaskController@getDestroy', $task->id) }}" onclick="return confirm('{{ trans('task.destroy_question', ['name' => $task->name]) }}')">
+                {{ trans('task.destroy') }}
+            </a>
+        </td>
+    </tr>
 
     @endforeach
-</ul>
+</table>

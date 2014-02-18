@@ -14,7 +14,7 @@ class CommentController extends BaseController {
         // assigning user to comment
         $data = Input::all();
         $data['user_id'] = Auth::user()->id;
-        
+
         if ($comment->save($data))
             return Redirect::back();
         else

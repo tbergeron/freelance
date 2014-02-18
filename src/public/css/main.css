@@ -9,3 +9,11 @@ a {
 textarea {
     height: 50px;
 }
+
+table {
+    width: 100%;
+}
+
+table, tr, th, td {
+    text-align: left;
+}

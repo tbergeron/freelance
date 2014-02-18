@@ -17,13 +17,13 @@ class Project extends BaseModel {
 	protected $table = 'projects';
 	public $timestamps = true;
 	protected $softDelete = true;
-	protected $guarded = array('id', 'timestamps');
-	protected $fillable = array('name', 'code');
+	protected $fillable = ['name', 'code'];
+	protected $guarded = ['id', 'timestamps'];
 
-    public static $rules = array(
+    public static $rules = [
         'name'  => 'required|min:3|max:255',
         'code'  => 'required|max:8|unique:projects'
-    );
+    ];
 
     public function tasks()
 	{

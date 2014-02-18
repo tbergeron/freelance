@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 class MilestoneTableSeeder extends Seeder {
 
 	public function run()
@@ -9,7 +11,8 @@ class MilestoneTableSeeder extends Seeder {
 		// MilestoneTableSeeder
 		Milestone::create(array(
 				'project_id' => 1,
-				'name' => 'First Release'
+				'name' => 'First Release',
+                'due_date' => '2015-02-30',
 			));
 	}
 }

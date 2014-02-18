@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 /**
  * An Eloquent Model: 'Milestone'
  *
@@ -10,18 +12,20 @@
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
  * @property-read \Project $project
+ * @property string $due_date
  */
 class Milestone extends BaseModel {
 
 	protected $table = 'milestones';
 	public $timestamps = true;
 	protected $softDelete = false;
-	protected $fillable = array('name', 'project_id');
+	protected $fillable = ['project_id', 'name'];
+    protected $guarded = ['id', 'timestamps'];
 
-    public static $rules = array(
+    public static $rules = [
         'name'  => 'required|min:3|max:255',
         'project_id'  => 'required'
-    );
+    ];
 
     public function project()
 	{
@@ -32,5 +36,10 @@ class Milestone extends BaseModel {
 	{
 		return $this->hasMany('Task');
 	}
+
+    public function getDates()
+    {
+        return array('created_at', 'updated_at', 'due_date');
+    }
 
 }

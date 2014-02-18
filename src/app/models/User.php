@@ -15,12 +15,11 @@ use Illuminate\Auth\UserInterface;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
  */
 class User extends BaseModel implements UserInterface {
-
     protected $table = 'users';
     public $timestamps = true;
     protected $softDelete = true;
-    protected $guarded = array('id', 'timestamps');
     protected $fillable = array('email', 'full_name');
+    protected $guarded = array('id', 'timestamps');
     protected $hidden = array('password');
 
     public function tasks()

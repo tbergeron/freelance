@@ -21,13 +21,13 @@ class Task extends BaseModel {
 	protected $table = 'tasks';
 	public $timestamps = true;
 	protected $softDelete = false;
-	protected $guarded = array('id', 'timestamps');
-	protected $fillable = array('name', 'user_id', 'project_id', 'milestone_id', 'description');
+	protected $fillable = ['project_id', 'user_id', 'milestone_id', 'name', 'description'];
+	protected $guarded = ['id', 'timestamps'];
 
-    public static $rules = array(
+    public static $rules = [
         'name'  => 'required|min:3|max:255',
         'project_id'  => 'required'
-    );
+    ];
 
 	public function project()
 	{
@@ -48,5 +48,10 @@ class Task extends BaseModel {
 	{
 		return $this->belongsTo('User');
 	}
+
+    public function code()
+    {
+        return $this->project->code . '-' . sprintf("%03s", $this->id);
+    }
 
 }

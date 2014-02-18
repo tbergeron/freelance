@@ -16,11 +16,12 @@ class TaskController extends BaseController {
     /**
      * Show the form for creating a new resource.
      *
+     * @param  int  $project_id
      * @return Response
      */
-    public function getCreate()
+    public function getCreate($project_id = null)
     {
-        return View::make('task.create');
+        return View::make('task.create', compact('project_id'));
     }
 
     /**

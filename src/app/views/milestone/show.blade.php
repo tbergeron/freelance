@@ -10,8 +10,7 @@
 
 @include('partials.project')
 <h2>{{ $milestone->name }}</h2>
-
-TODO: Milestone details here
+Due {{ $milestone->due_date->diffForHumans() }}
 
 @include('partials.messages')
 
