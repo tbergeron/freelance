@@ -6,7 +6,12 @@
 
 @section('content')
 
+<small>Project: {{ Html::linkAction('ProjectController@getShow', $task->project->name) }}</small>
 <h2>{{ $task->name }}</h2>
+
+<div>
+    {{ $task->description }}
+</div>
 
 @include('partials.messages')
 
