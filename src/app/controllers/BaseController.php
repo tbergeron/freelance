@@ -9,10 +9,10 @@ class BaseController extends Controller {
             Debugbar::disable();
 
         $this->beforeFilter('csrf', ['on' => 'post']);
-        
+
         if (!$skip_auth)
             $this->beforeFilter('auth');
-    }
+        }
 
 	/**
 	 * Setup the layout used by the controller.
