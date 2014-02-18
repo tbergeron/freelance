@@ -29,7 +29,9 @@ class Task extends BaseModel {
         'project_id'  => 'required'
     ];
 
-	public function project()
+    // TODO: Add states/open/close to this model
+
+    public function project()
 	{
 		return $this->belongsTo('Project');
 	}

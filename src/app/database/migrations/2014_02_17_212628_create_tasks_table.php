@@ -18,6 +18,8 @@ class CreateTasksTable extends Migration {
 		});
 	}
 
+    // TODO: Add states/open/close to this migration
+
 	public function down()
 	{
 		Schema::drop('tasks');
