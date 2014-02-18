@@ -3,15 +3,6 @@ freelance
 
 Because who the fuck needs a "like" button in a project management software?!
 
----
-
-Get started by creating a `bootstrap/environment.php` so Laravel 
-
-```php
-<?php
-
-return 'development';
-```
 
 ---
 
@@ -26,7 +17,7 @@ return 'development';
 ---
 
 - Q: **What is this supposed to be?**
-- A: I don't know yet, I don't even know what language/framework I want to use to build it. All I know is, the freelancer situation is a shitty one and we need a better tool.
+- A: A functional piece of software that makes a freelancer's life easy. A project management that focuses on getting shit done instead of sharing with your friends.
 
 ---
 
