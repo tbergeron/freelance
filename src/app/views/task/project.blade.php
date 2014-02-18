@@ -10,6 +10,7 @@
 
 <div>
     {{ Html::linkAction('TaskController@getCreate', trans('task.create')) }}
+    TODO: this link should pre-select the project
 </div>
 
 <br/>

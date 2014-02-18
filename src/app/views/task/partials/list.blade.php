@@ -1,3 +1,4 @@
+TODO: Add details to this list
 <ul>
     @foreach ($tasks as $task)
 

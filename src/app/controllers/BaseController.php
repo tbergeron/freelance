@@ -2,10 +2,12 @@
 
 class BaseController extends Controller {
 
-    public function __construct()
+    public function __construct($skip_auth = false)
     {
         $this->beforeFilter('csrf', ['on' => 'post']);
-        $this->beforeFilter('auth');
+        
+        if (!$skip_auth)
+            $this->beforeFilter('auth');
     }
 
 	/**

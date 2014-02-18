@@ -11,12 +11,6 @@
 @include('partials.messages')
 
 <div>
-    {{ Html::linkAction('ProjectController@getIndex', 'Projects') }}
-</div>
-
-<br />
-
-<div>
     {{ trans('app.welcome') }}
 </div>
 

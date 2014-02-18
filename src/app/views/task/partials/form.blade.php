@@ -1,3 +1,4 @@
+TODO: Use dropdowns for foreign keys
 <ul>
     <li>
         {{ Form::label('project_id', 'Project_id:') }}

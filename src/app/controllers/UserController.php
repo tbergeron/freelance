@@ -4,7 +4,7 @@ class UserController extends \BaseController {
 
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct(true);
         $this->beforeFilter('auth', array('only' => array('getDashboard')));
     }
 
@@ -19,7 +19,7 @@ class UserController extends \BaseController {
 
     public function getDashboard()
     {
-        return View::make('dashboard');
+        return View::make('user.dashboard');
     }
 
     public function getLogin()
@@ -27,7 +27,7 @@ class UserController extends \BaseController {
         if (Auth::check()) {
             return Redirect::action('UserController@getDashboard');
         } else {
-            return View::make('login');
+            return View::make('user.login');
         }
     }
 

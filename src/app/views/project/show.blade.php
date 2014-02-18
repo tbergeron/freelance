@@ -10,6 +10,8 @@
 
 <h2>{{ $project->name }}</h2>
 
+TODO: Project details here
+
 @include('partials.messages')
 
 <div>
