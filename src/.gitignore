@@ -7,7 +7,6 @@ composer.lock
 .DS_Store
 Thumbs.db
 .idea
-app/storage/*
 public/uploads/*
 public/packages/*
 app/database/production.sqlite

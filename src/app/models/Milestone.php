@@ -9,6 +9,7 @@
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
+ * @property-read \Project $project
  */
 class Milestone extends BaseModel {
 
