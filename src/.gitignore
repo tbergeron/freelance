@@ -10,3 +10,4 @@ Thumbs.db
 public/uploads/*
 public/packages/*
 app/database/production.sqlite
+app/config/database.php
