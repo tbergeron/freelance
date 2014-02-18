@@ -5,8 +5,13 @@ class Task extends BaseModel {
 	protected $table = 'tasks';
 	public $timestamps = true;
 	protected $softDelete = false;
-	protected $guarded = array('id', 'project_id', 'user_id', 'timestamps');
-	protected $fillable = array('name', 'description');
+	protected $guarded = array('id', 'timestamps');
+	protected $fillable = array('name', 'user_id', 'project_id', 'milestone_id', 'description');
+
+    public static $rules = array(
+        'name'  => 'required|min:3|max:255',
+        'project_id'  => 'required'
+    );
 
 	public function project()
 	{

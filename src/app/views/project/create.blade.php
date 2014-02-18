@@ -12,7 +12,7 @@
 
 {{ Form::open(['action' => 'ProjectController@postStore', 'files' => true]) }}
 
-    @include('projects.partials.form')
+    @include('project.partials.form')
 
 {{ Form::close() }}
 

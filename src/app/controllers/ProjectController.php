@@ -10,7 +10,7 @@ class ProjectController extends BaseController {
     public function getIndex()
     {
         $projects = Project::all();
-        return View::make('projects.index', compact('projects'));
+        return View::make('project.index', compact('projects'));
     }
 
     /**
@@ -20,7 +20,7 @@ class ProjectController extends BaseController {
      */
     public function getCreate()
     {
-        return View::make('projects.create');
+        return View::make('project.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class ProjectController extends BaseController {
     public function getShow($id)
     {
         $project = Project::findOrFail($id);
-        return View::make('projects.show', compact('project'));
+        return View::make('project.show', compact('project'));
     }
 
     /**
@@ -61,7 +61,7 @@ class ProjectController extends BaseController {
     public function getEdit($id)
     {
         $project = Project::findOrFail($id);
-        return View::make('projects.edit', compact('project'));
+        return View::make('project.edit', compact('project'));
     }
 
     /**

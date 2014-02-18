@@ -6,6 +6,7 @@
 |--------------------------------------------------------------------------
 */
 
+Route::controller('task',       'TaskController');
 Route::controller('project',    'ProjectController');
 Route::controller('user',       'UserController');
 

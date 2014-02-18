@@ -20,7 +20,7 @@
     @foreach ($projects as $project)
 
     <li>
-        {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
+        {{ Html::linkAction('TaskController@getProject', $project->name, ['id' => $project->id]) }}
          -
         {{ Html::linkAction('ProjectController@getEdit', trans('project.edit'), ['id' => $project->id]) }}
          -

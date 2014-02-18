@@ -14,7 +14,7 @@
 
 {{ Form::model($project, ['action' => ['ProjectController@postUpdate', $project->id], 'files' => true]) }}
 
-    @include('projects.partials.form')
+    @include('project.partials.form')
 
 {{ Form::close() }}
 

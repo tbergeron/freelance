@@ -25,6 +25,7 @@
 
         @if(Auth::check())
         <li>{{ Html::linkAction('ProjectController@getIndex', trans('project.index')) }}</li>
+        <li>{{ Html::linkAction('TaskController@getIndex', trans('task.index')) }}</li>
         <li>{{ Html::linkAction('UserController@getLogout', trans('app.logout')) }}</li>
         @endif
     </ul>
