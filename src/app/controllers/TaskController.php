@@ -49,7 +49,8 @@ class TaskController extends BaseController {
     public function getShow($id)
     {
         $task = Task::findOrFail($id);
-        return View::make('task.show', compact('task'));
+        $project = $task->project;
+        return View::make('task.show', compact('task', 'project'));
     }
 
     /**
@@ -61,7 +62,8 @@ class TaskController extends BaseController {
     public function getEdit($id)
     {
         $task = Task::findOrFail($id);
-        return View::make('task.edit', compact('task'));
+        $project = $task->project;
+        return View::make('task.edit', compact('task', 'project'));
     }
 
     /**

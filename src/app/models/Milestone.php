@@ -22,6 +22,11 @@ class Milestone extends BaseModel {
         'project_id'  => 'required'
     );
 
+    public function project()
+	{
+		return $this->belongsTo('Project');
+	}
+
     public function tasks()
 	{
 		return $this->hasMany('Task');

@@ -29,6 +29,11 @@ class Project extends BaseModel {
 		return $this->hasMany('Task');
 	}
 
+    public function milestones()
+	{
+		return $this->hasMany('Milestone');
+	}
+
     public function afterValidate()
     {
         // Making sure there's no crap in the code

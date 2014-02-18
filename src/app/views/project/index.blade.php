@@ -22,6 +22,8 @@
     <li>
         {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
         -
+        {{ Html::linkAction('MilestoneController@getIndex', trans('project.milestones'), ['id' => $project->id]) }}
+        -
         {{ Html::linkAction('TaskController@getProject', trans('project.tasks'), ['id' => $project->id]) }}
         -
         {{ Html::linkAction('ProjectController@getEdit', trans('project.edit'), ['id' => $project->id]) }}

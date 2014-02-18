@@ -14,8 +14,9 @@ TODO: Project details here
 
 @include('partials.messages')
 
-<div>
-    {{ Html::linkAction('TaskController@getProject', 'Tasks', ['id' => $project->id]) }}
-</div>
+<ul>
+    <li>{{ Html::linkAction('TaskController@getProject', trans('project.index'), ['id' => $project->id]) }}</li>
+    <li>{{ Html::linkAction('MilestoneController@getIndex', trans('milestone.index'), ['id' => $project->id]) }}</li>
+</ul>
 
 @stop

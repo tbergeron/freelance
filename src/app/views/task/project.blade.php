@@ -6,6 +6,7 @@
 
 @section('content')
 
+@include('partials.project')
 <h2>{{ trans('task.heading_with_name', ['name' => $project->name]) }}</h2>
 
 <div>
