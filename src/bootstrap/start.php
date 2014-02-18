@@ -26,17 +26,8 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(function ()
 {
-    if (file_exists(__DIR__.'/environment.php')) {
-        $environment = require __DIR__.'/environment.php';
-
-        if ($environment == 'production')
-            Debugbar::disable();
-
-        return $environment;
-    }
-    else {
-        return 'development';
-    }
+    $environment = __DIR__.'/environment.php';
+    return (file_exists($environment)) ? $environment : 'development';
 });
 
 /*
