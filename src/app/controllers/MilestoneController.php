@@ -21,9 +21,9 @@ class MilestoneController extends BaseController {
      *
      * @return Response
      */
-    public function getCreate()
+    public function getCreate($project_id)
     {
-        return View::make('milestone.create');
+        return View::make('milestone.create', compact('project_id'));
     }
 
     /**

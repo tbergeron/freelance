@@ -2,7 +2,7 @@
     <li>
         {{ Form::label('project_id', 'Project_id:') }}
         {{ $errors->first('project_id') }}
-        {{ Form::text('project_id') }}
+        {{ Form::text('project_id', (isset($project_id)) ? $project_id : null) }}
     </li>
     <li>
         {{ Form::label('name', 'Name:') }}
