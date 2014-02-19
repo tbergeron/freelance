@@ -7,6 +7,7 @@ class CreateForeignKeys extends Migration {
 
 	public function up()
 	{
+        // TODO: There's a FK I forgot but I don't remember which.
 		Schema::table('tasks', function(Blueprint $table) {
 			$table->foreign('project_id')->references('id')->on('projects')
 						->onDelete('cascade')

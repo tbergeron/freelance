@@ -9,6 +9,11 @@
 @include('partials.project')
 <h2>{{ trans('task.heading_with_name', ['name' => $project->name]) }}</h2>
 
+<h4>{{ ($closed) ? 'Closed tasks' : 'Opened tasks' }}</h4>
+<a href="?closed">Closed tasks</a>
+-
+<a href="?opened">Opened tasks</a>
+
 <div>
     {{ Html::linkAction('TaskController@getCreate', trans('task.create'), ['project_id' => $project->id]) }}
 </div>

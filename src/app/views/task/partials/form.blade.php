@@ -3,7 +3,7 @@ TODO: Use dropdowns for foreign keys
     <li>
         {{ Form::label('project_id', 'Project_id:') }}
         {{ $errors->first('project_id') }}
-        {{ Form::text('project_id', $project_id) }}
+        {{ Form::text('project_id', (isset($project_id)) ? $project_id : null) }}
     </li>
     <li>
         {{ Form::label('milestone_id', 'Milestone_id:') }}
@@ -19,6 +19,11 @@ TODO: Use dropdowns for foreign keys
         {{ Form::label('name', 'Name:') }}
         {{ $errors->first('name') }}
         {{ Form::text('name') }}
+    </li>
+    <li>
+        {{ Form::label('is_closed', 'Is_closed:') }}
+        {{ $errors->first('is_closed') }}
+        {{ Form::checkbox('is_closed') }}
     </li>
     <li>
         {{ Form::label('description', 'Description:') }}

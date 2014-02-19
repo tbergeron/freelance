@@ -21,7 +21,7 @@ class Task extends BaseModel {
 	protected $table = 'tasks';
 	public $timestamps = true;
 	protected $softDelete = false;
-	protected $fillable = ['project_id', 'user_id', 'milestone_id', 'name', 'description'];
+	protected $fillable = ['project_id', 'user_id', 'milestone_id', 'name', 'description', 'is_closed'];
 	protected $guarded = ['id', 'timestamps'];
 
     public static $rules = [

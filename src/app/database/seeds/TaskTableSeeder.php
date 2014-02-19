@@ -12,7 +12,7 @@ class TaskTableSeeder extends Seeder {
 				'milestone_id' => 1,
 				'user_id' => 1,
 				'name' => 'Develop the whole damn thing',
-				'description' => 'Man, lots of work!'
+				'description' => 'Man, lots of work!',
 			));
 	}
 }

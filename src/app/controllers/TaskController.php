@@ -108,9 +108,11 @@ class TaskController extends BaseController {
      */
     public function getProject($project_id)
     {
+        $closed = (Input::has('closed')) ? true : false;
         $project = Project::find($project_id);
-        $tasks = $project->tasks;
-        
-        return View::make('task.project', compact('project', 'tasks'));
+        // TODO: WHAT THE FUCK IS WRONG WITH YOU?!!! http://laravel.io/forum/02-19-2014-cannot-find-records-using-where-and-booleans
+        $tasks = $project->tasks()->where('is_closed', $closed);
+
+        return View::make('task.project', compact('project', 'tasks', 'closed'));
     }
 }
