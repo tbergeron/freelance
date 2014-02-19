@@ -27,7 +27,7 @@ class Task extends BaseModel {
 
     public static $rules = [
         'name'  => 'required|min:3|max:255',
-        'project_id'  => 'required'
+        'project_id'  => 'not_zero'
     ];
 
     // TODO: Add states/open/close to this model

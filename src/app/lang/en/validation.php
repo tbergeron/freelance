@@ -69,6 +69,8 @@ return array(
 	"unique"           => "The :attribute has already been taken.",
 	"url"              => "The :attribute format is invalid.",
 
+    "not_zero" => "The :attribute should be set.",
+
 	/*
 	|--------------------------------------------------------------------------
 	| Custom Validation Language Lines

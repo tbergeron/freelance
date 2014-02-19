@@ -32,6 +32,11 @@ class BaseModel extends Eloquent
         parent::__construct($attributes);
 
         $this->validator = $validator ? : \App::make('validator');
+
+        Validator::extend('not_zero', function($attribute, $value, $parameters)
+        {
+            return $value != 0;
+        });
     }
 
     /**
