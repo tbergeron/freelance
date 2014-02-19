@@ -4,6 +4,18 @@ freelance
 Because who the fuck needs a "like" button in a project management software?!
 
 
+### Update 2014-02-19
+I got this done during the weekend:
+- Basic login/auth
+- Basic project/milestone/task/ management
+- Basic dashboard/project/milestone/task pages
+- Quick close/reopen links
+- Basic comment system
+
+#### What I'm planning to do next
+- Markdown everywhere
+- Add a fresh coat a paint (it has no style yet ;)
+
 ---
 
 - Q: **What happens if you're a freelancer who is working on multiple projects?**
