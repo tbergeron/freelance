@@ -16,6 +16,7 @@ I got this done during the weekend:
 #### What I'm planning to do next
 - Add a fresh coat a paint (it has no style yet ;)
 - Add whatever missing little tweaks
+- Quick comment edit/delete
 
 ### FAQ
 ---
