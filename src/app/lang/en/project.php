@@ -10,5 +10,8 @@ return array(
     'destroy_question' => 'Do you really want to DELETE the project :name?',
     'tasks' => 'Tasks',
     'milestones' => 'Milestones',
+    'name' => 'Name',
+    'description' => 'Description',
+    'code' => 'Code',
 
 );

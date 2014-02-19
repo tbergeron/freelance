@@ -19,5 +19,10 @@ return array(
     'closed_tasks' => 'Closed tasks',
     'opened_tasks' => 'Opened tasks',
     'none' => 'None',
+    'project_id' => 'Project',
+    'milestone_id' => 'Milestone',
+    'user_id' => 'User',
+    'is_closed' => 'Closed',
+    'description' => 'Description',
 
 );
