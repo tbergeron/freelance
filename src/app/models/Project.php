@@ -11,18 +11,19 @@
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
  * @property-read \Illuminate\Database\Eloquent\Collection|\Milestone[] $milestones
+ * @property string $description
  */
 class Project extends BaseModel {
 
 	protected $table = 'projects';
 	public $timestamps = true;
 	protected $softDelete = true;
-	protected $fillable = ['name', 'code'];
+	protected $fillable = ['name', 'code', 'description'];
 	protected $guarded = ['id', 'timestamps'];
 
     public static $rules = [
         'name'  => 'required|min:3|max:255',
-        'code'  => 'required|max:8|unique:projects'
+        'code'  => 'required|max:8'
     ];
 
     public function tasks()

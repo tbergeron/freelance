@@ -16,7 +16,7 @@
 <br />
 
 <div>
-    {{ $task->description }}
+    {{ Markdown::render($task->description) }}
 </div>
 
 @include('partials.messages')

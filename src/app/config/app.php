@@ -123,6 +123,9 @@ return array(
         'Barryvdh\Debugbar\ServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
 
+        // NOTE: tbergeron 2014-02-19
+        'GrahamCampbell\Markdown\MarkdownServiceProvider',
+
     ),
 
 	/*
@@ -192,6 +195,9 @@ return array(
         // NOTE: tbergeron 2014-01-14
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
-	),
+        // NOTE: tbergeron 2014-02-19
+        'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown',
+
+    ),
 
 );

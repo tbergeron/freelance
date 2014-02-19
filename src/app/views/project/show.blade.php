@@ -10,6 +10,8 @@
 
 <h2>{{ $project->name }}</h2>
 
+{{ Markdown::render($project->description) }}
+
 @include('partials.messages')
 
 <h3>{{ Html::linkAction('MilestoneController@getIndex', trans('project.milestones'), ['id' => $project->id]) }}</h3>

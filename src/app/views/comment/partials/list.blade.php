@@ -7,7 +7,7 @@
     <li>
         {{ trans('comment.posted_by', ['fullname' => $comment->user->full_name]) }}, {{ $comment->created_at->diffForHumans() }}
         <br />
-        {{ $comment->content }}
+        {{ Markdown::render($comment->content) }}
     </li>
 
     @endforeach

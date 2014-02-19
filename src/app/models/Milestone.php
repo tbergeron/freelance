@@ -13,13 +13,14 @@ use Carbon\Carbon;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
  * @property-read \Project $project
  * @property string $due_date
+ * @property string $description
  */
 class Milestone extends BaseModel {
 
 	protected $table = 'milestones';
 	public $timestamps = true;
 	protected $softDelete = false;
-	protected $fillable = ['project_id', 'name'];
+	protected $fillable = ['project_id', 'name', 'description'];
     protected $guarded = ['id', 'timestamps'];
 
     public static $rules = [

@@ -15,6 +15,7 @@
  * @property-read \Illuminate\Database\Eloquent\Collection|\Comment[] $comments
  * @property-read \Milestone $milestone
  * @property-read \User $user
+ * @property boolean $is_closed
  */
 class Task extends BaseModel {
 

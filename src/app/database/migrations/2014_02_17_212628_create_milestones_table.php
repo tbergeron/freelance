@@ -11,6 +11,7 @@ class CreateMilestonesTable extends Migration {
 			$table->increments('id');
 			$table->integer('project_id')->unsigned();
 			$table->string('name', 255);
+            $table->text('description')->nullable();
             $table->timestamp('due_date');
 			$table->timestamps();
 		});

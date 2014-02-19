@@ -15,6 +15,11 @@
         {{ Form::text('due_date') }}
     </li>
     <li>
+        {{ Form::label('description', 'Description:') }}
+        {{ $errors->first('description') }}
+        {{ Form::textarea('description') }}
+    </li>
+    <li>
         {{ Form::submit() }}
     </li>
 </ul>

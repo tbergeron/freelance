@@ -12272,3 +12272,17 @@ class Debugbar extends Barryvdh\Debugbar\Facade{
 
 }
 
+class Markdown extends GrahamCampbell\Markdown\Facades\Markdown{
+	/**
+	 * Get the parsed markdown.
+	 *
+	 * @param string  $value
+	 * @return string
+	 * @static 
+	 */
+	 public static function render($value){
+		return GrahamCampbell\Markdown\Classes\Markdown::render($value);
+	 }
+
+}
+
