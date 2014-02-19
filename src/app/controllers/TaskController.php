@@ -34,7 +34,7 @@ class TaskController extends BaseController {
         $task = new Task;
 
         if ($task->save(Input::all()))
-            return Redirect::action('TaskController@getIndex')
+            return Redirect::action('TaskController@getProject', ['project_id' => $task->project->id])
                 ->withMessage(trans('task.create_success'))->withType('success');
 
         else
@@ -78,7 +78,7 @@ class TaskController extends BaseController {
         $task = Task::findOrFail($id);
 
         if ($task->save(Input::all()))
-            return Redirect::action('TaskController@getIndex')
+            return Redirect::action('TaskController@getProject', ['project_id' => $task->project->id])
                 ->withMessage(trans('task.update_success'))->withType('success');
 
         else
@@ -110,9 +110,37 @@ class TaskController extends BaseController {
     {
         $closed = (Input::has('closed')) ? true : false;
         $project = Project::find($project_id);
-        // TODO: WHAT THE FUCK IS WRONG WITH YOU?!!! http://laravel.io/forum/02-19-2014-cannot-find-records-using-where-and-booleans
-        $tasks = $project->tasks()->where('is_closed', $closed);
+        $tasks = $project->tasks()->where('is_closed', $closed)->get();
 
         return View::make('task.project', compact('project', 'tasks', 'closed'));
     }
+    
+    public function getClose($id, $from_task = false)
+    {
+        $task = Task::findOrFail($id);
+        $task->is_closed = true;
+        $task->save();
+        
+        if ($from_task)
+            return Redirect::action('TaskController@getShow', ['id' => $task->id])
+                    ->withMessage(trans('task.closed_success'))->withType('success');    
+        else
+            return Redirect::action('TaskController@getProject', ['project_id' => $task->project->id])
+                                ->withMessage(trans('task.closed_success'))->withType('success');
+    }
+    
+    public function getReopen($id, $from_task = false)
+    {
+        $task = Task::findOrFail($id);
+        $task->is_closed = false;
+        $task->save();
+        
+        if ($from_task)
+            return Redirect::action('TaskController@getShow', ['id' => $task->id])
+                    ->withMessage(trans('task.closed_success'))->withType('success');    
+        else
+            return Redirect::action('TaskController@getProject', ['project_id' => $task->project->id])
+                                ->withMessage(trans('task.closed_success'))->withType('success');
+    }
+
 }

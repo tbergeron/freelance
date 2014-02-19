@@ -10,6 +10,12 @@
 <h2>{{ $task->name }}</h2>
 
 <div>
+    @include('task.partials.close_toggle_link', ['from_task' => true])
+</div>
+
+<br />
+
+<div>
     {{ $task->description }}
 </div>
 

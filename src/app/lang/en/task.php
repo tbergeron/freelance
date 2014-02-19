@@ -9,5 +9,7 @@ return array(
     'edit' => 'Edit',
     'destroy' => 'Delete',
     'destroy_question' => 'Do you really want to DELETE the task :name?',
+    'close_task' => 'Close task',
+    'reopen_task' => 'Reopen task',
 
 );
