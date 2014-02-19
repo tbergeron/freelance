@@ -12,7 +12,7 @@
     <tr>
         <td>{{ $task->code() }}</td>
         <td>{{ Html::linkAction('TaskController@getShow', $task->name, ['id' => $task->id]) }}</td>
-        <td>{{ $task->user->full_name }}</td>
+        <td>@if($task->user) {{ $task->user->full_name }} @endif</td>
         <td>{{ $task->created_at->diffForHumans() }}</td>
         <td>
             @include('task.partials.close_toggle_link')
