@@ -23,6 +23,8 @@
 
 @include('partials.messages')
 
+<hr/>
+
 @include('comment.partials.list')
 
 @stop

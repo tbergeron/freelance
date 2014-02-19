@@ -31,6 +31,8 @@
     </ul>
 </div>
 
+<hr/>
+
 <div>
     @yield('content')
 </div>
