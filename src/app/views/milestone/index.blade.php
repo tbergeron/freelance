@@ -10,7 +10,6 @@
 <h2>{{ trans('milestone.heading') }}</h2>
 
 <div>
-    {{ $project }}
     {{ Html::linkAction('MilestoneController@getCreate', trans('milestone.create'), ['project_id' => $project->id]) }}
 </div>
 
