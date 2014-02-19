@@ -25,7 +25,7 @@ class Milestone extends BaseModel {
 
     public static $rules = [
         'name'  => 'required|min:3|max:255',
-        'project_id'  => 'required'
+        'project_id'  => 'not_zero',
     ];
 
     public function __toString()
