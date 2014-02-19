@@ -116,7 +116,8 @@ class TaskController extends BaseController {
 
         return View::make('task.project', compact('project', 'tasks', 'closed'));
     }
-    
+
+    // TODO: DRYer
     public function getClose($id, $from_task = false)
     {
         $task = Task::findOrFail($id);

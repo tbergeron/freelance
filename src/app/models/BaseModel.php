@@ -33,6 +33,7 @@ class BaseModel extends Eloquent
 
         $this->validator = $validator ? : \App::make('validator');
 
+        // custom validators for dropdown
         Validator::extend('not_zero', function($attribute, $value, $parameters)
         {
             return $value != 0;
