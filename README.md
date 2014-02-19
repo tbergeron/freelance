@@ -16,6 +16,8 @@ I got this done during the weekend:
 - Markdown everywhere
 - Add a fresh coat a paint (it has no style yet ;)
 
+
+### FAQ
 ---
 
 - Q: **What happens if you're a freelancer who is working on multiple projects?**
