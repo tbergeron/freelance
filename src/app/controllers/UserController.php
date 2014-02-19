@@ -19,7 +19,8 @@ class UserController extends \BaseController {
 
     public function getDashboard()
     {
-        return View::make('user.dashboard');
+        $tasks = Task::orderBy('updated_at', false)->get();
+        return View::make('user.dashboard', compact('tasks'));
     }
 
     public function getLogin()

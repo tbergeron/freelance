@@ -10,13 +10,12 @@
 
 <h2>{{ $project->name }}</h2>
 
-TODO: Project details here
-
 @include('partials.messages')
 
-<ul>
-    <li>{{ Html::linkAction('TaskController@getProject', trans('task.index'), ['id' => $project->id]) }}</li>
-    <li>{{ Html::linkAction('MilestoneController@getIndex', trans('milestone.index'), ['id' => $project->id]) }}</li>
-</ul>
+<h3>{{ Html::linkAction('MilestoneController@getIndex', trans('project.milestones'), ['id' => $project->id]) }}</h3>
+@include('milestone.partials.list', ['milestones' => $project->milestones])
+
+<h3>{{ Html::linkAction('TaskController@getProject', trans('project.tasks'), ['id' => $project->id]) }}</h3>
+@include('task.partials.list', ['tasks' => $project->tasks])
 
 @stop

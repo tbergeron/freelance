@@ -8,7 +8,7 @@ return array(
     'login' => 'Login',
     'logout' => 'Logout',
 
-    'welcome' => 'Hello world',
+    'welcome' => 'Welcome back!',
 
     'please_login' => 'Please login.',
     'email' => 'Email',
@@ -38,5 +38,6 @@ return array(
     'please_wait' => 'Please wait...',
 
     'submit' => 'Save',
+    'latest_tasks' => 'Recently updated tasks',
 
 );

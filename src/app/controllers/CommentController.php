@@ -1,4 +1,5 @@
 <?php
+use Carbon\Carbon;
 
 class CommentController extends BaseController {
 
@@ -14,6 +15,11 @@ class CommentController extends BaseController {
         // assigning user to comment
         $data = Input::all();
         $data['user_id'] = Auth::user()->id;
+        
+        // updating task updated_at
+        $task = Task::find(Input::get('task_id'));
+        $task->updated_at = Carbon::now();
+        $task->save();
 
         if ($comment->save($data))
             return Redirect::back();

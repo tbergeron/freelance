@@ -14,4 +14,7 @@
     {{ trans('app.welcome') }}
 </div>
 
+<h3>{{ trans('app.latest_tasks') }}</h3>
+@include('task.partials.list', ['tasks' => $tasks])
+
 @stop
