@@ -5,9 +5,7 @@
     @foreach ($task->comments as $comment)
 
     <li>
-        {{ trans('comment.posted_by', ['fullname' => $comment->user->full_name]) }}, {{ $comment->created_at->diffForHumans() }}
-        <br />
-        {{ Markdown::render($comment->content) }}
+        @include('comment.partials.comment')
     </li>
 
     @endforeach

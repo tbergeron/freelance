@@ -13,7 +13,7 @@
 
 @include('partials.messages')
 
-{{ Form::model($task, ['action' => ['TaskController@postUpdate', $task->id], 'files' => true]) }}
+{{ Form::model($task, ['action' => ['TaskController@postUpdate', $task->id]]) }}
 
 @include('task.partials.form')
 

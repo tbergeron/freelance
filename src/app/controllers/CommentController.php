@@ -11,15 +11,7 @@ class CommentController extends BaseController {
     public function postStore()
     {
         $comment = new Comment;
-        
-        // assigning user to comment
-        $data = Input::all();
-        $data['user_id'] = Auth::user()->id;
-        
-        // updating task updated_at
-        $task = Task::find(Input::get('task_id'));
-        $task->updated_at = Carbon::now();
-        $task->save();
+        $data = $this->prepareDataAndUpdateTask();
 
         if ($comment->save($data))
             return Redirect::back();
@@ -36,7 +28,8 @@ class CommentController extends BaseController {
     public function getEdit($id)
     {
         $comment = Comment::findOrFail($id);
-        return View::make('comment.edit', compact('comment'));
+        $task = $comment->task;
+        return View::make('comment.edit', compact('comment', 'task'));
     }
 
     /**
@@ -48,9 +41,10 @@ class CommentController extends BaseController {
     public function postUpdate($id)
     {
         $comment = Comment::findOrFail($id);
+        $data = $this->prepareDataAndUpdateTask();
 
-        if ($comment->save(Input::all()))
-            return Redirect::action('CommentController@getIndex')
+        if ($comment->save($data))
+            return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
                 ->withMessage(trans('comment.update_success'))->withType('success');
 
         else
@@ -68,8 +62,27 @@ class CommentController extends BaseController {
         $comment = Comment::findOrFail($id);
         $comment->delete();
 
-        return Redirect::action('CommentController@getIndex')
-            ->withMessage(trans('comment.destroy_success'))->withType('success');
+        return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
+            ->withMessage(trans('comment.update_success'))->withType('success');
+    }
+
+    /**
+     * Prepare comment data and update task.
+     *
+     * @return array
+     */
+    private function prepareDataAndUpdateTask()
+    {
+        // assigning user to comment
+        $data = Input::all();
+        $data['user_id'] = Auth::user()->id;
+
+        // updating task updated_at
+        $task = Task::find(Input::get('task_id'));
+        $task->updated_at = Carbon::now();
+        $task->save();
+
+        return $data;
     }
 
 }

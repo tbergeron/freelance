@@ -10,6 +10,8 @@
 <h2>{{ $task->name }}</h2>
 
 <div>
+    {{ Html::linkAction('TaskController@getEdit', trans('task.edit'), ['id' => $task->id]) }}
+    -
     @include('task.partials.close_toggle_link', ['from_task' => true])
 </div>
 

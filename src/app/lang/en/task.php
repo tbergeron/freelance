@@ -11,5 +11,12 @@ return array(
     'destroy_question' => 'Do you really want to DELETE the task :name?',
     'close_task' => 'Close task',
     'reopen_task' => 'Reopen task',
+    'code' => 'Code',
+    'name' => 'Name',
+    'assignee' => 'Assignee',
+    'last_update' => 'Last update',
+    'actions' => 'Actions',
+    'closed_tasks' => 'Closed tasks',
+    'opened_tasks' => 'Opened tasks',
 
 );

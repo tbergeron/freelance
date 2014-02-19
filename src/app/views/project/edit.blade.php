@@ -12,7 +12,7 @@
 
 @include('partials.messages')
 
-{{ Form::model($project, ['action' => ['ProjectController@postUpdate', $project->id], 'files' => true]) }}
+{{ Form::model($project, ['action' => ['ProjectController@postUpdate', $project->id]]) }}
 
     @include('project.partials.form')
 

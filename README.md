@@ -11,12 +11,13 @@ I got this done during the weekend:
 - Basic dashboard/project/milestone/task pages
 - Quick close/reopen links
 - Basic comment system
+- Quick comment edit/delete
 - Markdown everywhere
 
 #### What I'm planning to do next
+- Use dropdowns instead of textboxes for foreign keys
 - Add a fresh coat a paint (it has no style yet ;)
 - Add whatever missing little tweaks
-- Quick comment edit/delete
 
 ### FAQ
 ---

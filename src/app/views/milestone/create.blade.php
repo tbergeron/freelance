@@ -10,7 +10,7 @@
 
 <h2>{{ trans('milestone.create') }}</h2>
 
-{{ Form::open(['action' => 'MilestoneController@postStore', 'files' => true]) }}
+{{ Form::open(['action' => 'MilestoneController@postStore']) }}
 
     @include('milestone.partials.form')
 

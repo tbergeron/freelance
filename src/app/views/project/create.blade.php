@@ -10,7 +10,7 @@
 
 <h2>{{ trans('project.create') }}</h2>
 
-{{ Form::open(['action' => 'ProjectController@postStore', 'files' => true]) }}
+{{ Form::open(['action' => 'ProjectController@postStore']) }}
 
     @include('project.partials.form')
 

@@ -10,7 +10,7 @@
 
 <h2>{{ trans('task.create') }}</h2>
 
-{{ Form::open(['action' => 'TaskController@postStore', 'files' => true]) }}
+{{ Form::open(['action' => 'TaskController@postStore']) }}
 
 @include('task.partials.form')
 
