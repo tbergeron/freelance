@@ -48,7 +48,7 @@ class Milestone extends BaseModel {
         return array('created_at', 'updated_at', 'due_date');
     }
 
-    public static function toDropdown($project_id = null)
+    public static function forDropdown($project_id = null)
     {
         $milestones = Milestone::where('project_id', $project_id)->get(array('id', 'name'));
         $milestones_array = [trans('app.none')];

@@ -48,7 +48,7 @@ class Project extends BaseModel {
     }
 
     // TODO: Find someway of making this DRYer
-    public static function toDropdown()
+    public static function forDropdown()
     {
         $projects = Project::get(array('id', 'name'));
         $projects_array = [trans('app.none')];
