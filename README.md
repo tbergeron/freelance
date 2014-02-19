@@ -12,12 +12,13 @@ I got this done during the weekend:
 - Quick close/reopen links
 - Basic comment system
 - Quick comment edit/delete
+- Added dropdowns instead of textboxes for foreign keys
 - Markdown everywhere
 
 #### What I'm planning to do next
-- Use dropdowns instead of textboxes for foreign keys
 - Add a fresh coat a paint (it has no style yet ;)
 - Add whatever missing little tweaks
+- Date selector for date fields
 
 ### FAQ
 ---

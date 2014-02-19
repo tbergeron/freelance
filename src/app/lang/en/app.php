@@ -40,4 +40,5 @@ return array(
     'submit' => 'Save',
     'latest_tasks' => 'Recently updated tasks',
 
+    'none' => 'None',
 );

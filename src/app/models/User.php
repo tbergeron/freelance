@@ -22,6 +22,11 @@ class User extends BaseModel implements UserInterface {
     protected $guarded = array('id', 'timestamps');
     protected $hidden = array('password');
 
+    public function __toString()
+    {
+        return $this->full_name;
+    }
+
     public function tasks()
     {
         return $this->hasMany('Task');
@@ -41,5 +46,16 @@ class User extends BaseModel implements UserInterface {
 	{
 		return $this->password;
 	}
+
+    public static function toDropdown()
+    {
+        $users = User::get(array('id', 'full_name'));
+        $users_array = [trans('app.none')];
+        foreach ($users as $user) {
+            $users_array[$user->id] = $user->full_name;
+        }
+
+        return $users_array;
+    }
 
 }

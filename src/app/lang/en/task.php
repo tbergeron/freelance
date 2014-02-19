@@ -18,5 +18,6 @@ return array(
     'actions' => 'Actions',
     'closed_tasks' => 'Closed tasks',
     'opened_tasks' => 'Opened tasks',
+    'none' => 'None',
 
 );

@@ -26,6 +26,11 @@ class Project extends BaseModel {
         'code'  => 'required|max:8'
     ];
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     public function tasks()
 	{
 		return $this->hasMany('Task');
@@ -40,6 +45,17 @@ class Project extends BaseModel {
     {
         // Making sure there's no crap in the code
         $this->code = strtoupper(Str::slug($this->code));
+    }
+
+    public static function toDropdown()
+    {
+        $projects = Project::get(array('id', 'name'));
+        $projects_array = [trans('app.none')];
+        foreach ($projects as $project) {
+            $projects_array[$project->id] = $project->name;
+        }
+
+        return $projects_array;
     }
 
 }

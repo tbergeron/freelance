@@ -64,7 +64,9 @@ class TaskController extends BaseController {
     {
         $task = Task::findOrFail($id);
         $project = $task->project;
-        return View::make('task.edit', compact('task', 'project'));
+        $milestone_id = ($task->milestone) ? $task->milestone->id : null;
+
+        return View::make('task.edit', compact('task', 'project', 'project_id', 'milestone_id'));
     }
 
     /**

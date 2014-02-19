@@ -2,7 +2,7 @@
     <li>
         {{ Form::label('project_id', 'Project_id:') }}
         {{ $errors->first('project_id') }}
-        {{ Form::text('project_id', (isset($project_id)) ? $project_id : null) }}
+        {{ Form::select('project_id', Project::toDropdown(), $project->id) }}
     </li>
     <li>
         {{ Form::label('name', 'Name:') }}

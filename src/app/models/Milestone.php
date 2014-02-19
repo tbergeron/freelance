@@ -20,13 +20,18 @@ class Milestone extends BaseModel {
 	protected $table = 'milestones';
 	public $timestamps = true;
 	protected $softDelete = false;
-	protected $fillable = ['project_id', 'name', 'description'];
+	protected $fillable = ['project_id', 'name', 'description', 'due_date'];
     protected $guarded = ['id', 'timestamps'];
 
     public static $rules = [
         'name'  => 'required|min:3|max:255',
         'project_id'  => 'required'
     ];
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     public function project()
 	{
@@ -42,5 +47,17 @@ class Milestone extends BaseModel {
     {
         return array('created_at', 'updated_at', 'due_date');
     }
+
+    public static function toDropdown($project_id = null)
+    {
+        $milestones = Milestone::where('project_id', $project_id)->get(array('id', 'name'));
+        $milestones_array = [trans('app.none')];
+        foreach ($milestones as $milestone) {
+            $milestones_array[$milestone->id] = $milestone->name;
+        }
+
+        return $milestones_array;
+    }
+
 
 }
