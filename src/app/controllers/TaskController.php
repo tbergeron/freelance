@@ -34,7 +34,7 @@ class TaskController extends BaseController {
         $task = new Task;
 
         if ($task->save(Input::all()))
-            return Redirect::action('TaskController@getProject', ['project_id' => $task->project->id])
+            return Redirect::action('TaskController@getShow', ['id' => $task->id])
                 ->withMessage(trans('task.create_success'))->withType('success');
 
         else
@@ -80,7 +80,7 @@ class TaskController extends BaseController {
         $task = Task::findOrFail($id);
 
         if ($task->save(Input::all()))
-            return Redirect::action('TaskController@getProject', ['project_id' => $task->project->id])
+            return Redirect::action('TaskController@getShow', ['id' => $task->id])
                 ->withMessage(trans('task.update_success'))->withType('success');
 
         else

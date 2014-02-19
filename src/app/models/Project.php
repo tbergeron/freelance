@@ -47,6 +47,7 @@ class Project extends BaseModel {
         $this->code = strtoupper(Str::slug($this->code));
     }
 
+    // TODO: Find someway of making this DRYer
     public static function toDropdown()
     {
         $projects = Project::get(array('id', 'name'));
