@@ -10,7 +10,7 @@
         {{ Form::text('name') }}
     </li>
     <li>
-        {{ Form::label('due_date', 'Name:') }}
+        {{ Form::label('due_date', 'Due_date:') }}
         {{ $errors->first('due_date') }}
         {{ Form::text('due_date') }}
     </li>

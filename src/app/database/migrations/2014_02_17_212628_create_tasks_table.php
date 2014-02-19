@@ -10,8 +10,8 @@ class CreateTasksTable extends Migration {
 		Schema::create('tasks', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('project_id')->unsigned();
-			$table->integer('milestone_id')->unsigned();
-			$table->integer('user_id')->unsigned();
+			$table->integer('milestone_id')->unsigned()->nullable();
+			$table->integer('user_id')->unsigned()->nullable();
             $table->string('name', 255);
 			$table->text('description');
 			$table->boolean('is_closed')->default(false);
