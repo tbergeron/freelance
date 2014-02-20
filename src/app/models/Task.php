@@ -37,9 +37,9 @@ class Task extends BaseModel {
 		return $this->belongsTo('Project');
 	}
 
-	public function comments()
+	public function comments($order = 'asc')
 	{
-        return $this->hasMany('Comment')->orderBy('created_at', 'desc');
+        return $this->hasMany('Comment')->orderBy('created_at', $order);
 	}
 
 	public function milestone()

@@ -17,13 +17,17 @@ Route::controller('user',       'UserController');
 Route::get('', 'UserController@getDashboard');
 
 // Navigation Active
-HTML::macro('menu_active', function ($route, $text) {
-    $route_token = (strrpos($route, '.') != true) ? $route : substr($route, 0, strrpos($route, '.'));
+HTML::macro('menu_active', function ($action, $text, $ignore_match = false) {
+    $active = '';
 
-    if (strpos(Request::path(), $route_token) !== FALSE) {
-        $active = "class = 'active'";
-    } else {
-        $active = '';
+    if (!$ignore_match) {
+        $target_controller = substr($action, 0, strrpos($action, '@'));
+        $current_controller = substr(Route::currentRouteAction(), 0, strrpos(Route::currentRouteAction(), '@'));
+
+        if ($target_controller == $current_controller) {
+            $active = "class = 'active'";
+        }
     }
-    return '<li ' . $active . '>' . link_to_route($route, $text) . '</li>';
+
+    return '<li ' . $active . '>' . link_to_action($action, $text) . '</li>';
 });

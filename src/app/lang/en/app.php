@@ -41,4 +41,5 @@ return array(
     'latest_tasks' => 'Recently updated tasks',
 
     'none' => 'None',
+    'built_by' => 'Built by <a href="http://brainpad.org" target="_blank">Brainpad</a> &copy; :year',
 );
