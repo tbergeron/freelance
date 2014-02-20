@@ -1,4 +1,4 @@
-<table>
+<table class="table table-hover table-striped">
     <tr>
         <th>{{ trans('task.code') }}</th>
         <th>{{ trans('task.name') }}</th>

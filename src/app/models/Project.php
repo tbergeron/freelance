@@ -33,12 +33,12 @@ class Project extends BaseModel {
 
     public function tasks()
 	{
-		return $this->hasMany('Task');
+		return $this->hasMany('Task')->orderBy('updated_at', 'desc');
 	}
 
     public function milestones()
 	{
-		return $this->hasMany('Milestone');
+		return $this->hasMany('Milestone')->orderBy('due_date', 'asc');
 	}
 
     public function afterValidate()

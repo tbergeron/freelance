@@ -1,4 +1,4 @@
-<table>
+<table class="table table-hover table-striped">
     <tr>
         <th>Name</th>
         <th>Due</th>
