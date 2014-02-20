@@ -21,6 +21,6 @@
 
 @include('partials.messages')
 
-@include('task.partials.list')
+@include('task.partials.list', ['show_states' => true])
 
 @stop

@@ -3,6 +3,9 @@
         <th>{{ trans('task.code') }}</th>
         <th>{{ trans('task.name') }}</th>
         <th>{{ trans('task.assignee') }}</th>
+        @if(isset($show_states))
+        <th>State</th>
+        @endif
         <th>{{ trans('task.last_update') }}</th>
         @if(isset($show_actions))
         <th>{{ trans('task.actions') }}</th>
@@ -15,6 +18,9 @@
         <td>{{ $task->code() }}</td>
         <td>{{ Html::linkAction('TaskController@getShow', $task->name, ['id' => $task->id]) }}</td>
         <td>@if($task->user) {{ $task->user->full_name }} @endif</td>
+        @if(isset($show_states))
+        <td>{{ ($task->is_closed) ? trans('task.closed') : trans('task.opened') }}</td>
+        @endif
         <td>{{ $task->updated_at->diffForHumans() }}</td>
         @if(isset($show_actions))
         <td>

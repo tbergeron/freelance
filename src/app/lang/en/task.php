@@ -24,5 +24,7 @@ return array(
     'user_id' => 'User',
     'is_closed' => 'Closed',
     'description' => 'Description',
+    'closed' => 'Closed',
+    'opened' => 'Opened',
 
 );
