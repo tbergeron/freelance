@@ -12,6 +12,11 @@
     {{ Html::linkAction('TaskController@getCreate', trans('task.create')) }}
 </div>
 
+<br />
+
+@include('task.partials.close_toggle')
+
+<br/>
 <br/>
 
 @include('partials.messages')

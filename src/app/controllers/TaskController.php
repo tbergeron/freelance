@@ -9,7 +9,8 @@ class TaskController extends BaseController {
      */
     public function getIndex()
     {
-        $tasks = Task::all();
+        $closed = (Input::has('closed')) ? true : false;
+        $tasks = Task::where('is_closed', $closed)->get();
         return View::make('task.index', compact('tasks'));
     }
 

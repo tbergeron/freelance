@@ -9,10 +9,9 @@
 @include('partials.project')
 <h2>{{ trans('task.heading_with_name', ['name' => $project->name]) }}</h2>
 
-<h4>{{ ($closed) ? trans('task.closed_tasks') : trans('task.opened_tasks') }}</h4>
-<a href="?closed=1">{{ trans('task.closed_tasks') }}</a> - <a href="?">{{ trans('task.opened_tasks') }}</a>
+@include('task.partials.close_toggle')
 
-<br />
+<br/>
 <br />
 
 <div>
