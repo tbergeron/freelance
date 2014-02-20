@@ -31,6 +31,9 @@
             "php artisan ide-helper:generate",
             "php artisan ide-helper:models --dir='app/models'",
             "php artisan debugbar:publish",
+            "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/js' bootstrap/js",
+            "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/css' bootstrap/css",
+            "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/fonts' bootstrap/fonts",
             "php artisan optimize"
         ],
         "post-create-project-cmd": [
