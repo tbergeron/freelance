@@ -14,11 +14,11 @@ I got this done during the weekend:
 - Quick comment edit/delete
 - Added dropdowns instead of textboxes for foreign keys
 - Markdown everywhere
+- Bootstrap-based theme (Bootswatch's Cerulean)
 
 #### What I'm planning to do next
-- Add a fresh coat a paint (it has no style yet ;)
-- Add whatever missing little tweaks
 - Date selector for date fields
+- Add whatever missing little tweaks
 
 ### FAQ
 ---
