@@ -2117,9 +2117,9 @@ class Cache extends Illuminate\Support\Facades\Cache{
 	/**
 	 * Store an item in the cache.
 	 *
-	 * @param string              $key
-	 * @param mixed               $value
-	 * @param Carbon|Datetime|int $minutes
+	 * @param string  $key
+	 * @param mixed   $value
+	 * @param \DateTime|int  $minutes
 	 * @return void
 	 * @static 
 	 */
@@ -2130,9 +2130,9 @@ class Cache extends Illuminate\Support\Facades\Cache{
 	/**
 	 * Store an item in the cache if the key does not exist.
 	 *
-	 * @param string              $key
-	 * @param mixed               $value
-	 * @param Carbon|Datetime|int $minutes
+	 * @param string  $key
+	 * @param mixed   $value
+	 * @param \DateTime|int  $minutes
 	 * @return bool
 	 * @static 
 	 */
@@ -2143,9 +2143,9 @@ class Cache extends Illuminate\Support\Facades\Cache{
 	/**
 	 * Get an item from the cache, or store the default value.
 	 *
-	 * @param string              $key
-	 * @param Carbon|Datetime|int $minutes
-	 * @param Closure             $callback
+	 * @param string  $key
+	 * @param \DateTime|int  $minutes
+	 * @param Closure  $callback
 	 * @return mixed
 	 * @static 
 	 */
@@ -2256,8 +2256,8 @@ class Cache extends Illuminate\Support\Facades\Cache{
 	/**
 	 * Register a macro with the Cache class.
 	 *
-	 * @param string $name
-	 * @param callable $callback
+	 * @param string    $name
+	 * @param callable  $callback
 	 * @return void
 	 * @static 
 	 */
@@ -3385,6 +3385,17 @@ class DB extends Illuminate\Support\Facades\DB{
 	 }
 
 	/**
+	 * Determine whether we're logging queries.
+	 *
+	 * @return bool
+	 * @static 
+	 */
+	 public static function logging(){
+		//Method inherited from Illuminate\Database\Connection
+		return Illuminate\Database\SQLiteConnection::logging();
+	 }
+
+	/**
 	 * Get the name of the connected database.
 	 *
 	 * @return string
@@ -4322,7 +4333,7 @@ class Eloquent extends Illuminate\Database\Eloquent\Model{
 	/**
 	 * Indicate that the query results should be cached.
 	 *
-	 * @param \Carbon\Carbon|\Datetime|int  $minutes
+	 * @param \DateTime|int  $minutes
 	 * @param string  $key
 	 * @return \Illuminate\Database\Query\Builder|static
 	 * @static 
@@ -8171,7 +8182,7 @@ class Queue extends Illuminate\Support\Facades\Queue{
 	 *
 	 * @param \DateTime|int  $delay
 	 * @param string  $job
-	 * @param mixed  $data
+	 * @param mixed   $data
 	 * @param string  $queue
 	 * @return mixed
 	 * @static 
@@ -8205,8 +8216,8 @@ class Queue extends Illuminate\Support\Facades\Queue{
 	/**
 	 * Push a new an array of jobs onto the queue.
 	 *
-	 * @param array  $jobs
-	 * @param mixed  $data
+	 * @param array   $jobs
+	 * @param mixed   $data
 	 * @param string  $queue
 	 * @return mixed
 	 * @static 
