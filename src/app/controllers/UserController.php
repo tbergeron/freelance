@@ -20,7 +20,8 @@ class UserController extends \BaseController {
     public function getDashboard()
     {
         $tasks = Task::orderBy('updated_at', 'desc')->limit(Task::$items_per_page)->get();
-        return View::make('user.dashboard', compact('tasks'));
+        $starred_tasks = Auth::user()->starred_tasks()->get();
+        return View::make('user.dashboard', compact('tasks', 'starred_tasks'));
     }
 
     public function getLogin()

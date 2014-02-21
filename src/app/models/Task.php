@@ -16,6 +16,7 @@
  * @property-read \Milestone $milestone
  * @property-read \User $user
  * @property boolean $is_closed
+ * @property-read \Illuminate\Database\Eloquent\Collection|\User[] $users
  */
 class Task extends BaseModel {
 

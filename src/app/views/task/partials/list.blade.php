@@ -5,10 +5,10 @@
             <th style="width: 20px;">{{ trans('task.starred') }}</th>
             <th>{{ trans('task.name') }}</th>
             @if(isset($show_states))
-            <th style="width: 20px;">{{ trans('task.status') }}</th>
+            <th style="width: 10%">{{ trans('task.status') }}</th>
             @endif
             <th style="width:14%">{{ trans('task.assignee') }}</th>
-            <th style="width: 10%;">{{ trans('task.last_update') }}</th>
+            <th style="width: 12%">{{ trans('task.last_update') }}</th>
             @if(isset($show_actions))
             <th style="width: 17%;">{{ trans('task.actions') }}</th>
             @endif

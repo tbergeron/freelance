@@ -36,6 +36,7 @@ return array(
     'latest_tasks' => 'Recently updated tasks',
 
     'save' => 'Save',
+    'starred_tasks' => 'Starred tasks',
 
     'none' => 'None',
     'built_by' => 'Built by <a href="https://github.com/tbergeron/freelance" target="_blank">Tommy Bergeron</a> &copy; :year',

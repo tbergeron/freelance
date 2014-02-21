@@ -12,6 +12,11 @@
     {{ trans('app.welcome') }}
 </div>
 
+<h3>{{ trans('app.starred_tasks') }}</h3>
+@include('task.partials.list', ['tasks' => $starred_tasks, 'show_states' => true, 'show_project_names' => true])
+
+<hr/>
+
 <h3>{{ trans('app.latest_tasks') }}</h3>
 @include('task.partials.list', ['tasks' => $tasks, 'show_states' => true, 'show_project_names' => true])
 

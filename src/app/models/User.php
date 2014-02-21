@@ -34,7 +34,7 @@ class User extends BaseModel implements UserInterface {
 
     public function starred_tasks()
     {
-        return $this->has_many_and_belongs_to('StarredTask');
+        return $this->hasManyThrough('Task', 'StarredTask', 'user_id', 'id');
     }
 
 	public function getAuthIdentifier()
