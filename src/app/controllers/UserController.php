@@ -19,7 +19,7 @@ class UserController extends \BaseController {
 
     public function getDashboard()
     {
-        $tasks = Task::orderBy('updated_at', false)->get();
+        $tasks = Task::orderBy('updated_at', 'desc')->limit(Task::$items_per_page)->get();
         return View::make('user.dashboard', compact('tasks'));
     }
 

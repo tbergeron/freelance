@@ -10,7 +10,7 @@
 
 @include('task.partials.filter_bar')
 
-@include('task.partials.list', ['show_states' => true])
+@include('task.partials.list', ['show_states' => true, 'show_actions' => true])
 
 {{ $tasks->links('partials.pagination') }}
 

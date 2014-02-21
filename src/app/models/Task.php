@@ -32,8 +32,6 @@ class Task extends BaseModel {
         'project_id'  => 'not_zero'
     ];
 
-    // TODO: Add states/open/close to this model
-
     public function project()
 	{
 		return $this->belongsTo('Project');

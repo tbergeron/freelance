@@ -14,11 +14,14 @@ Because who the fuck needs a "like" button in a project management software?!
 - Added dropdowns instead of textboxes for foreign keys
 - Markdown everywhere
 - Bootstrap-based theme (Bootswatch's Cerulean)
+- Date selector for date fields
 
 #### What I'm planning to do next
-- Date selector for date fields
-- Improve dashboard
-- Improve project page
+- Improve confirmation messages
+- Improve comment edit/delete
+- Improve headings/breadcrumbs
+- Milestones close to their due date should be shown on Dashboard
+- When closing/reopening a task, list filters should be kept
 - Use it to death to improve the workflow
 
 ### FAQ

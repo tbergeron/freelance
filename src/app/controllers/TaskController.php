@@ -96,9 +96,10 @@ class TaskController extends BaseController {
     public function getDestroy($id)
     {
         $task = Task::findOrFail($id);
+        $project_id = $task->project_id;
         $task->delete();
 
-        return Redirect::back()
+        return Redirect::action('TaskController@getProject', ['project_id' => $project_id])
             ->withMessage(trans('task.destroy_success'))->withType('danger');
     }
 

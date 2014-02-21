@@ -31,7 +31,7 @@ h3 {
 }
 
 textarea.form-control {
-    height: 100px;
+    height: 36px;
 }
 
 .calendar_bugfix input {
@@ -40,4 +40,8 @@ textarea.form-control {
 
 .navbar {
     margin-bottom: 0;
+}
+
+.messages-container {
+    margin-top: 25px;
 }

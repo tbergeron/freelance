@@ -49,7 +49,8 @@ class ProjectController extends BaseController {
     public function getShow($id)
     {
         $project = Project::findOrFail($id);
-        return View::make('project.show', compact('project'));
+        $tasks = $project->tasks()->limit(Task::$items_per_page)->get();
+        return View::make('project.show', compact('project', 'tasks'));
     }
 
     /**
