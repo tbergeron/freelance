@@ -52,3 +52,8 @@ a.code-link-project {
     padding: 0 1px;
     text-decoration: none;
 }
+
+.task-info-table {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #DDDDDD;
+}

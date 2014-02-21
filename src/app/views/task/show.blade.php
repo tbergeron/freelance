@@ -16,6 +16,27 @@
     </div>
 </h2>
 
+<div class="table-responsive task-info-table">
+    <table class="table">
+        <tr class="warning">
+            <th>Status</th>
+            <td>@include('task.partials.state')</td>
+            <th>Assignee</th>
+            <td>{{ $task->user->full_name }}</td>
+        </tr>
+        <tr class="warning">
+            <th>Milestone</th>
+            <td>
+                @if($task->milestone)
+                {{ Html::linkAction('MilestoneController@getShow', $task->milestone->name, ['id' => $task->milestone->id]) }}
+                @else None @endif
+            </td>
+            <th>Last update</th>
+            <td>{{ $task->updated_at->diffForHumans() }}</td>
+        </tr>
+    </table>
+</div>
+
 {{ Markdown::render($task->description) }}
 
 <hr/>

@@ -4,7 +4,7 @@
             <th style="width:10%">{{ trans('task.code') }}</th>
             <th>{{ trans('task.name') }}</th>
             @if(isset($show_states))
-            <th style="width: 10%;">State</th>
+            <th style="width: 10%;">{{ trans('task.status') }}</th>
             @endif
             <th style="width:14%">{{ trans('task.assignee') }}</th>
             <th style="width: 10%;">{{ trans('task.last_update') }}</th>
@@ -19,7 +19,7 @@
             <td>{{ $task->codeWithLink() }}</td>
             <td>{{ Html::linkAction('TaskController@getShow', $task->name, ['id' => $task->id]) }}</td>
             @if(isset($show_states))
-            <td>{{ ($task->is_closed) ? trans('task.closed') : trans('task.opened') }}</td>
+            <td>@include('task.partials.state')</td>
             @endif
             <td>@if($task->user) {{ $task->user->full_name }} @endif</td>
             <td>{{ $task->updated_at->diffForHumans() }}</td>

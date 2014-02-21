@@ -36,5 +36,6 @@ return array(
     'all' => 'Everything',
     'name_placeholder' => 'Name',
     'description_placeholder' => 'Description',
+    'status' => 'Status',
 
 );
