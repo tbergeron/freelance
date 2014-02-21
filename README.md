@@ -20,7 +20,7 @@ Because who the fuck needs a "like" button in a project management software?!
 - Reference tasks in other tasks and comments
 - Handle better URLs
 - Better list filters (with order by column)
-- Improve confirmation messages
+- Improve confirmation prompts
 - Improve comment edit/delete
 - Milestones close to their due date should be shown on Dashboard
 - When closing/reopening a task, list filters should be kept
@@ -28,7 +28,7 @@ Because who the fuck needs a "like" button in a project management software?!
 
 #### Bugs I'm aware of
 - Milestones should reload when changing project in the task form
-- When creating a new task from project, the project doesn't auto select
+- <del>When creating a new task from project, the project doesn't auto select</del>
 
 
 ### FAQ
