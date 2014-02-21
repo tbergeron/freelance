@@ -21,6 +21,7 @@ class UserController extends \BaseController {
     {
         $tasks = Task::orderBy('updated_at', 'desc')->limit(Task::$items_per_page)->get();
         $starred_tasks = Auth::user()->starred_tasks()->get();
+
         return View::make('user.dashboard', compact('tasks', 'starred_tasks'));
     }
 

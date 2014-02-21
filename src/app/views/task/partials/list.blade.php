@@ -19,9 +19,7 @@
         <tr>
             <td>{{ $task->codeWithLink() }}</td>
             <td style="text-align: center;">
-                <a href="#" class="starred" data-id="{{ $task->id }}">
-                    <i class="glyphicon @if($task->is_starred()) glyphicon-star @else glyphicon-star-empty @endif"></i>
-                </a>
+                @include('task.partials.starred_task')
             </td>
             <td>{{ Html::linkAction('TaskController@getShow', $task->name_short(60), ['id' => $task->id]) }}</td>
             @if(isset($show_states))
