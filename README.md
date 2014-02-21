@@ -27,6 +27,7 @@ Because who the fuck needs a "like" button in a project management software?!
 
 #### Bugs I'm aware of
 - Milestones should reload when changing project in the task form
+- When creating a new task from project, the project doesn't auto select
 
 
 ### FAQ
