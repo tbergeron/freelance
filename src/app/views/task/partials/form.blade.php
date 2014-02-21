@@ -24,7 +24,7 @@
             {{ Form::label('user_id', trans('task.user_id')) }}
             {{ $errors->first('user_id') }}
             <div class="controls">
-                {{ Form::select('user_id', User::forDropdown(), (isset($task)) ? $task->user_id : false, ['class' => 'form-control']) }}
+                {{ Form::select('user_id', User::forDropdown(), (isset($task)) ? $task->user_id : Auth::user()->id, ['class' => 'form-control']) }}
             </div>
         </div>
     </div>
