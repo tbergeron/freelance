@@ -19,19 +19,19 @@
 <div class="table-responsive task-info-table">
     <table class="table">
         <tr class="warning">
-            <th>Status</th>
+            <th>{{ trans('task.status') }}</th>
             <td>@include('task.partials.state')</td>
-            <th>Assignee</th>
+            <th>{{ trans('task.assignee') }}</th>
             <td>{{ $task->user->full_name }}</td>
         </tr>
         <tr class="warning">
-            <th>Milestone</th>
+            <th>{{ trans('task.milestone') }}</th>
             <td>
                 @if($task->milestone)
                 {{ Html::linkAction('MilestoneController@getShow', $task->milestone->name, ['id' => $task->milestone->id]) }}
-                @else None @endif
+                @else {{ trans('task.none') }} @endif
             </td>
-            <th>Last update</th>
+            <th>{{ trans('task.last_update') }}</th>
             <td>{{ $task->updated_at->diffForHumans() }}</td>
         </tr>
     </table>

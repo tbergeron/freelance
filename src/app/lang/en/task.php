@@ -37,5 +37,6 @@ return array(
     'name_placeholder' => 'Name',
     'description_placeholder' => 'Description',
     'status' => 'Status',
+    'milestone' => 'Milestone',
 
 );
