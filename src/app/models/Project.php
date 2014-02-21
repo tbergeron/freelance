@@ -31,6 +31,12 @@ class Project extends BaseModel {
         return $this->name;
     }
 
+    public function name_short()
+    {
+        // shorten task name
+        return Str::limit($this->name, 15);
+    }
+
     public function tasks()
 	{
 		return $this->hasMany('Task')->orderBy('updated_at', 'desc');

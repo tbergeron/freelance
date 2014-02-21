@@ -55,7 +55,7 @@ class Task extends BaseModel {
     public function name_short()
     {
         // shorten task name
-        return Str::limit($this->name, 50);
+        return Str::limit($this->name, 40);
     }
 
     public function code()

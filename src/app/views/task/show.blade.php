@@ -7,7 +7,7 @@
 @section('content')
 
 <h2 class="section-heading">
-    {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
+    {{ Html::linkAction('ProjectController@getShow', $project->name_short(), ['id' => $project->id]) }}
     @include('partials.heading_separator')
     {{ $task->name_short() }}
     <div class="pull-right">
