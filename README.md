@@ -4,7 +4,7 @@ freelance
 Because who the fuck needs a "like" button in a project management software?!
 
 
-### Changelog; last update 2014-02-20
+### Changelog; last update 2014-02-21
 - Basic login/auth
 - Basic project/milestone/task/ management
 - Basic dashboard/project/milestone/task pages
@@ -15,9 +15,9 @@ Because who the fuck needs a "like" button in a project management software?!
 - Markdown everywhere
 - Bootstrap-based theme (Bootswatch's Cerulean)
 - Date selector for date fields
+- Starred tasks
 
 #### What I'm planning to do next
-- Starred tasks
 - Reference tasks in other tasks and comments
 - Handle better URLs
 - Better list filters (with order by column)
