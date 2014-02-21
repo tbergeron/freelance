@@ -5,8 +5,8 @@
 
     <div class="pull-right">
         @if($comment->user_id == Auth::user()->id)
-            {{ Html::linkAction('CommentController@getEdit', trans('comment.edit'), ['id' => $comment->id], ['class' => 'btn btn-default btn-xs']) }}
-            <a href="{{ URL::action('CommentController@getDestroy', $comment->id) }}" class="btn btn-danger btn-xs" onclick="return confirm('{{ trans('comment.destroy_question') }}')">
+            {{ Html::linkAction('CommentController@getEdit', trans('comment.edit'), ['id' => $comment->id], ['class' => 'btn btn-default btn-sm']) }}
+            <a href="{{ URL::action('CommentController@getDestroy', $comment->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('comment.destroy_question') }}')">
                 {{ trans('comment.destroy') }}
             </a>
         @endif
