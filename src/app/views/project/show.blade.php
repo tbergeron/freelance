@@ -11,8 +11,11 @@
 <h2 class="section-heading">
     {{ $project->name }}
     <div class="pull-right">
-        {{ Html::linkAction('TaskController@getProject', trans('project.tasks'), ['id' => $project->id], ['class' => 'btn btn-success btn-sm']) }}
-        {{ Html::linkAction('MilestoneController@getIndex', trans('project.milestones'), ['id' => $project->id], ['class' => 'btn btn-success btn-sm']) }}
+        <a href="{{ URL::action('TaskController@getCreate', ((isset($project)) ? ['project_id' => $project->id] : null)) }}"
+           class="btn btn-success btn-sm">
+            {{ trans('task.create') }}
+        </a>
+        {{ Html::linkAction('MilestoneController@getCreate', trans('milestone.create'), ['project_id' => $project->id], ['class' => 'btn btn-success btn-sm']) }}
         {{ Html::linkAction('ProjectController@getEdit', trans('project.edit'), ['id' => $project->id], ['class' => 'btn btn-default btn-sm']) }}
     </div>
 </h2>
