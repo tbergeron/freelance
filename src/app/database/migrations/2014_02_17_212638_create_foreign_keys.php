@@ -7,7 +7,6 @@ class CreateForeignKeys extends Migration {
 
 	public function up()
 	{
-        // TODO: There's a FK I forgot but I don't remember which.
 		Schema::table('tasks', function(Blueprint $table) {
 			$table->foreign('project_id')->references('id')->on('projects')
 						->onDelete('cascade')
@@ -28,7 +27,17 @@ class CreateForeignKeys extends Migration {
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-	}
+        Schema::table('starred_tasks', function(Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+        });
+        Schema::table('starred_tasks', function(Blueprint $table) {
+            $table->foreign('task_id')->references('id')->on('tasks')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+        });
+    }
 
 	public function down()
 	{
@@ -44,5 +53,11 @@ class CreateForeignKeys extends Migration {
 		Schema::table('milestones', function(Blueprint $table) {
 			$table->dropForeign('milestones_project_id_foreign');
 		});
+        Schema::table('starred_tasks', function(Blueprint $table) {
+            $table->dropForeign('starred_tasks_user_id_foreign');
+        });
+        Schema::table('starred_tasks', function(Blueprint $table) {
+            $table->dropForeign('starred_tasks_task_id_foreign');
+        });
 	}
 }

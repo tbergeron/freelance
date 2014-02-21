@@ -28,12 +28,16 @@
             <td>{{ $project->code }}</td>
             <td>{{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}</td>
             <td>{{ $project->updated_at->diffForHumans() }}</td>
-            <td>
+            <td style="text-align: center">
                 {{ Html::linkAction('TaskController@getProject', trans('project.tasks'), ['id' => $project->id], ['class' => 'btn btn-success btn-sm']) }}
                 {{ Html::linkAction('MilestoneController@getIndex', trans('project.milestones'), ['id' => $project->id], ['class' => 'btn btn-success btn-sm']) }}
-                {{ Html::linkAction('ProjectController@getEdit', trans('project.edit'), ['id' => $project->id], ['class' => 'btn btn-default btn-sm']) }}
-                <a href="{{ URL::action('ProjectController@getDestroy', $project->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('project.destroy_question', ['name' => $project->name]) }}')">
-                    {{ trans('project.destroy') }}
+
+                <a href="{{ URL::action('ProjectController@getEdit', ['id' => $project->id]) }}" title="{{ trans('project.edit') }}" class="btn btn-primary btn-sm">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+
+                <a href="{{ URL::action('ProjectController@getDestroy', $project->id) }}" title="{{ trans('project.edit') }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('project.destroy_question', ['name' => $project->name]) }}')">
+                    <i class="glyphicon glyphicon-remove"></i>
                 </a>
             </td>
         </tr>

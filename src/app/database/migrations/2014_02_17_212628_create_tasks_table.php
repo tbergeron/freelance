@@ -14,12 +14,10 @@ class CreateTasksTable extends Migration {
 			$table->integer('user_id')->unsigned()->nullable();
             $table->string('name', 255);
 			$table->text('description');
-			$table->boolean('is_closed')->default(false);
+            $table->boolean('is_closed')->default(false);
 			$table->timestamps();
 		});
 	}
-
-    // TODO: Add states/open/close to this migration
 
 	public function down()
 	{

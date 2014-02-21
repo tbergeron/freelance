@@ -155,6 +155,36 @@ class TaskController extends BaseController {
                                 ->withMessage(trans('task.reopen_success'))->withType('success');
     }
 
+    /***
+     * Star/Toggle a task (ajax request)
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getStare()
+    {
+        $user = Auth::user();
+        $task = Task::findOrFail(Input::get('id'));
+
+        if ($user && $task) {
+            $is_starred = false;
+
+            $starred = StarredTask::where('user_id', $user->id)->where('task_id', $task->id)->first();
+
+            if ($starred) {
+                $starred->delete();
+            } else {
+                $is_starred = true;
+                $starred = new StarredTask;
+                $starred->user_id = $user->id;
+                $starred->task_id = $task->id;
+                $starred->save();
+            }
+
+            return Response::json(['success' => true, 'starred' => $is_starred]);
+        } else {
+            return Response::json(['success' => false]);
+        }
+    }
+
     /**
      * Handle the query to the database and return all needed values for view.
      *

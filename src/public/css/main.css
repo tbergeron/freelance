@@ -57,3 +57,8 @@ a.code-link-project {
     margin-bottom: 25px;
     border-bottom: 1px solid #DDDDDD;
 }
+
+.starred {
+    color: #FFCC00;
+    font-size: 20px;
+}

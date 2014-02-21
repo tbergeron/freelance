@@ -29,9 +29,12 @@
             <td>{{ Html::linkAction('MilestoneController@getShow', $milestone->name, ['id' => $milestone->id]) }}</td>
             <td>{{ $milestone->updated_at->diffForHumans() }}</td>
             <td>
-                {{ Html::linkAction('MilestoneController@getEdit', trans('milestone.edit'), ['id' => $milestone->id], ['class' => 'btn btn-default btn-sm']) }}
-                <a href="{{ URL::action('MilestoneController@getDestroy', $milestone->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('milestone.destroy_question', ['name' => $milestone->name]) }}')">
-                    {{ trans('milestone.destroy') }}
+                <a href="{{ URL::action('MilestoneController@getEdit', ['id' => $milestone->id]) }}" title="{{ trans('milestone.edit') }}" class="btn btn-primary btn-sm">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+
+                <a href="{{ URL::action('MilestoneController@getDestroy', $milestone->id) }}" title="{{ trans('milestone.destroy') }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('milestone.destroy_question', ['name' => $milestone->name]) }}')">
+                    <i class="glyphicon glyphicon-remove"></i>
                 </a>
             </td>
         </tr>

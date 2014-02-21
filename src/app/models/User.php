@@ -32,6 +32,11 @@ class User extends BaseModel implements UserInterface {
         return $this->hasMany('Task');
     }
 
+    public function starred_tasks()
+    {
+        return $this->has_many_and_belongs_to('StarredTask');
+    }
+
 	public function getAuthIdentifier()
 	{
 		return $this->getKey();

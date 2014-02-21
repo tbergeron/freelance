@@ -52,10 +52,20 @@ class Task extends BaseModel {
 		return $this->belongsTo('User');
 	}
 
-    public function name_short()
+    public function users() {
+        return $this->belongsToMany('User');
+    }
+
+    public function is_starred()
+    {
+        $starred = StarredTask::where('user_id', Auth::user()->id)->where('task_id', $this->id)->first();
+        return ($starred) ? true : false;
+    }
+
+    public function name_short($len = 40)
     {
         // shorten task name
-        return Str::limit($this->name, 40);
+        return Str::limit($this->name, $len);
     }
 
     public function code()
