@@ -19,7 +19,7 @@
             <th>{{ trans('project.code') }}</th>
             <th>{{ trans('project.name') }}</th>
             <th style="width: 12%;">{{ trans('project.last_update') }}</th>
-            <th style="width: 23%;">{{ trans('project.actions') }}</th>
+            <th style="width: 20%;">{{ trans('project.actions') }}</th>
         </tr>
 
         @foreach ($projects as $project)
@@ -29,14 +29,19 @@
             <td>{{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}</td>
             <td>{{ $project->updated_at->diffForHumans() }}</td>
             <td style="text-align: center">
-                {{ Html::linkAction('TaskController@getProject', trans('project.tasks'), ['id' => $project->id], ['class' => 'btn btn-success btn-sm']) }}
-                {{ Html::linkAction('MilestoneController@getIndex', trans('project.milestones'), ['id' => $project->id], ['class' => 'btn btn-success btn-sm']) }}
+                <a title="{{ trans('project.tasks') }}" href="{{ URL::action('TaskController@getProject', ['id' => $project->id]) }}" class="btn btn-primary btn-sm">
+                    <i class="glyphicon glyphicon-tasks"></i>
+                </a>
 
-                <a href="{{ URL::action('ProjectController@getEdit', ['id' => $project->id]) }}" title="{{ trans('project.edit') }}" class="btn btn-primary btn-sm">
+                <a title="{{ trans('project.milestones') }}" href="{{ URL::action('MilestoneController@getIndex', ['id' => $project->id]) }}" class="btn btn-primary btn-sm">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </a>
+
+                <a href="{{ URL::action('ProjectController@getEdit', ['id' => $project->id]) }}" title="{{ trans('project.edit') }}" class="btn btn-default btn-sm">
                     <i class="glyphicon glyphicon-edit"></i>
                 </a>
 
-                <a href="{{ URL::action('ProjectController@getDestroy', $project->id) }}" title="{{ trans('project.edit') }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('project.destroy_question', ['name' => $project->name]) }}')">
+                <a href="{{ URL::action('ProjectController@getDestroy', $project->id) }}" title="{{ trans('project.edit') }}" class="btn btn-default btn-sm" onclick="return confirm('{{ trans('project.destroy_question', ['name' => $project->name]) }}')">
                     <i class="glyphicon glyphicon-remove"></i>
                 </a>
             </td>

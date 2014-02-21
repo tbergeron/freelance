@@ -3,11 +3,11 @@
         <div class="pull-right" style="margin-top:-5px">
             @if($comment->user_id == Auth::user()->id)
 
-            <a href="{{ URL::action('CommentController@getEdit', ['id' => $comment->id]) }}" title="{{ trans('comment.edit') }}" class="btn btn-primary btn-sm">
+            <a href="{{ URL::action('CommentController@getEdit', ['id' => $comment->id]) }}" title="{{ trans('comment.edit') }}" class="btn btn-default btn-sm">
                 <i class="glyphicon glyphicon-edit"></i>
             </a>
 
-            <a href="{{ URL::action('CommentController@getDestroy', $comment->id) }}" title="{{ trans('comment.destroy') }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('comment.destroy_question') }}')">
+            <a href="{{ URL::action('CommentController@getDestroy', $comment->id) }}" title="{{ trans('comment.destroy') }}" class="btn btn-default btn-sm" onclick="return confirm('{{ trans('comment.destroy_question') }}')">
                 <i class="glyphicon glyphicon-remove"></i>
             </a>
             @endif

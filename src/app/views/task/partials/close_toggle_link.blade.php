@@ -1,5 +1,12 @@
 @if($task->is_closed)
-{{ Html::linkAction('TaskController@getReopen', trans('task.reopen_task'), ['id' => $task->id, 'from_task' => ((isset($from_task)) ? true : false)], ['class' => 'btn btn-primary ' . ((isset($small_buttons)) ? 'btn-sm' : null)]) }}
+<a title="{{ trans('task.reopen_task') }}" href="{{ URL::action('TaskController@getReopen', ['id' => $task->id, 'from_task' => ((isset($from_task)) ? true : false)]) }}" class="btn btn-danger {{ ((isset($small_buttons)) ? 'btn-sm' : null) }}">
+    <i class="glyphicon glyphicon-refresh"></i>
+</a>
 @else
-    {{ Html::linkAction('TaskController@getClose', trans('task.close_task'), ['id' => $task->id, 'from_task' => ((isset($from_task)) ? true : false)], ['class' => 'btn btn-success ' . ((isset($small_buttons)) ? 'btn-sm' : null)]) }}
+<a title="{{ trans('task.close_task') }}" href="{{ URL::action('TaskController@getClose', ['id' => $task->id, 'from_task' => ((isset($from_task)) ? true : false)]) }}" class="btn btn-success {{ ((isset($small_buttons)) ? 'btn-sm' : null) }}">
+    <i class="glyphicon glyphicon-ok-circle"></i>
+</a>
 @endif
+
+
+

@@ -10,7 +10,7 @@
             <th style="width:14%">{{ trans('task.assignee') }}</th>
             <th style="width: 12%">{{ trans('task.last_update') }}</th>
             @if(isset($show_actions))
-            <th style="width: 17%;">{{ trans('task.actions') }}</th>
+            <th style="width: 15%;">{{ trans('task.actions') }}</th>
             @endif
         </tr>
 
@@ -31,11 +31,11 @@
             <td style="text-align: center">
                 @include('task.partials.close_toggle_link', ['small_buttons' => true])
 
-                <a href="{{ URL::action('TaskController@getEdit', ['id' => $task->id]) }}" title="{{ trans('task.edit') }}" class="btn btn-primary btn-sm">
+                <a href="{{ URL::action('TaskController@getEdit', ['id' => $task->id]) }}" title="{{ trans('task.edit') }}" class="btn btn-default btn-sm">
                     <i class="glyphicon glyphicon-edit"></i>
                 </a>
 
-                <a href="{{ URL::action('TaskController@getDestroy', $task->id) }}" title="{{ trans('task.destroy') }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('task.destroy_question', ['name' => $task->name]) }}')">
+                <a href="{{ URL::action('TaskController@getDestroy', $task->id) }}" title="{{ trans('task.destroy') }}" class="btn btn-default btn-sm" onclick="return confirm('{{ trans('task.destroy_question', ['name' => $task->name]) }}')">
                     <i class="glyphicon glyphicon-remove"></i>
                 </a>
             </td>

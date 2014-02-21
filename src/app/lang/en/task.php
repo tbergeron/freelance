@@ -39,4 +39,5 @@ return array(
     'status' => 'Status',
     'milestone' => 'Milestone',
     'starred' => 'Starred',
+    'task' => 'Task',
 );

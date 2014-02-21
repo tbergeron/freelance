@@ -13,7 +13,9 @@
     @include('task.partials.starred_task')
     <div class="pull-right">
         @include('task.partials.close_toggle_link', ['from_task' => true])
-        {{ Html::linkAction('TaskController@getEdit', trans('task.edit'), ['id' => $task->id], ['class' => 'btn btn-default']) }}
+        <a title="{{ trans('task.edit') }}" href="{{ URL::action('TaskController@getEdit', ['id' => $task->id]) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-edit"></i>
+        </a>
     </div>
 </h2>
 

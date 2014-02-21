@@ -26,4 +26,6 @@ return array(
     'create_success' => 'This milestone has been created with success.',
     'update_success' => 'This milestone has been updated with success.',
 
+    'milestone' => 'Milestone',
+
 );

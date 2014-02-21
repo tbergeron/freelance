@@ -11,12 +11,20 @@
 <h2 class="section-heading">
     {{ $project->name }}
     <div class="pull-right">
-        <a href="{{ URL::action('TaskController@getCreate', ((isset($project)) ? ['project_id' => $project->id] : null)) }}"
+        <a title="{{ trans('task.create') }}" href="{{ URL::action('TaskController@getCreate', ['project_id' => $project->id]) }}"
            class="btn btn-success btn-sm">
-            {{ trans('task.create') }}
+            <i class="glyphicon glyphicon-plus-sign"></i>
+            {{ trans('task.task') }}
         </a>
-        {{ Html::linkAction('MilestoneController@getCreate', trans('milestone.create'), ['project_id' => $project->id], ['class' => 'btn btn-success btn-sm']) }}
-        {{ Html::linkAction('ProjectController@getEdit', trans('project.edit'), ['id' => $project->id], ['class' => 'btn btn-default btn-sm']) }}
+        <a title="{{ trans('milestone.create') }}" href="{{ URL::action('MilestoneController@getCreate', ['project_id' => $project->id]) }}"
+           class="btn btn-success btn-sm">
+            <i class="glyphicon glyphicon-plus-sign"></i>
+            {{ trans('milestone.milestone') }}
+        </a>
+        <a title="{{ trans('project.edit') }}" href="{{ URL::action('ProjectController@getEdit', ['project_id' => $project->id]) }}"
+           class="btn btn-default btn-sm">
+            <i class="glyphicon glyphicon-edit"></i>
+        </a>
     </div>
 </h2>
 
