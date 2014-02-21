@@ -17,6 +17,7 @@ Because who the fuck needs a "like" button in a project management software?!
 - Date selector for date fields
 
 #### What I'm planning to do next
+- Starred tasks
 - Reference tasks in other tasks and comments
 - Handle better URLs
 - Better list filters (with order by column)
