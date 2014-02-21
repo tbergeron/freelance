@@ -9,8 +9,8 @@
 <h2 class="section-heading">
     {{ Html::linkAction('ProjectController@getShow', $project->name_short(), ['id' => $project->id]) }}
     @include('partials.heading_separator')
-    @include('task.partials.starred_task')
     {{ $task->name_short() }}
+    @include('task.partials.starred_task')
     <div class="pull-right">
         @include('task.partials.close_toggle_link', ['from_task' => true])
         {{ Html::linkAction('TaskController@getEdit', trans('task.edit'), ['id' => $task->id], ['class' => 'btn btn-default']) }}
