@@ -28,6 +28,8 @@ return array(
     'opened' => 'Opened',
     'tasks' => 'Tasks',
     'no_records' => 'No records',
+    'create_success' => 'This task has been created with success.',
+    'update_success' => 'This task has been updated with success.',
     'reopen_success' => 'This task has been reopened with success.',
     'closed_success' => 'This task has been closed with success.',
     'destroy_success' => 'This task has been deleted with success.',

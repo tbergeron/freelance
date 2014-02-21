@@ -23,5 +23,7 @@ return array(
     'due_date_placeholder' => 'Due date',
     'description_placeholder' => 'Description',
     'due_in' => 'Due in',
+    'create_success' => 'This milestone has been created with success.',
+    'update_success' => 'This milestone has been updated with success.',
 
 );

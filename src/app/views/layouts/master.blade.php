@@ -39,7 +39,6 @@
                     @if(Auth::check())
                         {{ HTML::menu_active('ProjectController@getIndex', trans('project.index')) }}
                         {{ HTML::menu_active('TaskController@getIndex', trans('task.index')) }}
-                        {{ HTML::menu_active('UserController@getLogout', trans('app.logout'), true) }}
                     @endif
                 </ul>
 

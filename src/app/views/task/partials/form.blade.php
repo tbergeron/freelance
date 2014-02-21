@@ -4,7 +4,7 @@
             {{ Form::label('project_id', trans('task.project_id')) }}
             {{ $errors->first('project_id') }}
             <div class="controls">
-                {{ Form::select('project_id', Project::forDropdown(), (isset($project)) ? $project->id : null, ['class' => 'form-control']) }}
+                {{ Form::select('project_id', Project::forDropdown(), (isset($project)) ? $project->id : $project_id, ['class' => 'form-control']) }}
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
             {{ Form::label('milestone_id', trans('task.milestone_id')) }}
             {{ $errors->first('milestone_id') }}
             <div class="controls">
-                {{ Form::select('milestone_id', Milestone::forDropdown((isset($project)) ? $project->id : null), (isset($milestone_id)) ? $milestone_id : null, ['class' => 'form-control']) }}
+                {{ Form::select('milestone_id', Milestone::forDropdown((isset($project)) ? $project->id : $project_id), (isset($milestone_id)) ? $milestone_id : null, ['class' => 'form-control']) }}
             </div>
         </div>
     </div>
