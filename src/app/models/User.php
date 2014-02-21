@@ -13,6 +13,7 @@ use Illuminate\Auth\UserInterface;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $starred_tasks
  */
 class User extends BaseModel implements UserInterface {
     protected $table = 'users';

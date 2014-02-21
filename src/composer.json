@@ -9,7 +9,8 @@
         "barryvdh/laravel-ide-helper": "1.*",
         "barryvdh/laravel-debugbar": "dev-master",
         "way/generators": "dev-master",
-        "graham-campbell/markdown": "1.0.*"
+        "graham-campbell/markdown": "1.0.*",
+        "norzechowicz/aceeditor-bundle": "0.1.*"
     },
 	"autoload": {
 		"classmap": [
@@ -34,6 +35,7 @@
             "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/js' bootstrap/js",
             "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/css' bootstrap/css",
             "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/fonts' bootstrap/fonts",
+            "php artisan asset:publish --path='vendor/norzechowicz/aceeditor-bundle/Norzechowicz/AceEditorBundle/Resources/public/ace/src' ace",
             "php artisan optimize"
         ],
         "post-create-project-cmd": [

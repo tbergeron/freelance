@@ -47,3 +47,7 @@
 @include('comment.partials.list')
 
 @stop
+
+@section('scripts')
+    @include('partials.markdown_editor', ['id' => 'content'])
+@stop
