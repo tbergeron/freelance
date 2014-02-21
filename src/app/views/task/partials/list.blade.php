@@ -6,7 +6,7 @@
             @if(isset($show_states))
             <th style="width: 10%;">State</th>
             @endif
-            <th style="width:10%">{{ trans('task.assignee') }}</th>
+            <th style="width:14%">{{ trans('task.assignee') }}</th>
             <th style="width: 10%;">{{ trans('task.last_update') }}</th>
             @if(isset($show_actions))
             <th style="width: 19%;">{{ trans('task.actions') }}</th>
