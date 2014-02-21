@@ -8,19 +8,10 @@
 
 <h2>{{ trans('task.heading') }}</h2>
 
-<div>
-    {{ Html::linkAction('TaskController@getCreate', trans('task.create')) }}
-</div>
-
-<br />
-
-@include('task.partials.close_toggle')
-
-<br/>
-<br/>
-
-@include('partials.messages')
+@include('task.partials.filter_bar')
 
 @include('task.partials.list', ['show_states' => true])
+
+{{ $tasks->links('partials.pagination') }}
 
 @stop

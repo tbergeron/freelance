@@ -1,6 +1,8 @@
 @if(Session::has('message'))
-    <div class="message-{{ Session::get('type') }}">
-        <h4>{{ trans('app.message_' . Session::get('type')) }}</h4>
-        <p>{{ Session::get('message') }}</p>
+    <div class="alert alert-dismissable alert-{{ Session::get('type') }}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <p>
+            {{ Session::get('message') }}
+        </p>
     </div>
 @endif

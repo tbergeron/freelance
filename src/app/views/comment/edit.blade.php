@@ -9,8 +9,6 @@
 
 <h2>{{ trans('comment.comment_on') }} {{ $task->name }}</h2>
 
-@include('partials.messages')
-
 {{ Form::model($comment, ['action' => ['CommentController@postUpdate', $comment->id]]) }}
 
 @include('comment.partials.form')

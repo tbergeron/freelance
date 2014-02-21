@@ -11,7 +11,9 @@
         {{ Config::get('app.name') }}
     </title>
 
+    {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}
     {{ HTML::style('css/bootstrap.theme.min.css') }}
+    {{ HTML::style('css/datepicker.css') }}
     {{ HTML::style('css/main.css')}}
 </head>
 <body>
@@ -57,15 +59,17 @@
 </div>
 
 <div class="container">
+    @include('partials.messages')
+
     @yield('content')
 
     <div class="clearfix"></div>
     <div class="footer">
         <hr>
         <div class="row-fluid">
-            <div class="col-md-8 col-xs-6">
+            <div class="col-md-8 col-xs-4">
             </div>
-            <div class="col-md-4 col-xs-6">
+            <div class="col-md-4 col-xs-8">
                 <p class="muted pull-right">{{ trans('app.built_by', ['year' => date('Y')]) }}</p>
             </div>
         </div>
@@ -74,6 +78,7 @@
 
 <script src="https://code.jquery.com/jquery.js"></script>
 {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
+{{ HTML::script('js/bootstrap-datepicker.js') }}
 {{ HTML::script('js/main.js') }}
 
 @yield('scripts')

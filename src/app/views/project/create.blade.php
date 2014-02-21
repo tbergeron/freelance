@@ -6,8 +6,6 @@
 
 @section('content')
 
-@include('partials.messages')
-
 <h2>{{ trans('project.create') }}</h2>
 
 {{ Form::open(['action' => 'ProjectController@postStore']) }}

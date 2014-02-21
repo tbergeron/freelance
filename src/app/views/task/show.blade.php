@@ -6,22 +6,16 @@
 
 @section('content')
 
-@include('partials.project')
-<h2>{{ $task->name }}</h2>
+<h2 class="section-heading">
+    {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
+    {{ $task->name }}
+    <div class="pull-right">
+        @include('task.partials.close_toggle_link', ['from_task' => true])
+        {{ Html::linkAction('TaskController@getEdit', trans('task.edit'), ['id' => $task->id], ['class' => 'btn btn-default']) }}
+    </div>
+</h2>
 
-<div>
-    {{ Html::linkAction('TaskController@getEdit', trans('task.edit'), ['id' => $task->id]) }}
-    -
-    @include('task.partials.close_toggle_link', ['from_task' => true])
-</div>
-
-<br />
-
-<div>
-    {{ Markdown::render($task->description) }}
-</div>
-
-@include('partials.messages')
+{{ Markdown::render($task->description) }}
 
 <hr/>
 

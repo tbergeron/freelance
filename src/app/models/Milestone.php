@@ -48,6 +48,12 @@ class Milestone extends BaseModel {
         return array('created_at', 'updated_at', 'due_date');
     }
 
+    public function formatted_due_date()
+    {
+        $this->due_date->setToStringFormat('Y-m-d');
+        return $this->due_date->toDateString();
+    }
+
     public static function forDropdown($project_id = null)
     {
         $milestones = Milestone::where('project_id', $project_id)->get(array('id', 'name'));

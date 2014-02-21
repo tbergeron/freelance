@@ -1,20 +1,30 @@
-<ul>
-    <li>
+<fieldset>
+    <div class="form-group @if($errors->has('name')) has-feedback has-error @endif">
         {{ Form::label('name', trans('project.name')) }}
         {{ $errors->first('name') }}
-        {{ Form::text('name') }}
-    </li>
-    <li>
+        <div class="controls">
+            {{ Form::text('name', null, ['placeholder' => trans('project.name_placeholder'), 'class' => 'form-control']) }}
+        </div>
+    </div>
+
+    <div class="form-group @if($errors->has('code')) has-feedback has-error @endif">
         {{ Form::label('code', trans('project.code')) }}
         {{ $errors->first('code') }}
-        {{ Form::text('code') }}
-    </li>
-    <li>
+        <div class="controls">
+            {{ Form::text('code', null, ['placeholder' => trans('project.code_placeholder'), 'class' => 'form-control']) }}
+        </div>
+    </div>
+
+    <div class="form-group @if($errors->has('description')) has-feedback has-error @endif">
         {{ Form::label('description', trans('project.description')) }}
-        {{ $errors->first('description') }}
-        {{ Form::textarea('description') }}
-    </li>
-    <li>
-        {{ Form::submit() }}
-    </li>
-</ul>
+        <div class="controls">
+            {{ $errors->first('description') }}
+            {{ Form::textarea('description', null, ['placeholder' => trans('project.description_placeholder'), 'class' => 'form-control']) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::submit(trans('app.save'), ['class' => 'btn btn-primary']) }}
+    </div>
+
+</fieldset>

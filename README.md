@@ -4,8 +4,7 @@ freelance
 Because who the fuck needs a "like" button in a project management software?!
 
 
-### Update 2014-02-19
-I got this done during the weekend:
+### Changelog; last update 2014-02-20
 - Basic login/auth
 - Basic project/milestone/task/ management
 - Basic dashboard/project/milestone/task pages
@@ -18,7 +17,9 @@ I got this done during the weekend:
 
 #### What I'm planning to do next
 - Date selector for date fields
-- Add whatever missing little tweaks
+- Improve dashboard
+- Improve project page
+- Use it to death to improve the workflow
 
 ### FAQ
 ---

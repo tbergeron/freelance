@@ -66,6 +66,7 @@ class MilestoneController extends BaseController {
     public function getEdit($id)
     {
         $milestone = Milestone::findOrFail($id);
+        $milestone->due_date = $milestone->formatted_due_date();
         $project = $milestone->project;
         return View::make('milestone.edit', compact('milestone', 'project'));
     }
@@ -100,7 +101,7 @@ class MilestoneController extends BaseController {
         $milestone->delete();
 
         return Redirect::back()
-            ->withMessage(trans('milestone.destroy_success'))->withType('success');
+            ->withMessage(trans('milestone.destroy_success'))->withType('danger');
     }
 
 }

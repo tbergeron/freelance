@@ -5,8 +5,8 @@
     {{ $errors->first('user_id') }}
     
     {{ $errors->first('content') }}
-    {{ Form::textarea('content') }}
+    {{ Form::textarea('content', null, ['placeholder' => trans('comment.content_placeholder'), 'class' => 'form-control']) }}
     <br />
-    {{ Form::submit() }}
+    {{ Form::submit(null, ['class' => 'btn btn-primary pull-right']) }}
     
 {{ Form::close() }}

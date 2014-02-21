@@ -1,14 +1,14 @@
 <h3>{{ trans('comment.create') }}</h3>
 
-<ul>
-    @foreach ($task->comments as $comment)
-
-    <li>
+@foreach ($task->comments as $comment)
+    <div class="well">
         @include('comment.partials.comment')
-    </li>
+    </div>
+@endforeach
 
-    @endforeach
-</ul>
+@unless(count($task->comments))
+{{ trans('comment.nothing_yet') }}
+@endunless
 
 <hr/>
 

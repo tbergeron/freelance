@@ -25,6 +25,8 @@ class Task extends BaseModel {
 	protected $fillable = ['project_id', 'user_id', 'milestone_id', 'name', 'description', 'is_closed'];
 	protected $guarded = ['id', 'timestamps'];
 
+    public static $items_per_page = 10;
+
     public static $rules = [
         'name'  => 'required|min:3|max:255',
         'project_id'  => 'not_zero'

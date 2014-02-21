@@ -26,5 +26,13 @@ return array(
     'description' => 'Description',
     'closed' => 'Closed',
     'opened' => 'Opened',
+    'tasks' => 'Tasks',
+    'no_records' => 'No records',
+    'reopen_success' => 'This task has been reopened with success.',
+    'closed_success' => 'This task has been closed with success.',
+    'destroy_success' => 'This task has been deleted with success.',
+    'all' => 'Everything',
+    'name_placeholder' => 'Name',
+    'description_placeholder' => 'Description',
 
 );

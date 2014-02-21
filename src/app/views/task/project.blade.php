@@ -6,22 +6,15 @@
 
 @section('content')
 
-@include('partials.project')
-<h2>{{ trans('task.heading_with_name', ['name' => $project->name]) }}</h2>
+<h2>
+    {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
+    {{ trans('task.tasks') }}
+</h2>
 
-@include('task.partials.close_toggle')
+@include('task.partials.filter_bar')
 
-<br/>
-<br />
+@include('task.partials.list', ['show_actions' => true, 'show_states' => true])
 
-<div>
-    {{ Html::linkAction('TaskController@getCreate', trans('task.create'), ['project_id' => $project->id]) }}
-</div>
-
-<br/>
-
-@include('partials.messages')
-
-@include('task.partials.list', ['show_actions' => true])
+{{ $tasks->links('partials.pagination') }}
 
 @stop

@@ -9,9 +9,8 @@ class TaskController extends BaseController {
      */
     public function getIndex()
     {
-        $closed = (Input::has('closed')) ? true : false;
-        $tasks = Task::where('is_closed', $closed)->get();
-        return View::make('task.index', compact('tasks'));
+        list($all, $closed, $tasks) = $this->taskFilter();
+        return View::make('task.index', compact('tasks', 'closed', 'all'));
     }
 
     /**
@@ -100,25 +99,27 @@ class TaskController extends BaseController {
         $task->delete();
 
         return Redirect::back()
-            ->withMessage(trans('task.destroy_success'))->withType('success');
+            ->withMessage(trans('task.destroy_success'))->withType('danger');
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @param  int  $id
+     * @param  int  $project_id
      * @return Response
      */
     public function getProject($project_id)
     {
-        $closed = (Input::has('closed')) ? true : false;
-        $project = Project::find($project_id);
-        $tasks = $project->tasks()->where('is_closed', $closed)->get();
-
-        return View::make('task.project', compact('project', 'tasks', 'closed'));
+        list($all, $closed, $tasks, $project) = $this->taskFilter($project_id);
+        return View::make('task.project', compact('project', 'tasks', 'closed', 'all'));
     }
 
-    // TODO: DRYer
+    /***
+     * Close a task
+     * @param $id
+     * @param bool $from_task
+     * @return Response
+     */
     public function getClose($id, $from_task = false)
     {
         $task = Task::findOrFail($id);
@@ -132,7 +133,13 @@ class TaskController extends BaseController {
             return Redirect::action('TaskController@getProject', ['project_id' => $task->project->id])
                                 ->withMessage(trans('task.closed_success'))->withType('success');
     }
-    
+
+    /***
+     * Reopen a task
+     * @param $id
+     * @param bool $from_task
+     * @return Response
+     */
     public function getReopen($id, $from_task = false)
     {
         $task = Task::findOrFail($id);
@@ -141,10 +148,42 @@ class TaskController extends BaseController {
         
         if ($from_task)
             return Redirect::action('TaskController@getShow', ['id' => $task->id])
-                    ->withMessage(trans('task.closed_success'))->withType('success');    
+                    ->withMessage(trans('task.reopen_success'))->withType('success');
         else
             return Redirect::action('TaskController@getProject', ['project_id' => $task->project->id])
-                                ->withMessage(trans('task.closed_success'))->withType('success');
+                                ->withMessage(trans('task.reopen_success'))->withType('success');
     }
 
+    /**
+     * Handle the query to the database and return all needed values for view.
+     *
+     * @param  int  $project_id
+     * @return list($all, $closed, $tasks, [$project])
+     */
+    private function taskFilter($project_id = null)
+    {
+        $all = (Input::has('all')) ? true : false;
+        $closed = (Input::has('closed') && !$all) ? true : false;
+
+        if ($project_id) {
+            $project = Project::find($project_id);
+
+            $tasks = $project->tasks();
+
+            if (!$all)
+                $tasks = $tasks->where('is_closed', $closed);
+
+            $tasks = $tasks->paginate(Task::$items_per_page);
+
+            return [$all, $closed, $tasks, $project];
+
+        } else {
+            if ($all)
+                $tasks = Task::paginate(Task::$items_per_page);
+            else
+                $tasks = Task::where('is_closed', $closed)->paginate(Task::$items_per_page);
+
+            return [$all, $closed, $tasks];
+        }
+    }
 }

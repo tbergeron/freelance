@@ -6,8 +6,6 @@
 
 @section('content')
 
-@include('partials.messages')
-
 <h2>{{ trans('task.create') }}</h2>
 
 {{ Form::open(['action' => 'TaskController@postStore']) }}

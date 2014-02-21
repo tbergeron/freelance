@@ -15,11 +15,6 @@ return array(
     'username' => 'Username',
     'password' => 'Password',
 
-    // alerts
-    'message_danger' => 'Error',
-    'message_warning' => 'Warning',
-    'message_info' => 'Information',
-
     'logged_out' => 'You are now logged out.',
     'logged_in' => 'You are now logged in.',
     'incorrect_username_or_password' => 'Your credentials are erronous. Please try again.',
@@ -40,6 +35,8 @@ return array(
     'submit' => 'Save',
     'latest_tasks' => 'Recently updated tasks',
 
+    'save' => 'Save',
+
     'none' => 'None',
-    'built_by' => 'Built by <a href="http://brainpad.org" target="_blank">Brainpad</a> &copy; :year',
+    'built_by' => 'Built by <a href="https://github.com/tbergeron/freelance" target="_blank">Tommy Bergeron</a> &copy; :year',
 );

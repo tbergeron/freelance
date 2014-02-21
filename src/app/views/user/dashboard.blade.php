@@ -8,8 +8,6 @@
 
 <h2>{{ trans('app.dashboard') }}</h2>
 
-@include('partials.messages')
-
 <div>
     {{ trans('app.welcome') }}
 </div>

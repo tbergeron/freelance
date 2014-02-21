@@ -94,7 +94,7 @@ class ProjectController extends BaseController {
         $project->delete();
 
         return Redirect::action('ProjectController@getIndex')
-            ->withMessage(trans('project.destroy_success'))->withType('success');
+            ->withMessage(trans('project.destroy_success'))->withType('danger');
     }
 
 }

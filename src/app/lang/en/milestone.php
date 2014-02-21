@@ -13,5 +13,14 @@ return array(
     'due_date' => 'Due date',
     'name' => 'Name',
     'description' => 'Description',
+    'last_update' => 'Last update',
+    'actions' => 'Actions',
+    'milestones' => 'Milestones',
+    'no_records' => 'No records.',
+    'edit_milestone' => 'Edit milestone',
+
+    'name_placeholder' => 'Name',
+    'due_date_placeholder' => 'Due date',
+    'description_placeholder' => 'Description',
 
 );

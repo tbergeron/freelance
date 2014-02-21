@@ -14,7 +14,8 @@ class CommentController extends BaseController {
         $data = $this->prepareDataAndUpdateTask();
 
         if ($comment->save($data))
-            return Redirect::back();
+        return Redirect::back()
+            ->withMessage(trans('comment.success'))->withType('success');
         else
             return Redirect::back()->withInput()->withErrors($comment->getErrors());
     }
@@ -63,7 +64,7 @@ class CommentController extends BaseController {
         $comment->delete();
 
         return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
-            ->withMessage(trans('comment.update_success'))->withType('success');
+            ->withMessage(trans('comment.destroy_success'))->withType('danger');
     }
 
     /**

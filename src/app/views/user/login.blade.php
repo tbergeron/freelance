@@ -5,7 +5,6 @@
 {{ Form::open(['action' => 'UserController@getLogin', 'class' => 'form-signin', 'role' => 'form']) }}
 <h2 class="please-login text-center">{{ trans('app.please_login') }}</h2>
 
-@include('partials.messages')
 <br/>
 {{ Form::text('email', null, array('placeholder' => trans('app.email'), 'class' => 'form-control')) }}
 <br/>

@@ -1,1 +1,0 @@
-<small>Project: {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}</small>

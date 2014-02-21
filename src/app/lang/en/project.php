@@ -13,5 +13,10 @@ return array(
     'name' => 'Name',
     'description' => 'Description',
     'code' => 'Code',
+    'last_update' => 'Last update',
+    'name_placeholder' => 'Name',
+    'code_placeholder' => 'Code',
+    'description_placeholder' => 'Description',
+    'actions' => 'Actions',
 
 );

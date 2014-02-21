@@ -12,8 +12,6 @@
 
 {{ Markdown::render($project->description) }}
 
-@include('partials.messages')
-
 <hr />
 
 

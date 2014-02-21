@@ -6,34 +6,40 @@
 
 @section('content')
 
-<h2>{{ trans('project.heading') }}</h2>
+<h2 class="section-heading">
+    {{ trans('project.heading') }}
+    <div class="pull-right">
+        {{ Html::linkAction('ProjectController@getCreate', trans('project.create'), null, ['class' => 'btn btn-default']) }}
+    </div>
+</h2>
 
-<div>
-    {{ Html::linkAction('ProjectController@getCreate', trans('project.create')) }}
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>{{ trans('project.code') }}</th>
+            <th>{{ trans('project.name') }}</th>
+            <th style="width: 12%;">{{ trans('project.last_update') }}</th>
+            <th style="width: 28%;">{{ trans('project.actions') }}</th>
+        </tr>
+
+        @foreach ($projects as $project)
+
+        <tr>
+            <td>{{ $project->code }}</td>
+            <td>{{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}</td>
+            <td>{{ $project->updated_at->diffForHumans() }}</td>
+            <td>
+                {{ Html::linkAction('TaskController@getProject', trans('project.tasks'), ['id' => $project->id], ['class' => 'btn btn-success btn-sm']) }}
+                {{ Html::linkAction('MilestoneController@getIndex', trans('project.milestones'), ['id' => $project->id], ['class' => 'btn btn-success btn-sm']) }}
+                {{ Html::linkAction('ProjectController@getEdit', trans('project.edit'), ['id' => $project->id], ['class' => 'btn btn-default btn-sm']) }}
+                <a href="{{ URL::action('ProjectController@getDestroy', $project->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('project.destroy_question', ['name' => $project->name]) }}')">
+                    {{ trans('project.destroy') }}
+                </a>
+            </td>
+        </tr>
+
+        @endforeach
+    </table>
 </div>
-
-<br/>
-
-@include('partials.messages')
-
-<ul>
-    @foreach ($projects as $project)
-
-    <li>
-        {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
-        -
-        {{ Html::linkAction('MilestoneController@getIndex', trans('project.milestones'), ['id' => $project->id]) }}
-        -
-        {{ Html::linkAction('TaskController@getProject', trans('project.tasks'), ['id' => $project->id]) }}
-        -
-        {{ Html::linkAction('ProjectController@getEdit', trans('project.edit'), ['id' => $project->id]) }}
-         -
-        <a href="{{ URL::action('ProjectController@getDestroy', $project->id) }}" onclick="return confirm('{{ trans('project.destroy_question', ['name' => $project->name]) }}')">
-            {{ trans('project.destroy') }}
-        </a>
-    </li>
-
-    @endforeach
-</ul>
 
 @stop

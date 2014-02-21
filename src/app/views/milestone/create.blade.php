@@ -6,8 +6,6 @@
 
 @section('content')
 
-@include('partials.messages')
-
 <h2>{{ trans('milestone.create') }}</h2>
 
 {{ Form::open(['action' => 'MilestoneController@postStore']) }}

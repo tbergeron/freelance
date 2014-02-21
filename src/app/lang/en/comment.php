@@ -8,4 +8,9 @@ return array(
     'destroy' => 'Delete',
     'comment_on' => 'Comment on',
     'destroy_question' => 'Do you really want to DELETE this comment?',
+    'content_placeholder' => 'Enter your comment here.',
+    'update_success' => 'Your comment has been updated with success.',
+    'destroy_success' => 'Your comment has been deleted with success.',
+    'success' => 'Your comment has been posted with success.',
+    'nothing_yet' => 'No comments yet.',
 );
