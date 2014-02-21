@@ -9,7 +9,7 @@
             <th style="width:10%">{{ trans('task.assignee') }}</th>
             <th style="width: 10%;">{{ trans('task.last_update') }}</th>
             @if(isset($show_actions))
-            <th style="width: 20%;">{{ trans('task.actions') }}</th>
+            <th style="width: 19%;">{{ trans('task.actions') }}</th>
             @endif
         </tr>
 
@@ -24,7 +24,7 @@
             <td>@if($task->user) {{ $task->user->full_name }} @endif</td>
             <td>{{ $task->updated_at->diffForHumans() }}</td>
             @if(isset($show_actions))
-            <td style="text-align: right">
+            <td style="text-align: center">
                 @include('task.partials.close_toggle_link', ['small_buttons' => true])
                 {{ Html::linkAction('TaskController@getEdit', trans('task.edit'), ['id' => $task->id], ['class' => 'btn btn-default btn-sm']) }}
                 <a href="{{ URL::action('TaskController@getDestroy', $task->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('task.destroy_question', ['name' => $task->name]) }}')">

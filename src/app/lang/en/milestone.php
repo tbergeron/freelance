@@ -22,5 +22,6 @@ return array(
     'name_placeholder' => 'Name',
     'due_date_placeholder' => 'Due date',
     'description_placeholder' => 'Description',
+    'due_in' => 'Due in',
 
 );

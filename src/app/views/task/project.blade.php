@@ -8,6 +8,7 @@
 
 <h2>
     {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
+    @include('partials.heading_separator')
     {{ trans('task.tasks') }}
 </h2>
 

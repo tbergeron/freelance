@@ -52,6 +52,12 @@ class Task extends BaseModel {
 		return $this->belongsTo('User');
 	}
 
+    public function name_short()
+    {
+        // shorten task name
+        return Str::limit($this->name, 50);
+    }
+
     public function code()
     {
         return $this->project->code . '-' . sprintf("%03s", $this->id);

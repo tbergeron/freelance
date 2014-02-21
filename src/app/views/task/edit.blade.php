@@ -10,7 +10,8 @@
 
 <h2 class="section-heading">
     {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
-    {{ $task->name }}
+    @include('partials.heading_separator')
+    {{ $task->name_short() }}
     <div class="pull-right">
         <a href="{{ URL::action('TaskController@getDestroy', $task->id) }}" class="btn btn-danger" onclick="return confirm('{{ trans('task.destroy_question', ['name' => $task->name]) }}')">
             {{ trans('task.destroy') }}

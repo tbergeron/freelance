@@ -19,7 +19,7 @@
             <th>{{ trans('project.code') }}</th>
             <th>{{ trans('project.name') }}</th>
             <th style="width: 12%;">{{ trans('project.last_update') }}</th>
-            <th style="width: 28%;">{{ trans('project.actions') }}</th>
+            <th style="width: 23%;">{{ trans('project.actions') }}</th>
         </tr>
 
         @foreach ($projects as $project)

@@ -8,6 +8,7 @@
 
 <h2 class="section-heading">
     {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
+    @include('partials.heading_separator')
     {{ trans('milestone.milestones') }}
     <div class="pull-right">
         {{ Html::linkAction('MilestoneController@getCreate', trans('milestone.create'), ['project_id' => $project->id], ['class' => 'btn btn-default']) }}
@@ -18,8 +19,8 @@
     <table class="table table-hover table-striped">
         <tr>
             <th>{{ trans('milestone.name') }}</th>
-            <th style="width: 10%;">{{ trans('milestone.last_update') }}</th>
-            <th style="width: 25%;">{{ trans('milestone.actions') }}</th>
+            <th style="width: 25%;">{{ trans('milestone.last_update') }}</th>
+            <th style="width: 11%;">{{ trans('milestone.actions') }}</th>
         </tr>
 
         @foreach ($milestones as $milestone)

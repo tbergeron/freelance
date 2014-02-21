@@ -3,7 +3,7 @@
 return array(
 
     'index' => 'Projects',
-    'heading' => 'Manage your Projects',
+    'heading' => 'Projects',
     'create' => 'Create new a project',
     'edit' => 'Edit',
     'destroy' => 'Delete',

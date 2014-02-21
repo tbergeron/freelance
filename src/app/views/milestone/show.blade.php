@@ -16,7 +16,9 @@
     </div>
 </h2>
 
-Due {{ $milestone->due_date->diffForHumans() }}
+{{ trans('milestone.due_in') }} <strong>{{ $milestone->due_date->diffForHumans() }}</strong>.
+
+<hr/>
 
 <h3>{{ trans('milestone.tasks') }}</h3>
 @include('task.partials.list')
