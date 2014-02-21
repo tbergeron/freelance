@@ -1,16 +1,25 @@
-<div class="comment_info">
-    <strong>
-        {{ trans('comment.posted_by', ['fullname' => $comment->user->full_name]) }}, {{ $comment->created_at->diffForHumans() }}
-    </strong>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="pull-right" style="margin-top:-5px">
+            @if($comment->user_id == Auth::user()->id)
 
-    <div class="pull-right">
-        @if($comment->user_id == Auth::user()->id)
-            {{ Html::linkAction('CommentController@getEdit', trans('comment.edit'), ['id' => $comment->id], ['class' => 'btn btn-default btn-sm']) }}
-            <a href="{{ URL::action('CommentController@getDestroy', $comment->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('comment.destroy_question') }}')">
-                {{ trans('comment.destroy') }}
+            <a href="{{ URL::action('CommentController@getEdit', ['id' => $comment->id]) }}" title="{{ trans('comment.edit') }}" class="btn btn-primary btn-sm">
+                <i class="glyphicon glyphicon-edit"></i>
             </a>
-        @endif
+
+            <a href="{{ URL::action('CommentController@getDestroy', $comment->id) }}" title="{{ trans('comment.destroy') }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('comment.destroy_question') }}')">
+                <i class="glyphicon glyphicon-remove"></i>
+            </a>
+            @endif
+        </div>
+        <div>
+            {{ trans('comment.posted_by', ['fullname' => $comment->user->full_name]) }}, {{ $comment->created_at->diffForHumans() }}
+        </div>
+
+    </div>
+    <div class="panel-body">
+        {{ Markdown::render($comment->content) }}
     </div>
 </div>
 
-{{ Markdown::render($comment->content) }}
+

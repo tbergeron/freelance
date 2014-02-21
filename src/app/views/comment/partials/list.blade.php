@@ -1,9 +1,7 @@
 <h3>{{ trans('comment.create') }}</h3>
 
 @foreach ($task->comments as $comment)
-    <div class="well">
-        @include('comment.partials.comment')
-    </div>
+    @include('comment.partials.comment')
 @endforeach
 
 @unless(count($task->comments))
