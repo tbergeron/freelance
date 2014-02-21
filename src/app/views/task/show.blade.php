@@ -37,6 +37,8 @@
     </table>
 </div>
 
+<h4>{{ $task->name }}</h4>
+
 {{ Markdown::render($task->description) }}
 
 <hr/>
