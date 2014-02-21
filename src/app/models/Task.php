@@ -57,4 +57,14 @@ class Task extends BaseModel {
         return $this->project->code . '-' . sprintf("%03s", $this->id);
     }
 
+    public function codeWithLink()
+    {
+        $project = $this->project;
+        $code = $project->code;
+
+        $code = Html::linkAction('ProjectController@getShow', $code, ['id' => $project->id], ['class' => 'code-link-project']);
+
+        return $code . '-' . sprintf("%03s", $this->id);
+    }
+
 }

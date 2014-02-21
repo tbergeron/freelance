@@ -16,7 +16,7 @@
         @foreach ($tasks as $task)
 
         <tr>
-            <td>{{ $task->code() }}</td>
+            <td>{{ $task->codeWithLink() }}</td>
             <td>{{ Html::linkAction('TaskController@getShow', $task->name, ['id' => $task->id]) }}</td>
             @if(isset($show_states))
             <td>{{ ($task->is_closed) ? trans('task.closed') : trans('task.opened') }}</td>

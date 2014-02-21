@@ -45,3 +45,10 @@ textarea.form-control {
 .messages-container {
     margin-top: 25px;
 }
+
+a.code-link-project {
+    color: inherit;
+    border-bottom: 1px solid #c8c8c8;
+    padding: 0 1px;
+    text-decoration: none;
+}
