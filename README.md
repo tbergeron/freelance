@@ -4,7 +4,7 @@ freelance
 Because who the fuck needs a "like" button in a project management software?!
 
 
-### Changelog; last update 2014-02-21
+### Changelog; last update 2014-02-23
 - Basic login/auth
 - Basic project/milestone/task/ management
 - Basic dashboard/project/milestone/task pages
@@ -16,16 +16,15 @@ Because who the fuck needs a "like" button in a project management software?!
 - Bootstrap-based theme (Bootswatch's Cerulean)
 - Date selector for date fields
 - Starred tasks
+- Improve comment edit
 
 #### What I'm planning to do next
 - Reference tasks in other tasks and comments
 - Handle better URLs
 - Better list filters (with order by column)
 - Improve confirmation prompts
-- Improve comment edit/delete
 - Milestones close to their due date should be shown on Dashboard
 - When closing/reopening a task, list filters should be kept
-- Use it to death to improve the workflow
 
 #### Bugs I'm aware of
 - Milestones should reload when changing project in the task form
