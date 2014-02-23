@@ -14,4 +14,5 @@ return array(
     'success' => 'Your comment has been posted with success.',
     'nothing_yet' => 'No comments yet.',
     'update' => 'Update',
+    'edited' => 'edited',
 );

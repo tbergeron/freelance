@@ -13,7 +13,7 @@
             @endif
         </div>
         <div class="comment-info">
-            {{ trans('comment.posted_by', ['fullname' => $comment->user->full_name]) }}, {{ $comment->created_at->diffForHumans() }}
+            {{ trans('comment.posted_by', ['fullname' => $comment->user->full_name]) }} {{ $comment->created_at->diffForHumans() }}@if($comment->created_at != $comment->updated_at); {{ trans('comment.edited') }} {{ $comment->updated_at->diffForHumans() }}.@endif
         </div>
 
     </div>
