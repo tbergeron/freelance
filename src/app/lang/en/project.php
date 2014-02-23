@@ -18,5 +18,8 @@ return array(
     'code_placeholder' => 'Code',
     'description_placeholder' => 'Description',
     'actions' => 'Actions',
+    'destroy_success' => 'This project has been deleted successfully.',
+    'update_success' => 'This project has been updated successfully.',
+    'create_success' => 'This project has been created successfully.',
 
 );
