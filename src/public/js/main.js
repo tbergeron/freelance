@@ -38,4 +38,18 @@ $(function(){
         return false;
     });
 
+    // comment edit button
+    $('.comment-edit').click(function(){
+        var id = $(this).data('id'),
+            that = this;
+
+        $.ajax('/comment/edit/' + id).done(function (data) {
+            console.log(data);
+            $(that).parent().parent().parent().find('.comment-content').html(data);
+            markdownEditor();
+        });
+
+        return false;
+    });
+
 });

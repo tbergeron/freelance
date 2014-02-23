@@ -3,7 +3,7 @@
         <div class="pull-right" style="margin-top:-5px">
             @if($comment->user_id == Auth::user()->id)
 
-            <a href="{{ URL::action('CommentController@getEdit', ['id' => $comment->id]) }}" title="{{ trans('comment.edit') }}" class="btn btn-default btn-sm">
+            <a data-id="{{ $comment->id }}" href="{{ URL::action('CommentController@getEdit', ['id' => $comment->id]) }}" title="{{ trans('comment.edit') }}" class="btn btn-default btn-sm comment-edit">
                 <i class="glyphicon glyphicon-edit"></i>
             </a>
 
@@ -12,14 +12,12 @@
             </a>
             @endif
         </div>
-        <div>
+        <div class="comment-info">
             {{ trans('comment.posted_by', ['fullname' => $comment->user->full_name]) }}, {{ $comment->created_at->diffForHumans() }}
         </div>
 
     </div>
-    <div class="panel-body">
+    <div class="panel-body comment-content">
         {{ Markdown::render($comment->content) }}
     </div>
 </div>
-
-

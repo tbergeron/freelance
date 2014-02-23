@@ -13,4 +13,5 @@ return array(
     'destroy_success' => 'Your comment has been deleted with success.',
     'success' => 'Your comment has been posted with success.',
     'nothing_yet' => 'No comments yet.',
+    'update' => 'Update',
 );

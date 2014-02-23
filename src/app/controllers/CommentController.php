@@ -30,7 +30,14 @@ class CommentController extends BaseController {
     {
         $comment = Comment::findOrFail($id);
         $task = $comment->task;
-        return View::make('comment.edit', compact('comment', 'task'));
+        $edit = true;
+
+        if (Request::ajax()) {
+            // respond to AJAX requests by simply outputting the form
+            return View::make('comment.partials.form', compact('comment', 'task', 'edit'));
+        } else {
+            return View::make('comment.edit', compact('comment', 'task', 'edit'));
+        }
     }
 
     /**
