@@ -7,16 +7,16 @@
 @section('content')
 
 <h2 class="section-heading">
-    {{ Html::linkAction('ProjectController@getShow', $project->name_short(), ['id' => $project->id]) }}
-    @include('partials.heading_separator')
-    {{ $task->name_short() }}
-    @include('task.partials.starred_task')
     <div class="pull-right">
         @include('task.partials.close_toggle_link', ['from_task' => true])
         <a title="{{ trans('task.edit') }}" href="{{ URL::action('TaskController@getEdit', ['id' => $task->id]) }}" class="btn btn-default">
             <i class="glyphicon glyphicon-edit"></i>
         </a>
     </div>
+    {{ Html::linkAction('ProjectController@getShow', $project->name_short(), ['id' => $project->id]) }}
+    @include('partials.heading_separator')
+    {{ $task->name_short() }}
+    @include('task.partials.starred_task')
 </h2>
 
 <div class="table-responsive task-info-table">
