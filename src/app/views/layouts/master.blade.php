@@ -13,6 +13,7 @@
 
     {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}
     {{ HTML::style('css/bootstrap.theme.min.css') }}
+    {{ HTML::style('css/bootstrap-combobox.css') }}
     {{ HTML::style('css/datepicker.css') }}
     {{ HTML::style('css/main.css')}}
 </head>
@@ -74,6 +75,7 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
 {{ HTML::script('js/bootstrap-datepicker.js') }}
+{{ HTML::script('js/bootstrap-combobox.js') }}
 {{ HTML::script('js/main.js') }}
 
 @yield('scripts')

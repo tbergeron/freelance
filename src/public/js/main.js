@@ -38,6 +38,14 @@ $(function(){
         return false;
     });
 
+    $('select').combobox();
+
+    // loading buttons
+    $('.btn-primary[type="submit"]').click(function () {
+        var btn = $(this);
+        btn.button('loading');
+    });
+
     // comment edit button
     $('.comment-edit').click(function(){
         var id = $(this).data('id'),
