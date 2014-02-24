@@ -6,7 +6,16 @@
 
 @section('content')
 
-<h2>{{ trans('app.dashboard') }}</h2>
+<h2>
+    <div class="pull-right">
+        <a title="{{ trans('task.create') }}" href="{{ URL::action('TaskController@getCreate') }}"
+           class="btn btn-success btn-sm">
+            <i class="glyphicon glyphicon-plus-sign"></i>
+            {{ trans('task.task') }}
+        </a>
+    </div>
+    {{ trans('app.dashboard') }}
+</h2>
 
 <div>
     {{ trans('app.welcome') }}
