@@ -260,7 +260,8 @@
                 .on('focus',    $.proxy(this.focus, this))
                 .on('blur',     $.proxy(this.blur, this))
                 .on('keypress', $.proxy(this.keypress, this))
-                .on('keyup',    $.proxy(this.keyup, this));
+                .on('keyup',    $.proxy(this.keyup, this))
+                .on('click',   $.proxy(this.textboxClick, this));
 
             if (this.eventSupported('keydown')) {
                 this.$element.on('keydown', $.proxy(this.keydown, this));
@@ -353,6 +354,10 @@
 
         , focus: function (e) {
             this.focused = true;
+        }
+
+        , textboxClick: function (e) {
+            this.$element.select();
         }
 
         , blur: function (e) {
