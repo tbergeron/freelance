@@ -4,14 +4,13 @@
         var textarea = $('textarea[name="{{ $id }}"]').hide();
         var editor = ace.edit("{{ $id }}").getSession();
         editor.setMode("ace/mode/markdown");
-        editor.maxLines =
-
+        editor.setShowPrintMargin(false);
 
         editor.setValue(textarea.val());
         editor.on('change', function(){
             textarea.val(editor.getValue());
         });
-    }
+    };
 
     markdownEditor();
 </script>
