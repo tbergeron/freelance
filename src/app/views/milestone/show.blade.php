@@ -14,7 +14,7 @@
     {{ $milestone->name }}
     <div class="pull-right">
         <a title="{{ trans('milestone.edit_milestone') }}" href="{{ URL::action('MilestoneController@getEdit', ['id' => $milestone->id]) }}"
-           class="btn btn-default btn-sm">
+           class="btn btn-default">
             <i class="glyphicon glyphicon-edit"></i>
         </a>
     </div>
