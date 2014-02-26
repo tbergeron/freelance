@@ -9,7 +9,7 @@
 <h2>
     <div class="pull-right">
         <a title="{{ trans('task.create') }}" href="{{ URL::action('TaskController@getCreate') }}"
-           class="btn btn-success btn-sm">
+           class="btn btn-success">
             <i class="glyphicon glyphicon-plus-sign"></i>
             {{ trans('task.task') }}
         </a>
