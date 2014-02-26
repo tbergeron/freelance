@@ -13,7 +13,10 @@
     @include('partials.heading_separator')
     {{ $milestone->name }}
     <div class="pull-right">
-        {{ Html::linkAction('MilestoneController@getEdit', trans('milestone.edit_milestone'), ['id' => $milestone->id], ['class' => 'btn btn-default']) }}
+        <a title="{{ trans('milestone.edit_milestone') }}" href="{{ URL::action('MilestoneController@getEdit', ['id' => $milestone->id]) }}"
+           class="btn btn-default btn-sm">
+            <i class="glyphicon glyphicon-edit"></i>
+        </a>
     </div>
 </h2>
 
