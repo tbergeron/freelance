@@ -9,8 +9,10 @@
 @section('content')
 
 <h2 class="section-heading">
-    {{ $project->name }}
-    <div class="visible-phone"><hr /></div>
+    <div class="pull-left">
+        {{ $project->name }}
+    </div>
+    <div class="visible-xs"><br/></div>
     <div class="pull-right">
         <a title="{{ trans('task.create') }}" href="{{ URL::action('TaskController@getCreate', ['project_id' => $project->id]) }}"
            class="btn btn-success btn-sm">
@@ -29,7 +31,14 @@
     </div>
 </h2>
 
-{{ Markdown::render($project->description) }}
+<br/>
+
+@if($project->description)
+<hr />
+<p>
+    {{ Markdown::render($project->description) }}
+</p>
+@endif
 
 <hr />
 
