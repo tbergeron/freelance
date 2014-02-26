@@ -37,6 +37,10 @@
                     <i class="glyphicon glyphicon-calendar"></i>
                 </a>
 
+                <a title="{{ trans('project.pages') }}" href="{{ URL::action('PageController@getIndex', ['id' => $project->id]) }}" class="btn btn-primary btn-sm">
+                    <i class="glyphicon glyphicon-file"></i>
+                </a>
+
                 <a href="{{ URL::action('ProjectController@getEdit', ['id' => $project->id]) }}" title="{{ trans('project.edit') }}" class="btn btn-default btn-sm">
                     <i class="glyphicon glyphicon-edit"></i>
                 </a>

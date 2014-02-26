@@ -23,6 +23,11 @@
             <i class="glyphicon glyphicon-plus-sign"></i>
             {{ trans('milestone.milestone') }}
         </a>
+        <a title="{{ trans('page.create') }}" href="{{ URL::action('PageController@getCreate', ['project_id' => $project->id]) }}"
+           class="btn btn-success btn-sm">
+            <i class="glyphicon glyphicon-plus-sign"></i>
+            {{ trans('page.page') }}
+        </a>
         <a title="{{ trans('project.edit') }}" href="{{ URL::action('ProjectController@getEdit', ['project_id' => $project->id]) }}"
            class="btn btn-default btn-sm">
             <i class="glyphicon glyphicon-edit"></i>

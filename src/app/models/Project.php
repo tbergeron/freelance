@@ -38,9 +38,14 @@ class Project extends BaseModel {
     }
 
     public function tasks()
-	{
-		return $this->hasMany('Task')->orderBy('updated_at', 'desc');
-	}
+    {
+        return $this->hasMany('Task')->orderBy('updated_at', 'desc');
+    }
+
+    public function pages()
+    {
+        return $this->hasMany('Page')->orderBy('updated_at', 'desc');
+    }
 
     public function milestones()
 	{

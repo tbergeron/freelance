@@ -6,6 +6,7 @@
 |--------------------------------------------------------------------------
 */
 
+Route::controller('page',  'PageController');
 Route::controller('milestone',  'MilestoneController');
 Route::controller('comment',    'CommentController');
 Route::controller('task',       'TaskController');

@@ -4,7 +4,7 @@
             {{ Form::label('project_id', trans('task.project_id')) }}
             {{ $errors->first('project_id') }}
             <div class="controls">
-                {{ Form::select('project_id', Project::forDropdown(), (isset($project)) ? $project->id : $project_id, ['class' => 'form-control']) }}
+                {{ Form::select('project_id', Project::forDropdown(), (isset($project)) ? $project->id : null, ['class' => 'form-control']) }}
             </div>
         </div>
     </div>
