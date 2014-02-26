@@ -12,7 +12,6 @@
     <div class="pull-left">
         {{ $project->name }}
     </div>
-    <div class="visible-xs"><br/></div>
     <div class="pull-right">
         <a title="{{ trans('task.create') }}" href="{{ URL::action('TaskController@getCreate', ['project_id' => $project->id]) }}"
            class="btn btn-success btn-sm">
@@ -29,6 +28,7 @@
             <i class="glyphicon glyphicon-edit"></i>
         </a>
     </div>
+    <div class="visible-xs"><br/></div>
 </h2>
 
 <br/>
