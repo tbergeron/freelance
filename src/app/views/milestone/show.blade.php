@@ -19,6 +19,8 @@
 
 {{ trans('milestone.due_in') }} <strong>{{ $milestone->due_date->diffForHumans() }}</strong>.
 
+{{ Markdown::render($milestone->description) }}
+
 <hr/>
 
 <h3>{{ trans('milestone.tasks') }}</h3>
