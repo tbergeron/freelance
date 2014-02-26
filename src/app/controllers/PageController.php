@@ -23,9 +23,10 @@ class PageController extends BaseController {
      *
      * @return Response
      */
-    public function getCreate()
+    public function getCreate($project_id)
     {
-        return View::make('page.create');
+        $project = Project::find($project_id);
+        return View::make('page.create', compact('project'));
     }
 
     /**
