@@ -7,6 +7,7 @@ class TaskController extends BaseController {
      *
      * @return Response
      */
+    // TODO: Could we merge getIndex and getProject?
     public function getIndex()
     {
         // todo : keep filters in sessions
