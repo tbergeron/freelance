@@ -9,6 +9,7 @@ class TaskController extends BaseController {
      */
     public function getIndex()
     {
+        // todo : keep filters in sessions
         list($all, $closed, $tasks) = $this->taskFilter();
         return View::make('task.index', compact('tasks', 'closed', 'all'));
     }
