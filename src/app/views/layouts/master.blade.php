@@ -18,7 +18,7 @@
     {{ HTML::style('css/main.css')}}
 </head>
 <body>
-<div class="container-fluid">
+<div class="container">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -58,7 +58,7 @@
     </nav>
 </div>
 
-<div class="container-fluid">
+<div class="container">
     @include('partials.messages')
 
     @yield('content')
