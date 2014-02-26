@@ -58,7 +58,7 @@
     </nav>
 </div>
 
-<div class="container">
+<div class="container-fluid">
     @include('partials.messages')
 
     @yield('content')
