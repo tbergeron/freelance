@@ -33,28 +33,26 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 @if(Auth::check())
+                    <ul class="nav navbar-nav">
+                        {{ HTML::menu_active('UserController@getDashboard', trans('app.dashboard')) }}
 
-                <ul class="nav navbar-nav">
-                    {{ HTML::menu_active('UserController@getDashboard', trans('app.dashboard')) }}
+                        @if(Auth::check())
+                            {{ HTML::menu_active('ProjectController@getIndex', trans('project.index')) }}
+                            {{ HTML::menu_active('TaskController@getIndex', trans('task.index')) }}
+                        @endif
+                    </ul>
 
-                    @if(Auth::check())
-                        {{ HTML::menu_active('ProjectController@getIndex', trans('project.index')) }}
-                        {{ HTML::menu_active('TaskController@getIndex', trans('task.index')) }}
-                        {{ HTML::menu_active('PageController@getIndex', trans('page.index')) }}
-                    @endif
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('app.logged_as') }} <strong>{{ Auth::user()->full_name }}</strong> <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ URL::action('UserController@getLogout') }}">{{ trans('app.logout') }}</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('app.logged_as') }} <strong>{{ Auth::user()->full_name }}</strong> <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ URL::action('UserController@getLogout') }}">{{ trans('app.logout') }}</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 @endif
             </div><!-- /.navbar-collapse -->
+
         </div><!-- /.container-fluid -->
     </nav>
 </div>

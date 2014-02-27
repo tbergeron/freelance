@@ -7,13 +7,10 @@ class PageController extends BaseController {
      *
      * @return Response
      */
-    public function getIndex($project_id = null)
+    public function getIndex($project_id)
     {
-        if ($project_id) {
-            $project = Project::find($project_id);
-            $pages = $project->pages;
-        } else
-            $pages = Page::all();
+        $project = Project::findOrFail($project_id);
+        $pages = $project->pages;
 
         return View::make('page.index', compact('pages', 'project'));
     }
@@ -23,9 +20,9 @@ class PageController extends BaseController {
      *
      * @return Response
      */
-    public function getCreate($project_id)
+    public function getCreate($project_id = null)
     {
-        $project = Project::find($project_id);
+        $project = Project::findOrFail($project_id);
         return View::make('page.create', compact('project'));
     }
 
@@ -39,7 +36,7 @@ class PageController extends BaseController {
         $page = new Page;
 
         if ($page->save(Input::all()))
-            return Redirect::action('PageController@getIndex')
+            return Redirect::action('PageController@getShow', ['id' => $page->id])
                 ->withMessage(trans('page.create_success'))->withType('success');
 
         else
@@ -68,7 +65,8 @@ class PageController extends BaseController {
     public function getEdit($id)
     {
         $page = Page::findOrFail($id);
-        return View::make('page.edit', compact('page'));
+        $project = $page->project;
+        return View::make('page.edit', compact('page', 'project'));
     }
 
     /**
@@ -82,7 +80,7 @@ class PageController extends BaseController {
         $page = Page::findOrFail($id);
 
         if ($page->save(Input::all()))
-            return Redirect::action('PageController@getIndex')
+            return Redirect::action('PageController@getShow', ['id' => $page->id])
                 ->withMessage(trans('page.update_success'))->withType('success');
 
         else
@@ -98,9 +96,10 @@ class PageController extends BaseController {
     public function getDestroy($id)
     {
         $page = Page::findOrFail($id);
+        $project_id = $page->project_id;
         $page->delete();
 
-        return Redirect::action('PageController@getIndex')
+        return Redirect::action('PageController@getIndex', ['project_id' => $project_id])
             ->withMessage(trans('page.destroy_success'))->withType('danger');
     }
 

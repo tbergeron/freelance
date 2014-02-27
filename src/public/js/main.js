@@ -38,12 +38,20 @@ $(function(){
         return false;
     });
 
-    $('select').combobox();
+    $('.controls select').combobox();
 
     // loading buttons
     $('.btn-primary[type="submit"]').click(function () {
         var btn = $(this);
         btn.button('loading');
+    });
+
+    // fade messages
+    $('.alert-dismissable').each(function () {
+        var that = this;
+        setTimeout(function () {
+            $(that).slideUp();
+        }, 2000);
     });
 
     // comment edit button
