@@ -46,7 +46,7 @@
 
         @unless(count($tasks))
         <tr>
-            <td colspan="3">{{ trans('task.no_records') }}</td>
+            <td colspan="6">{{ trans('task.no_records') }}</td>
         </tr>
         @endunless
 
