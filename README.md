@@ -3,6 +3,7 @@ freelance
 
 Because who the fuck needs a "like" button in a project management software?!
 
+###### Contribute! Try the latest build following [this quick get started guide](https://github.com/tbergeron/freelance/wiki/Get-Started).
 
 ### Changelog; last update 2014-02-23
 - Basic login/auth
