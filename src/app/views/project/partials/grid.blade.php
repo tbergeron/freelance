@@ -15,7 +15,7 @@
                         <span>{{ count($project->tasks()->opened()->get()) }}</span> opened tasks
                     </a>
                     <a href="{{ URL::action('MilestoneController@getIndex', ['id' => $project->id]) }}" class="thing">
-                        <span>{{ count($project->milestones) }}</span> milestones
+                        <span>{{ count($project->milestones()->upcoming()->get()) }}</span> milestones
                     </a>
                     <a href="{{ URL::action('PageController@getIndex', ['id' => $project->id]) }}" class="thing">
                         <span>{{ count($project->pages) }}</span> pages
