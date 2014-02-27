@@ -12,7 +12,7 @@
                 </div>
                 <div class="info">
                     <a href="{{ URL::action('TaskController@getProject', ['id' => $project->id]) }}" class="thing">
-                        <span>{{ count($project->tasks) }}</span> opened tasks
+                        <span>{{ count($project->tasks()->opened()->get()) }}</span> opened tasks
                     </a>
                     <a href="{{ URL::action('MilestoneController@getIndex', ['id' => $project->id]) }}" class="thing">
                         <span>{{ count($project->milestones) }}</span> milestones
