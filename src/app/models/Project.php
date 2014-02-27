@@ -14,6 +14,7 @@
  * @property string $description
  * @property-read \Illuminate\Database\Eloquent\Collection|\Page[] $pages
  */
+// TODO: Add starred for projects (for projects widget)
 class Project extends BaseModel {
 
 	protected $table = 'projects';
