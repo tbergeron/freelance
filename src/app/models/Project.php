@@ -12,6 +12,7 @@
  * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
  * @property-read \Illuminate\Database\Eloquent\Collection|\Milestone[] $milestones
  * @property string $description
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Page[] $pages
  */
 class Project extends BaseModel {
 

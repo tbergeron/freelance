@@ -10,15 +10,25 @@
     {{ Html::linkAction('ProjectController@getShow', $project->name_short(), ['id' => $project->id]) }}
     @include('partials.heading_separator')
     {{ $page->name_short() }}
-    <div class="pull-right">
-        <a title="{{ trans('page.edit') }}" href="{{ URL::action('PageController@getEdit', ['id' => $page->id]) }}" class="btn btn-default">
-            <i class="glyphicon glyphicon-edit"></i>
-        </a>
-    </div>
 </h2>
 
-<h4>{{ $page->name }}</h4>
-
-{{ Markdown::render($page->content) }}
-
+<div class="col-md-8">
+    <div class="paper-container">
+        <div class="paper">
+            <div class="inner-paper">
+                <h4>{{ $page->name }}</h4>
+                <div class="paper-content">
+                    {{ Markdown::render($page->content) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-2">
+</div>
+<div class="col-md-2">
+    <a title="{{ trans('page.edit') }}" href="{{ URL::action('PageController@getEdit', ['id' => $page->id]) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-edit"></i> Edit this page
+        </a>
+</div>
 @stop

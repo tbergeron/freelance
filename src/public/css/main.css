@@ -68,19 +68,42 @@ a.code-link-project {
     border-top-color: #1a1a1a;
 }
 
-@media (max-width: 978px) {
-    .container {
-        padding:0;
-        margin:0;
-    }
+.paper-container {
+    background-color: #ffffcc;
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
 
-    body {
-        padding:0;
-    }
+.paper-container .paper {
+    display: block;
+    border: 0;
+    background-color: #ffffcc;
+    border-left: 1px solid #fce3b0;
+    color: #000;
+    margin-left: 33px;
+    font-size: 14px;
+    line-height: 20px;
+}
 
-    .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom:0;
-    }
+.paper-container .paper .inner-paper {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 30px;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+.paper-container .paper .inner-paper {
+    background-image: url('/images/notepad_background.gif');
+    background-repeat: repeat-y;
+    background-position: -1px top;
+}
+
+.paper-container .paper .inner-paper h4 {
+    padding: 26px 0 10px 0;
+    font-weight: bold;
+    font-size: 20px;
+    color: #000;
 }
