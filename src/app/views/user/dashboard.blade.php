@@ -6,10 +6,12 @@
 
 @section('content')
 
+@if(count($starred_tasks) > 0)
 <h3>{{ trans('app.starred_tasks') }}</h3>
 @include('task.partials.list', ['tasks' => $starred_tasks, 'show_states' => true, 'show_project_names' => true])
-
 <hr/>
+@endif
+
 
 <h3>Projects</h3>
 @include('project.partials.grid', ['projects' => $projects])
