@@ -7,7 +7,7 @@
             </div>
             <div class="col-xs-10 col-md-10 content-text no-horizontal-padding">
                 <div class="name">
-                    {{ Html::linkAction('ProjectController@getShow', $project->name_short(), ['id' => $project->id]) }}
+                    {{ Html::linkAction('ProjectController@getShow', $project->name_short(22), ['id' => $project->id]) }}
                     <div class="code">(<span>{{ $project->code }}</span>)</div>
                 </div>
                 <div class="info">
