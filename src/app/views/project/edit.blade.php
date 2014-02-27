@@ -11,7 +11,7 @@
 <h2 class="section-heading">
     {{ $project->name }}
     <div class="pull-right">
-        <a href="{{ URL::action('ProjectController@getDestroy', $project->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ trans('project.destroy_question', ['name' => $project->name]) }}')">
+        <a href="{{ URL::action('ProjectController@getDestroy', $project->id) }}" class="btn btn-danger btn-default" onclick="return confirm('{{ trans('project.destroy_question', ['name' => $project->name]) }}')">
             {{ trans('project.destroy') }}
         </a>
     </div>
@@ -23,4 +23,8 @@
 
 {{ Form::close() }}
 
+@stop
+
+@section('scripts')
+    @include('partials.markdown_editor', ['id' => 'description'])
 @stop
