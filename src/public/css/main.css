@@ -107,3 +107,7 @@ a.code-link-project {
     font-size: 20px;
     color: #000;
 }
+
+.paper-container .paper .inner-paper p {
+    margin: 0 auto;
+}
