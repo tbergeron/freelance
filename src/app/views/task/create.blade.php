@@ -6,9 +6,14 @@
 
 @section('content')
 
-<h2>{{ trans('task.create') }}</h2>
-
 {{ Form::open(['action' => 'TaskController@postStore']) }}
+
+<h2>
+    {{ trans('task.create') }}
+    <div class="pull-right">
+        {{ Form::submit(trans('app.save'), ['class' => 'btn btn-primary']) }}
+    </div>
+</h2>
 
 @include('task.partials.form')
 

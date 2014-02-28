@@ -6,7 +6,7 @@
         editor.render();
 
         if (taller)
-            $('.CodeMirror').height(450);
+            $('.CodeMirror').height(400);
     };
 
     markdownEditor({{ ((isset($taller)) ? true : false) }});
