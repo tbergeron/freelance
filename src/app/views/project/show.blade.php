@@ -43,9 +43,9 @@
 @if($project->description)
 <div class="row">
     <hr />
-    <p>
+    <div class="markdown_content">
         {{ Markdown::render($project->description) }}
-    </p>
+    </div>
 </div>
 @endif
 

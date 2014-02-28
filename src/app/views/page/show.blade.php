@@ -16,7 +16,9 @@
                         @include('page.partials.display_project')
                     </h4>
                     <div class="paper-content">
-                        {{ Markdown::render($page->content) }}
+                        <div class="markdown_content">
+                            {{ Markdown::render($page->content) }}
+                        </div>
                     </div>
                 </div>
             </div>

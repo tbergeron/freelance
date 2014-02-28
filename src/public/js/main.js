@@ -68,4 +68,9 @@ $(function(){
         return false;
     });
 
+    // convert markdown table to bootstrap table
+    $('.markdown_content table').each(function(){
+       $(this).addClass('table table-bordered');
+    });
+
 });
