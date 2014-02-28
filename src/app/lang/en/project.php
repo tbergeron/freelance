@@ -21,5 +21,6 @@ return array(
     'destroy_success' => 'This project has been deleted successfully.',
     'update_success' => 'This project has been updated successfully.',
     'create_success' => 'This project has been created successfully.',
+    'pages' => 'Pages',
 
 );

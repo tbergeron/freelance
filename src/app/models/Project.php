@@ -14,6 +14,7 @@
  * @property string $description
  * @property-read \Illuminate\Database\Eloquent\Collection|\Page[] $pages
  */
+// TODO: Add starred for projects (for projects widget)
 class Project extends BaseModel {
 
 	protected $table = 'projects';
@@ -32,10 +33,9 @@ class Project extends BaseModel {
         return $this->name;
     }
 
-    public function name_short()
+    public function name_short($len = 15)
     {
-        // shorten task name
-        return Str::limit($this->name, 15);
+        return Str::limit($this->name, $len);
     }
 
     public function tasks()

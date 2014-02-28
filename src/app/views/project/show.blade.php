@@ -47,12 +47,22 @@
 
 <hr />
 
-<h3>{{ Html::linkAction('MilestoneController@getIndex', trans('project.milestones'), ['id' => $project->id]) }}</h3>
-@include('milestone.partials.list', ['milestones' => $project->milestones])
+<div class="columns-without-padding">
+    <div class="col-lg-6">
+        <h3>{{ Html::linkAction('MilestoneController@getIndex', trans('project.milestones'), ['id' => $project->id]) }}</h3>
+        @include('milestone.partials.list', ['milestones' => $project->milestones])
+    </div>
+    <div class="col-lg-6">
+        <h3>{{ Html::linkAction('PageController@getIndex', trans('project.pages'), ['id' => $project->id]) }}</h3>
+        @include('page.partials.list', ['pages' => $project->pages])
+    </div>
+</div>
 
 <hr />
 
-<h3>{{ Html::linkAction('TaskController@getProject', trans('app.latest_tasks'), ['id' => $project->id]) }}</h3>
-@include('task.partials.list', ['tasks' => $tasks, 'show_states' => true])
+<div class="col-lg-12 no-horizontal-padding">
+    <h3>{{ Html::linkAction('TaskController@getProject', trans('app.latest_tasks'), ['id' => $project->id]) }}</h3>
+    @include('task.partials.list', ['tasks' => $tasks, 'show_states' => true])
+</div>
 
 @stop

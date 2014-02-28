@@ -65,5 +65,9 @@ class Milestone extends BaseModel {
         return $milestones_array;
     }
 
+    public function scopeUpcoming($query)
+    {
+        return $query->where('due_date', '>', date('Y-m-d'));
+    }
 
 }

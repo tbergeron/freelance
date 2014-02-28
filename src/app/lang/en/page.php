@@ -3,14 +3,13 @@
 return array(
 
     'index' => 'Pages',
-    'heading' => 'Pages',
     'heading' => 'Pages from all projects',
     'create' => 'Create new a page',
     'edit' => 'Edit',
     'destroy' => 'Delete',
     'destroy_question' => 'Do you really want to DELETE the page :name?',
     'name' => 'Name',
-    'last_update' => 'Last update',
+    'last_update' => 'Updated',
     'actions' => 'Actions',
     'none' => 'None',
     'project_id' => 'Project',
@@ -25,5 +24,13 @@ return array(
     'content_placeholder' => 'Description',
     'page' => 'Page',
     'content' => 'Content',
+    'in' => 'in',
+    'want_to_make_changes' => 'Want to make a change?',
+    'save_page' => 'Save this page',
+    'edit_page' => 'Edit this page',
+    'delete_page' => 'Delete this page',
+    'cancel_changes' => 'Discard changes',
+    'save_changes' => 'Don\' forget to save!',
+
 
 );

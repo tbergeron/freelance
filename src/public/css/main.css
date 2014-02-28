@@ -68,6 +68,29 @@ a.code-link-project {
     border-top-color: #1a1a1a;
 }
 
+.btn-link-danger {
+    color: #D8262C;
+}
+
+.no-horizontal-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.columns-without-padding div:first-child {
+    padding-left: 0;
+}
+
+.columns-without-padding div:last-child {
+    padding-right: 0;
+}
+
+.page-top-container {
+    margin-top: 33px;
+}
+.paper-content #content {
+    min-height: 500px;
+}
 .paper-container {
     background-color: #ffffcc;
     -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.3);
@@ -93,6 +116,7 @@ a.code-link-project {
     padding-bottom: 30px;
     word-wrap: break-word;
     font-size: 14px;
+    min-height: 480px;
 }
 
 .paper-container .paper .inner-paper {
@@ -102,7 +126,7 @@ a.code-link-project {
 }
 
 .paper-container .paper .inner-paper h4 {
-    padding: 24px 0 12px 0;
+    padding: 24px 0 10px 0;
     font-weight: bold;
     font-size: 20px;
     color: #000;
@@ -110,4 +134,67 @@ a.code-link-project {
 
 .paper-container .paper .inner-paper p {
     margin: 0 auto 20px auto;
+}
+
+.page-sidebar {
+
+}
+
+.page-sidebar p {
+    font-size: 14px;
+}
+
+.page-sidebar ul li {
+
+}
+
+.page-sidebar .jumbotron {
+    text-align: center;
+    padding: 15px;
+}
+
+.project-grid-element {
+    padding: 0 10px 20px 10px;
+}
+
+.project-grid-element .content {
+    height: 60px;
+    padding: 0 5px;
+    background: #F5F5F5;
+}
+
+.project-grid-element .content .content-icon {
+    padding-top: 15px;
+    font-size: 24px;
+}
+
+.project-grid-element .content .content-text .name {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.project-grid-element .content .content-text .name .code {
+    display: inline;
+    font-size: 10px;
+    color: #888888;
+}
+
+.project-grid-element .content .content-text .name .code span {
+    font-style: italic;
+}
+
+.project-grid-element .content .content-text {
+    padding-top: 9px;
+}
+
+.project-grid-element .content .content-text .info .thing {
+    display: inline-block;
+    margin-right: 5px;
+    color: #888888;
+    font-size: 13px;
+}
+
+.project-grid-element .content .content-text .info .thing span {
+    font-weight: bold;
+    color: #333;
 }

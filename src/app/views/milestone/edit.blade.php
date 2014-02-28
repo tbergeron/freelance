@@ -21,3 +21,7 @@
 {{ Form::close() }}
 
 @stop
+
+@section('scripts')
+    @include('partials.markdown_editor', ['id' => 'description'])
+@stop

@@ -84,4 +84,14 @@ class Task extends BaseModel {
         return $code . '-' . sprintf("%03s", $this->id);
     }
 
+    public function scopeClosed($query)
+    {
+        return $query->where('is_closed', true);
+    }
+
+    public function scopeOpened($query)
+    {
+        return $query->where('is_closed', false);
+    }
+
 }
