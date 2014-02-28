@@ -12,7 +12,7 @@ class CreateMilestonesTable extends Migration {
 			$table->integer('project_id')->unsigned();
 			$table->string('name', 255);
             $table->text('description')->nullable();
-            $table->timestamp('due_date');
+            $table->timestamp('due_date')->nullable();
 			$table->timestamps();
 		});
 	}
