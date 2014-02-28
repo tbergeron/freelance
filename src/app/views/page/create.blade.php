@@ -24,7 +24,6 @@
 
                     <div class="paper-content">
                         <div class="form-group @if($errors->has('content')) has-feedback has-error @endif">
-                            {{ Form::label('content', trans('page.content')) }}
                             <div class="controls">
                                 {{ $errors->first('content') }}
                                 {{ Form::textarea('content', null, ['placeholder' => trans('page.content_placeholder'), 'class' => 'form-control content']) }}

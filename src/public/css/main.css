@@ -93,6 +93,12 @@ a.code-link-project {
 .page-top-container {
     margin-top: 33px;
 }
+.paper-content .editor-toolbar {
+    padding-top:4px;
+}
+.paper-content .CodeMirror {
+    margin-top:5px;
+}
 .paper-content #content {
     min-height: 500px;
 }
