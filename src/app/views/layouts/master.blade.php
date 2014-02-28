@@ -58,16 +58,22 @@
 </div>
 
 <div class="container">
-    @include('partials.messages')
+    <div class="row">
+        <div class="col-lg-12">
 
-    @yield('content')
+            @include('partials.messages')
 
-    <div class="clearfix"></div>
-    <div class="footer">
-        <hr>
-        <div class="row-fluid">
-            <p class="muted pull-right">{{ trans('app.built_by', ['year' => date('Y')]) }}</p>
+            @yield('content')
+
+            <div class="clearfix"></div>
+            <div class="footer">
+                <hr>
+                <div class="row-fluid">
+                    <p class="muted pull-right">{{ trans('app.built_by', ['year' => date('Y')]) }}</p>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>
 
