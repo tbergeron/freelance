@@ -21,6 +21,8 @@ Because who the fuck needs a "like" button in a project management software?!
 - Project dashboard widget
 
 #### What I'm planning to do next
+- Basic user management (with basic permissions)
+- Starred projects (for dashboard widget)
 - Reference tasks in other tasks and comments
 - Better list filters and search (with order by column)
 - Milestones close to their due date should be shown on Dashboard
