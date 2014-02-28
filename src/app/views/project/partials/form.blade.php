@@ -30,10 +30,6 @@
                     {{ Form::textarea('description', null, ['placeholder' => trans('project.description_placeholder'), 'class' => 'form-control']) }}
                 </div>
             </div>
-
-            <div class="form-group">
-                {{ Form::submit(trans('app.save'), ['class' => 'btn btn-primary']) }}
-            </div>
         </div>
     </div>
 

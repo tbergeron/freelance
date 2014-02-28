@@ -37,13 +37,8 @@
                 {{ Form::label('description', trans('milestone.description')) }}
                 <div class="controls">
                     {{ $errors->first('description') }}
-                    <div id="description" class="markdown_editor form-control"></div>
                     {{ Form::textarea('description', null, ['placeholder' => trans('milestone.description_placeholder'), 'class' => 'form-control']) }}
                 </div>
-            </div>
-
-            <div class="form-group">
-                {{ Form::submit(trans('app.save'), ['class' => 'btn btn-primary']) }}
             </div>
         </div>
     </div>

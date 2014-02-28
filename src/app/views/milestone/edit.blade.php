@@ -8,13 +8,16 @@
 
 @section('content')
 
-<h2>
-    {{ Html::linkAction('ProjectController@getShow', $milestone->project->name, ['id' => $milestone->project->id]) }}
-    @include('partials.heading_separator')
-    {{ $milestone->name }}
-</h2>
-
 {{ Form::model($milestone, ['action' => ['MilestoneController@postUpdate', $milestone->id], 'files' => true]) }}
+
+    <h2>
+        {{ Html::linkAction('ProjectController@getShow', $milestone->project->name, ['id' => $milestone->project->id]) }}
+        @include('partials.heading_separator')
+        {{ $milestone->name }}
+        <div class="pull-right">
+            {{ Form::submit(trans('app.save'), ['class' => 'btn btn-primary']) }}
+        </div>
+    </h2>
 
     @include('milestone.partials.form')
 

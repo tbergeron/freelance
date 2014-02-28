@@ -6,9 +6,14 @@
 
 @section('content')
 
-<h2>{{ trans('milestone.create') }}</h2>
-
 {{ Form::open(['action' => 'MilestoneController@postStore']) }}
+
+    <h2>
+        {{ trans('milestone.create') }}
+        <div class="pull-right">
+            {{ Form::submit(trans('app.save'), ['class' => 'btn btn-primary']) }}
+        </div>
+    </h2>
 
     @include('milestone.partials.form')
 
