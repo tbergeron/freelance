@@ -293,7 +293,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   }
 }
 .CodeMirror {
-  height: 50px;
+  height: 150px;
 }
 :-webkit-full-screen {
   background: #f9f9f5;
