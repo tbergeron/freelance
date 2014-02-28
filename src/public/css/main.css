@@ -217,3 +217,7 @@ a.code-link-project {
 .CodeMirror-lines {
     font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 }
+
+.filter_bar .btn-success:hover {
+    color: #fff;
+}
