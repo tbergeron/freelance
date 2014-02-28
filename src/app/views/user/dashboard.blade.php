@@ -18,7 +18,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h3 class="heading">Projects</h3>
+        <h3 @if(count($starred_tasks) == 0)class="heading"@endif>Projects</h3>
         @include('project.partials.grid', ['projects' => $projects])
     </div>
 </div>
