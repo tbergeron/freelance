@@ -223,9 +223,28 @@ a.code-link-project {
 }
 
 .editor-toolbar, .CodeMirror, .editor-statusbar {
-    background-color: #EEEEEE;
+    background-color: #fefefe;
 }
 
 .inner-paper .editor-toolbar, .inner-paper .editor-statusbar, .inner-paper .CodeMirror {
     background: none;
+    border: none;
+}
+
+.editor-toolbar {
+    border-top: 1px solid #E3E5E7;
+    border-left: 1px solid #E3E5E7;
+    border-right: 1px solid #E3E5E7;
+}
+
+.CodeMirror {
+    border-top: 1px solid #E3E5E7;
+    border-left: 1px solid #E3E5E7;
+    border-right: 1px solid #E3E5E7;
+}
+
+.editor-statusbar {
+    border-left: 1px solid #E3E5E7;
+    border-right: 1px solid #E3E5E7;
+    border-bottom: 1px solid #E3E5E7;
 }

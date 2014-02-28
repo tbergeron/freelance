@@ -217,7 +217,7 @@ class TaskController extends BaseController {
             if ($all)
                 $tasks = Task::orderBy('updated_at', 'desc')->paginate(Task::$items_per_page);
             else
-                $tasks = Task::where('is_closed', $closed)->paginate(Task::$items_per_page);
+                $tasks = Task::orderBy('updated_at', 'desc')->where('is_closed', $closed)->paginate(Task::$items_per_page);
 
             return [$all, $closed, $tasks];
         }
