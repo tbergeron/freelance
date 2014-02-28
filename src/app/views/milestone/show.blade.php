@@ -20,7 +20,9 @@
     </div>
 </h2>
 
-{{ trans('milestone.due_in') }} <strong>{{ $milestone->due_date->diffForHumans() }}</strong>.
+@if($milestone->due_date)
+    {{ trans('milestone.due_in') }} <strong>{{ $milestone->due_date->diffForHumans() }}</strong>.
+@endif
 
 <div class="markdown_content">
     {{ Markdown::render($milestone->description) }}

@@ -28,5 +28,8 @@ return array(
 
     'milestone' => 'Milestone',
     'no_due_date' => 'N/A',
+    'number_of_tasks' => '# Tasks',
+    'due' => 'Due',
+    'created_at' => 'Created',
 
 );

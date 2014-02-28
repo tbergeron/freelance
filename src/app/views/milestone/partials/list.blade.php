@@ -1,11 +1,12 @@
 <div class="table-responsive">
     <table class="table table-hover table-striped">
         <tr>
-            <th>Name</th>
-            <th>Due</th>
-            <th>Created</th>
+            <th>{{ trans('milestone.name') }}</th>
+            <th>{{ trans('milestone.number_of_tasks') }}</th>
+            <th>{{ trans('milestone.due') }}</th>
+            <th>{{ trans('milestone.created_at') }}</th>
             @if(isset($show_actions))
-            <th style="width: 11%;">{{ trans('milestone.actions') }}</th>
+            <th style="width: 15%;">{{ trans('milestone.actions') }}</th>
             @endif
         </tr>
 
@@ -13,6 +14,7 @@
 
         <tr>
             <td>{{ Html::linkAction('MilestoneController@getShow', $milestone->name, ['id' => $milestone->id]) }}</td>
+            <td>{{ count($milestone->tasks) }}</td>
             <td>
                 @if($milestone->due_date)
                     {{ $milestone->due_date->diffForHumans() }}
@@ -23,6 +25,10 @@
             <td>{{ $milestone->created_at->diffForHumans() }}</td>
             @if(isset($show_actions))
             <td>
+                <a title="{{ trans('project.tasks') }}" href="{{ URL::action('MilestoneController@getShow', ['id' => $milestone->id]) }}" class="btn btn-primary btn-sm">
+                    <i class="glyphicon glyphicon-tasks"></i>
+                </a>
+
                 <a href="{{ URL::action('MilestoneController@getEdit', ['id' => $milestone->id]) }}" title="{{ trans('milestone.edit') }}" class="btn btn-default btn-sm">
                     <i class="glyphicon glyphicon-edit"></i>
                 </a>
