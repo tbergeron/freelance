@@ -27,5 +27,6 @@ return array(
     'update_success' => 'This milestone has been updated with success.',
 
     'milestone' => 'Milestone',
+    'no_due_date' => 'N/A',
 
 );

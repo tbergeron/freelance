@@ -50,7 +50,8 @@ class Project extends BaseModel {
 
     public function milestones()
 	{
-		return $this->hasMany('Milestone')->orderBy('due_date', 'asc');
+        // closest dates first, null last.
+		return $this->hasMany('Milestone')->orderBy('due_date IS NULL')->orderBy('due_date', 'asc');
 	}
 
     public function afterValidate()

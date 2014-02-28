@@ -66,7 +66,10 @@ class MilestoneController extends BaseController {
     public function getEdit($id)
     {
         $milestone = Milestone::findOrFail($id);
-        $milestone->due_date = $milestone->formatted_due_date();
+
+        if ($milestone->due_date)
+            $milestone->due_date = $milestone->formatted_due_date();
+
         $project = $milestone->project;
         return View::make('milestone.edit', compact('milestone', 'project'));
     }

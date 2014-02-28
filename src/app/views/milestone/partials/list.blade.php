@@ -13,7 +13,13 @@
 
         <tr>
             <td>{{ Html::linkAction('MilestoneController@getShow', $milestone->name, ['id' => $milestone->id]) }}</td>
-            <td>{{ $milestone->due_date->diffForHumans() }}</td>
+            <td>
+                @if($milestone->due_date)
+                    {{ $milestone->due_date->diffForHumans() }}
+                @else
+                    {{ trans('milestone.no_due_date') }}
+                @endif
+            </td>
             <td>{{ $milestone->created_at->diffForHumans() }}</td>
             @if(isset($show_actions))
             <td>
