@@ -223,7 +223,7 @@ a.code-link-project {
 }
 
 .editor-toolbar, .CodeMirror, .editor-statusbar {
-    background-color: #F6F6F6;
+    background-color: #EEEEEE;
 }
 
 .inner-paper .editor-toolbar, .inner-paper .editor-statusbar, .inner-paper .CodeMirror {
