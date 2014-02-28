@@ -40,4 +40,5 @@ return array(
     'milestone' => 'Milestone',
     'starred' => 'Starred',
     'task' => 'Task',
+    'created_at' => 'Created',
 );
