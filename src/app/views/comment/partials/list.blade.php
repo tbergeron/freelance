@@ -1,3 +1,5 @@
+<h3>{{ trans('comment.comments') }}</h3>
+
 @foreach ($task->comments as $comment)
     @include('comment.partials.comment')
 @endforeach
@@ -7,7 +9,5 @@
 @endunless
 
 <hr/>
-
-<h3>{{ trans('comment.create') }}</h3>
 
 @include('comment.partials.form')

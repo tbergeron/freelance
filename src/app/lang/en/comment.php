@@ -15,4 +15,6 @@ return array(
     'nothing_yet' => 'No comments yet.',
     'update' => 'Update',
     'edited' => 'edited',
+    'comments' => 'Comments',
+
 );
