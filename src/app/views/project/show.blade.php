@@ -2,8 +2,6 @@
 
 @section('title')
 {{ $project->name }} -
-{{ trans('project.index') }}
--
 @stop
 
 @section('content')

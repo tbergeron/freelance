@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-{{ trans('page.index') }} -
+{{ $page->name }} -
 @stop
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-{{ trans('task.index') }} -
+{{ $task->name }} -
 @stop
 
 @section('content')
