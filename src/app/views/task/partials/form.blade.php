@@ -42,7 +42,6 @@
             {{ Form::label('description', trans('task.description')) }}
             <div class="controls">
                 {{ $errors->first('description') }}
-                <div id="description" class="markdown_editor form-control"></div>
                 {{ Form::textarea('description', null, ['placeholder' => trans('task.description_placeholder'), 'class' => 'form-control description']) }}
             </div>
         </div>

@@ -14,6 +14,7 @@
     {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}
     {{ HTML::style('css/bootstrap.theme.min.css') }}
     {{ HTML::style('css/bootstrap-combobox.css') }}
+    {{ HTML::style('css/editor.css') }}
     {{ HTML::style('css/datepicker.css') }}
     {{ HTML::style('css/main.css')}}
 </head>

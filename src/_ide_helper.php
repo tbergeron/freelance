@@ -531,6 +531,17 @@ class App extends Illuminate\Support\Facades\App{
 	 }
 
 	/**
+	 * Determine if the given service is a deferred service.
+	 *
+	 * @param string  $service
+	 * @return bool
+	 * @static 
+	 */
+	 public static function isDeferredService($service){
+		return Illuminate\Foundation\Application::isDeferredService($service);
+	 }
+
+	/**
 	 * Get or set the request class for the application.
 	 *
 	 * @param string  $class
@@ -5822,6 +5833,16 @@ class Input extends Illuminate\Support\Facades\Input{
 	 }
 
 	/**
+	 * Get the request method.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function method(){
+		return Illuminate\Http\Request::method();
+	 }
+
+	/**
 	 * Get the root URL for the application.
 	 *
 	 * @return string
@@ -8476,6 +8497,16 @@ class Request extends Illuminate\Support\Facades\Request{
 	 */
 	 public static function instance(){
 		return Illuminate\Http\Request::instance();
+	 }
+
+	/**
+	 * Get the request method.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function method(){
+		return Illuminate\Http\Request::method();
 	 }
 
 	/**

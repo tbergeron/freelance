@@ -118,7 +118,7 @@ a.code-link-project {
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 5px;
-    padding-bottom: 30px;
+    padding-bottom: 5px;
     word-wrap: break-word;
     font-size: 14px;
     min-height: 480px;
@@ -206,4 +206,8 @@ a.code-link-project {
 
 .markdown_content {
 
+}
+
+textarea {
+    width: 500px;
 }

@@ -1,16 +1,13 @@
-{{ HTML::script('packages/ace/ace.js') }}
+{{ HTML::script('js/marked.js') }}
+{{ HTML::script('js/editor.js') }}
 <script>
-    var markdownEditor = function() {
-        var textarea = $('textarea[name="{{ $id }}"]').hide();
-        var editor = ace.edit("{{ $id }}").getSession();
-        editor.setMode("ace/mode/markdown");
-//        editor.renderer.setShowPrintMargin(false);
+    var markdownEditor = function(taller) {
+        var editor = new Editor();
+        editor.render();
 
-        editor.setValue(textarea.val());
-        editor.on('change', function(){
-            textarea.val(editor.getValue());
-        });
+        if (taller)
+            $('.CodeMirror').height(450);
     };
 
-    markdownEditor();
+    markdownEditor({{ ((isset($taller)) ? true : false) }});
 </script>

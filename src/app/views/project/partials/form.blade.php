@@ -24,7 +24,6 @@
             {{ Form::label('description', trans('project.description')) }}
             <div class="controls">
                 {{ $errors->first('description') }}
-                <div id="description" class="markdown_editor form-control"></div>
                 {{ Form::textarea('description', null, ['placeholder' => trans('project.description_placeholder'), 'class' => 'form-control']) }}
             </div>
         </div>

@@ -9,7 +9,6 @@
     {{ $errors->first('user_id') }}
     
     {{ $errors->first('content') }}
-    <div id="content" class="markdown_editor form-control" style="height:80px"></div>
     {{ Form::textarea('content', null, ['placeholder' => trans('comment.content_placeholder'), 'class' => 'form-control']) }}
     <br />
     {{ Form::submit(((isset($edit)) ? trans('comment.update') : null), ['class' => 'btn btn-primary pull-right']) }}

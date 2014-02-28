@@ -14,6 +14,7 @@ use Carbon\Carbon;
  * @property-read \Project $project
  * @property string $due_date
  * @property string $description
+ * @method static Milestone upcoming() 
  */
 class Milestone extends BaseModel {
 

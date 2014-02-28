@@ -27,7 +27,6 @@
                             {{ Form::label('content', trans('page.content')) }}
                             <div class="controls">
                                 {{ $errors->first('content') }}
-                                <div id="content" class="markdown_editor form-control"></div>
                                 {{ Form::textarea('content', null, ['placeholder' => trans('page.content_placeholder'), 'class' => 'form-control content']) }}
                             </div>
                         </div>
@@ -58,5 +57,5 @@
 @stop
 
 @section('scripts')
-@include('partials.markdown_editor', ['id' => 'content'])
+@include('partials.markdown_editor', ['taller' => true])
 @stop
