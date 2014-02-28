@@ -17,5 +17,5 @@
 @stop
 
 @section('scripts')
-    @include('partials.markdown_editor', ['id' => 'content'])
+    @include('partials.markdown_editor', ['id' => 'description'])
 @stop
