@@ -23,7 +23,10 @@ class TaskController extends BaseController {
      */
     public function getCreate($project_id = null)
     {
-        return View::make('task.create', compact('project_id'));
+        if ($project_id)
+            $project = Project::findOrFail($project_id);
+
+        return View::make('task.create', compact('project'));
     }
 
     /**
