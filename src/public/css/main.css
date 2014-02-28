@@ -214,6 +214,6 @@ a.code-link-project {
 
 }
 
-textarea {
-    width: 500px;
+.CodeMirror-lines {
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 }
