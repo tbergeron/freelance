@@ -221,3 +221,11 @@ a.code-link-project {
 .filter_bar .btn-success:hover {
     color: #fff;
 }
+
+.editor-toolbar, .CodeMirror, .editor-statusbar {
+    background-color: #F6F6F6;
+}
+
+.inner-paper .editor-toolbar, .inner-paper .editor-statusbar, .inner-paper .CodeMirror {
+    background: none;
+}
