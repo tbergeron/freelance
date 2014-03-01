@@ -17,8 +17,8 @@
  * @property-read \User $user
  * @property boolean $is_closed
  * @property-read \Illuminate\Database\Eloquent\Collection|\User[] $users
- * @method static Task closed() 
- * @method static Task opened() 
+ * @method static Task closed()
+ * @method static Task opened()
  */
 class Task extends BaseModel {
 

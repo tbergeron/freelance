@@ -38,16 +38,11 @@ class User extends BaseModel implements UserInterface {
         return $this->belongsToMany('Task', 'starred_tasks');
     }
 
-	public function getAuthIdentifier()
+    public function getAuthIdentifier()
 	{
 		return $this->getKey();
 	}
 
-	/**
-	 * Get the password for the user.
-	 *
-	 * @return string
-	 */
 	public function getAuthPassword()
 	{
 		return $this->password;

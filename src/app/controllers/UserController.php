@@ -8,6 +8,10 @@ class UserController extends \BaseController {
         $this->beforeFilter('auth', array('only' => array('getDashboard')));
     }
 
+    /*
+     * Dashboard & Login/Logout
+     */
+
     public function getHome()
     {
         if (Auth::check()) {
@@ -57,5 +61,10 @@ class UserController extends \BaseController {
             ->withMessage(trans('app.logged_out'))
             ->withType('info');
     }
+
+    /*
+     * Management
+     */
+    // TODO: REST the shit out of users
 
 }

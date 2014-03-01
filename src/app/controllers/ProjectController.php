@@ -35,7 +35,6 @@ class ProjectController extends BaseController {
         if ($project->save(Input::all()))
             return Redirect::action('ProjectController@getIndex')
                 ->withMessage(trans('project.create_success'))->withType('success');
-
         else
             return Redirect::back()->withInput()->withErrors($project->getErrors());
     }
@@ -48,9 +47,15 @@ class ProjectController extends BaseController {
      */
     public function getShow($id)
     {
-        $project = Project::findOrFail($id);
-        $tasks = $project->tasks()->limit(Task::$items_per_page)->get();
-        return View::make('project.show', compact('project', 'tasks'));
+        // NOTE: This is how permission will be implemented
+        // TODO: this might be possible with a closure?
+        if (Permission::check($id, true, false)) {
+            $project = Project::findOrFail($id);
+            $tasks = $project->tasks()->limit(Task::$items_per_page)->get();
+            return View::make('project.show', compact('project', 'tasks'));
+        } else {
+            return Permission::kickOut();
+        }
     }
 
     /**
@@ -61,8 +66,12 @@ class ProjectController extends BaseController {
      */
     public function getEdit($id)
     {
-        $project = Project::findOrFail($id);
-        return View::make('project.edit', compact('project'));
+        if (Permission::check($id, true, true)) {
+            $project = Project::findOrFail($id);
+            return View::make('project.edit', compact('project'));
+        } else {
+            return Permission::kickOut();
+        }
     }
 
     /**
