@@ -5,7 +5,7 @@ Because who the fuck needs a "like" button in a project management software?!
 
 ###### Contribute! Try the latest build following [this quick get started guide](https://github.com/tbergeron/freelance/wiki/Get-Started).
 
-### Changelog; last update 2014-02-28
+### Changelog; last update 2014-03-01
 - Basic login/auth
 - Basic project/milestone/task/ management
 - Basic dashboard/project/milestone/task pages
@@ -20,13 +20,14 @@ Because who the fuck needs a "like" button in a project management software?!
 - Basic pages system
 - Project dashboard widget
 - Replace ace editor for a better markdown editor
+- Basic user management (with permissions)
 
 #### What I'm planning to do next
-- Basic user management (with basic permissions)
-- Starred projects (for dashboard widget)
-- Reference tasks in other tasks and comments
 - Better list filters and search (with order by column)
+- Reference tasks in other tasks and comments
+- Starred projects (for dashboard widget)
 - Milestones close to their due date should be shown on Dashboard
 
 #### Bugs I'm aware of
 - Milestones should reload when changing project in the task form
+- If a user has no permissions at all, it will crash
