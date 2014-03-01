@@ -14,14 +14,27 @@ use Illuminate\Auth\UserInterface;
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
  * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $starred_tasks
+ * @property boolean $is_admin
  */
 class User extends BaseModel implements UserInterface {
     protected $table = 'users';
     public $timestamps = true;
     protected $softDelete = true;
-    protected $fillable = array('email', 'full_name');
+    protected $fillable = array('email', 'full_name', 'is_admin', 'password');
     protected $guarded = array('id', 'timestamps');
     protected $hidden = array('password');
+
+    public static $rules = [
+        'email'     => 'sometimes|required|min:4|max:16|unique:users',
+        'password'  => 'sometimes|required|min:6',
+        'full_name' => 'required|min:4'
+    ];
+
+    public function afterValidate()
+    {
+        // hashing the password after validation and before saving
+        $this->password = Hash::make($this->password);
+    }
 
     public function __toString()
     {
@@ -36,6 +49,11 @@ class User extends BaseModel implements UserInterface {
     public function starred_tasks()
     {
         return $this->belongsToMany('Task', 'starred_tasks');
+    }
+
+    public function permissions()
+    {
+        return $this->hasMany('Permission');
     }
 
     public function getAuthIdentifier()

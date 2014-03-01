@@ -47,8 +47,6 @@ class ProjectController extends BaseController {
      */
     public function getShow($id)
     {
-        // NOTE: This is how permission will be implemented
-        // TODO: this might be possible with a closure?
         if (Permission::check($id, true, false)) {
             $project = Project::findOrFail($id);
             $tasks = $project->tasks()->limit(Task::$items_per_page)->get();

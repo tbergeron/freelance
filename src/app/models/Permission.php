@@ -31,7 +31,7 @@ class Permission extends Eloquent {
     }
 
     /***
-     * Check if the user has permissions on a project
+     * Check if the current user has permissions on a project
      * @param $project_id
      * @param bool $need_read
      * @param bool $need_write
@@ -39,6 +39,9 @@ class Permission extends Eloquent {
      */
     public static function check($project_id, $need_read = true, $need_write = true)
     {
+        if (Auth::user()->is_admin)
+            return true;
+
         $safe = false;
         $permission = Permission::where('project_id', $project_id)
             ->where('user_id', Auth::user()->id)
@@ -68,6 +71,26 @@ class Permission extends Eloquent {
     public static function kickOut()
     {
         return Redirect::back()->withMessage(trans('user.no_permissions'))->withType('danger');
+    }
+
+    /***
+     * @param $permissions
+     * @param $project
+     * @param $mode
+     * @return bool
+     */
+    public static function isChecked($permissions, $project, $mode)
+    {
+        foreach($permissions as $permission) {
+            if ($permission->project_id == $project->id) {
+                if (($mode == 'read') && ($permission->read)) {
+                    return true;
+                }
+                if (($mode == 'write') && ($permission->write)) {
+                    return true;
+                }
+            }
+        }
     }
 
 }

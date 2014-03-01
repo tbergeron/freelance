@@ -6,7 +6,7 @@
 |--------------------------------------------------------------------------
 */
 
-Route::controller('page',  'PageController');
+Route::controller('page',       'PageController');
 Route::controller('milestone',  'MilestoneController');
 Route::controller('comment',    'CommentController');
 Route::controller('task',       'TaskController');
@@ -15,7 +15,7 @@ Route::controller('user',       'UserController');
 
 // TODO: Super-awesome route like /PROJ-001 to lead to a specific task
 
-Route::get('', 'UserController@getDashboard');
+Route::get('', 'HomeController@getDashboard');
 
 // Navigation Active
 HTML::macro('menu_active', function ($action, $text, $ignore_match = false) {

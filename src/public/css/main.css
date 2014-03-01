@@ -248,3 +248,7 @@ a.code-link-project {
     border-right: 1px solid #E3E5E7;
     border-bottom: 1px solid #E3E5E7;
 }
+
+.user-form .checkbox {
+    margin-top: 20px;
+}

@@ -29,17 +29,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ URL::action('UserController@getDashboard') }}">{{ Config::get('app.name') }}</a>
+                <a class="navbar-brand" href="{{ URL::action('HomeController@getDashboard') }}">{{ Config::get('app.name') }}</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 @if(Auth::check())
                     <ul class="nav navbar-nav">
-                        {{ HTML::menu_active('UserController@getDashboard', trans('app.dashboard')) }}
+                        {{ HTML::menu_active('HomeController@getDashboard', trans('app.dashboard')) }}
 
                         @if(Auth::check())
                             {{ HTML::menu_active('ProjectController@getIndex', trans('project.index')) }}
                             {{ HTML::menu_active('TaskController@getIndex', trans('task.index')) }}
+                            @if(Auth::user()->is_admin)
+                                {{ HTML::menu_active('UserController@getIndex', trans('user.index')) }}
+                            @endif
                         @endif
                     </ul>
 

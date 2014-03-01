@@ -17,8 +17,6 @@ return array(
     'no_records' => 'No records.',
     'create_success' => 'This page has been created with success.',
     'update_success' => 'This page has been updated with success.',
-    'reopen_success' => 'This page has been reopened with success.',
-    'closed_success' => 'This page has been closed with success.',
     'destroy_success' => 'This page has been deleted with success.',
     'name_placeholder' => 'Name',
     'content_placeholder' => 'Description',
