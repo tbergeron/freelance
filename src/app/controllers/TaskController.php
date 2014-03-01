@@ -238,12 +238,21 @@ class TaskController extends BaseController {
             $project_ids = Auth::user()->getAvailableProjectIds();
 
             if ($all) {
-                $tasks = Task::whereIn('project_id', $project_ids)->orderBy('updated_at', 'desc')
-                                ->paginate(Task::$items_per_page);
-
+                if (Permission::checkIfAdmin()) {
+                    $tasks = Task::orderBy('updated_at', 'desc')
+                        ->paginate(Task::$items_per_page);
+                } else {
+                    $tasks = Task::whereIn('project_id', $project_ids)->orderBy('updated_at', 'desc')
+                        ->paginate(Task::$items_per_page);
+                }
             } else {
-                $tasks = Task::whereIn('project_id', $project_ids)->where('is_closed', $closed)
-                                ->orderBy('updated_at', 'desc')->paginate(Task::$items_per_page);
+                if (Permission::checkIfAdmin()) {
+                    $tasks = Task::where('is_closed', $closed)
+                        ->orderBy('updated_at', 'desc')->paginate(Task::$items_per_page);
+                } else {
+                    $tasks = Task::whereIn('project_id', $project_ids)->where('is_closed', $closed)
+                        ->orderBy('updated_at', 'desc')->paginate(Task::$items_per_page);
+                }
             }
 
             return [$all, $closed, $tasks, null];
