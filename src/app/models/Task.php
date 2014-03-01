@@ -99,11 +99,16 @@ class Task extends BaseModel {
 
     public static function latest_activity()
     {
-        $project_ids = Auth::user()->getAvailableProjectIds();
+        if (Permission::checkIfAdmin()) {
+            $tasks = Task::orderBy('updated_at', 'desc')
+                ->limit(Task::$items_per_page)->get();
+        } else {
+            $project_ids = Auth::user()->getAvailableProjectIds();
 
-        $tasks = Task::whereIn('project_id', $project_ids)
-                        ->orderBy('updated_at', 'desc')
-                        ->limit(Task::$items_per_page)->get();
+            $tasks = Task::whereIn('project_id', $project_ids)
+                ->orderBy('updated_at', 'desc')
+                ->limit(Task::$items_per_page)->get();
+        }
 
         return $tasks;
     }
