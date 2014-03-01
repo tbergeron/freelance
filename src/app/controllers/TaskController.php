@@ -216,6 +216,7 @@ class TaskController extends BaseController {
      * @param  int  $project_id
      * @return list($all, $closed, $tasks, [$project])
      */
+    // TODO: BETTER FILTERS THIS IS FUCKING HORRIBLE!!!
     private function taskFilter($project_id = null)
     {
         $all = (Input::has('all')) ? true : false;
