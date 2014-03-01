@@ -22,11 +22,12 @@ return array(
     'email_placeholder' => 'Email',
     'is_admin_warning' => '<strong>Warning</strong>, this give access to <i>everything</i>.',
     'permissions' => 'Permissions',
-    'read' => 'Read',
+    'read' => 'Read <small>(and comment)</small>',
     'write' => 'Write',
     'create_success' => 'This user has been created with success.',
     'update_success' => 'This user has been updated with success.',
     'destroy_success' => 'This user has been deleted with success.',
-    'read_notice' => '* Read permissions allow the user to comment.',
+    'read_notice' => '* Don\'t bother setting permissions for admins ;-)',
+    'project' => 'Project',
 
 );

@@ -50,6 +50,9 @@ class UserController extends \BaseController {
 
     public function getIndex()
     {
+        if (!Auth::user()->is_admin)
+            return Permission::kickOut();
+
         $users = User::all();
         return View::make('user.index', compact('users'));
     }
@@ -62,12 +65,18 @@ class UserController extends \BaseController {
 
     public function getCreate()
     {
+        if (!Auth::user()->is_admin)
+            return Permission::kickOut();
+
         $projects = Project::all();
         return View::make('user.create', compact('projects'));
     }
 
     public function postStore()
     {
+        if (!Auth::user()->is_admin)
+            return Permission::kickOut();
+
         $user = new User;
 
         if ($user->save(Input::except('permissions'))) {
@@ -81,6 +90,9 @@ class UserController extends \BaseController {
 
     public function getEdit($id)
     {
+        if (!Auth::user()->is_admin)
+            return Permission::kickOut();
+
         $user = User::findOrFail($id);
         $projects = Project::all();
         $permissions = $user->permissions;
@@ -90,6 +102,9 @@ class UserController extends \BaseController {
 
     public function postUpdate($id)
     {
+        if (!Auth::user()->is_admin)
+            return Permission::kickOut();
+
         $user = User::findOrFail($id);
 
         if (strlen(Input::get('password')) == 0) {
@@ -113,6 +128,9 @@ class UserController extends \BaseController {
 
     public function getDestroy($id)
     {
+        if (!Auth::user()->is_admin)
+            return Permission::kickOut();
+
         $user = User::findOrFail($id);
         $user->delete();
 

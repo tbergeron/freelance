@@ -70,7 +70,8 @@ class Permission extends Eloquent {
 
     public static function kickOut()
     {
-        return Redirect::back()->withMessage(trans('user.no_permissions'))->withType('danger');
+        return Redirect::action('HomeController@getDashboard')
+            ->withMessage(trans('user.no_permissions'))->withType('danger');
     }
 
     /***
