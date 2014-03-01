@@ -2,6 +2,7 @@
     <table class="table table-hover table-striped">
         <tr>
             <th>{{ trans('user.full_name') }}</th>
+            <th>{{ trans('user.is_admin') }}</th>
             <th>{{ trans('user.email') }}</th>
             <th style="width: 12%;">{{ trans('user.created_at') }}</th>
             @if(isset($show_actions))
@@ -13,6 +14,7 @@
 
         <tr>
             <td>{{ Html::linkAction('UserController@getShow', $user->full_name, ['id' => $user->id]) }}</td>
+            <td>@if($user->is_admin)X@endif</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->created_at->diffForHumans() }}</td>
             @if(isset($show_actions))

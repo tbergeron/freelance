@@ -59,6 +59,7 @@ class UserController extends \BaseController {
 
     public function getShow($id)
     {
+        // TODO: User profiles
         $user = User::findOrFail($id);
         return View::make('user.show', compact('user'));
     }
