@@ -56,6 +56,40 @@ class User extends BaseModel implements UserInterface {
         return $this->hasMany('Permission');
     }
 
+    // TODO: there's got to be a better way to do this. PLEASE.
+    public function available_projects()
+    {
+        if (Permission::checkIfAdmin())
+            return Project::all();
+
+        $ids = $this->getAvailableProjectIds();
+
+        // fetching projects
+        $projects = Project::whereIn('id', $ids)->get();
+
+        return $projects;
+    }
+
+    public function getAvailableProjectIds()
+    {
+        // finding IDs of available project
+        $ids = User::find($this->id)
+            ->join('permissions', 'users.id', '=', 'permissions.user_id')
+            ->join('projects', 'projects.id', '=', 'permissions.project_id')
+            ->where('permissions.read', '=', true)
+            ->where('permissions.user_id', '=', $this->id)
+            ->groupBy('projects.id')
+            ->select('projects.id')->get();
+
+        // extracting IDs
+        $ids_array = [];
+        for($i = 0; $i < count($ids); $i++) {
+            $ids_array[] = $ids[$i]['id'];
+        }
+
+        return $ids_array;
+    }
+
     public function getAuthIdentifier()
 	{
 		return $this->getKey();

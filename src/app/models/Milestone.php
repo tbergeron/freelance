@@ -23,6 +23,7 @@ class Milestone extends BaseModel {
 	protected $softDelete = false;
 	protected $fillable = ['project_id', 'name', 'description', 'due_date'];
     protected $guarded = ['id', 'timestamps'];
+    protected $touches = array('project');
 
     public static $rules = [
         'name'  => 'required|min:3|max:255',

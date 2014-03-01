@@ -11,11 +11,14 @@ class CommentController extends BaseController {
     public function postStore()
     {
         $comment = new Comment;
-        $data = $this->prepareDataAndUpdateTask();
+        $data = $this->prepareData();
+
+        if (!Permission::check($data['project_id'], true, false))
+            return Permission::kickOut();
 
         if ($comment->save($data))
-        return Redirect::back()
-            ->withMessage(trans('comment.success'))->withType('success');
+            return Redirect::back()
+                ->withMessage(trans('comment.success'))->withType('success');
         else
             return Redirect::back()->withInput()->withErrors($comment->getErrors());
     }
@@ -29,14 +32,22 @@ class CommentController extends BaseController {
     public function getEdit($id)
     {
         $comment = Comment::findOrFail($id);
-        $task = $comment->task;
-        $edit = true;
 
-        if (Request::ajax()) {
-            // respond to AJAX requests by simply outputting the form
-            return View::make('comment.partials.form', compact('comment', 'task', 'edit'));
+        if (!Permission::check($comment->project_id, true, false))
+            return Permission::kickOut();
+
+        if ($comment->user_id = Auth::user()->id) {
+            $task = $comment->task;
+            $edit = true;
+
+            if (Request::ajax()) {
+                // respond to AJAX requests by simply outputting the form
+                return View::make('comment.partials.form', compact('comment', 'task', 'edit'));
+            } else {
+                return View::make('comment.edit', compact('comment', 'task', 'edit'));
+            }
         } else {
-            return View::make('comment.edit', compact('comment', 'task', 'edit'));
+            return Permission::kickOut();
         }
     }
 
@@ -49,7 +60,11 @@ class CommentController extends BaseController {
     public function postUpdate($id)
     {
         $comment = Comment::findOrFail($id);
-        $data = $this->prepareDataAndUpdateTask();
+
+        if (!Permission::check($comment->project_id, true, false))
+            return Permission::kickOut();
+
+        $data = $this->prepareData();
 
         if ($comment->save($data))
             return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
@@ -68,6 +83,10 @@ class CommentController extends BaseController {
     public function getDestroy($id)
     {
         $comment = Comment::findOrFail($id);
+
+        if (!Permission::check($comment->project_id, true, false))
+            return Permission::kickOut();
+
         $comment->delete();
 
         return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
@@ -79,16 +98,11 @@ class CommentController extends BaseController {
      *
      * @return array
      */
-    private function prepareDataAndUpdateTask()
+    private function prepareData()
     {
         // assigning user to comment
         $data = Input::all();
         $data['user_id'] = Auth::user()->id;
-
-        // updating task updated_at
-        $task = Task::find(Input::get('task_id'));
-        $task->updated_at = Carbon::now();
-        $task->save();
 
         return $data;
     }

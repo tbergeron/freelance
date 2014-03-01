@@ -39,7 +39,7 @@ class Permission extends Eloquent {
      */
     public static function check($project_id, $need_read = true, $need_write = true)
     {
-        if (Auth::user()->is_admin)
+        if (static::checkIfAdmin())
             return true;
 
         $safe = false;
@@ -92,6 +92,11 @@ class Permission extends Eloquent {
                 }
             }
         }
+    }
+
+    public static function checkIfAdmin()
+    {
+        return Auth::user()->is_admin;
     }
 
 }

@@ -10,6 +10,9 @@ class MilestoneController extends BaseController {
      */
     public function getIndex($project_id)
     {
+        if (!Permission::check($project_id, true, false))
+            return Permission::kickOut();
+
         $project = Project::find($project_id);
         $milestones = $project->milestones;
         
@@ -23,6 +26,9 @@ class MilestoneController extends BaseController {
      */
     public function getCreate($project_id)
     {
+        if (!Permission::check($project_id, true, false))
+            return Permission::kickOut();
+
         return View::make('milestone.create', compact('project_id'));
     }
 
@@ -33,6 +39,9 @@ class MilestoneController extends BaseController {
      */
     public function postStore()
     {
+        if (!Permission::check(Input::get('project_id'), true, false))
+            return Permission::kickOut();
+
         $milestone = new Milestone;
 
         if ($milestone->save(Input::all()))
@@ -53,6 +62,10 @@ class MilestoneController extends BaseController {
     {
         $milestone = Milestone::findOrFail($id);
         $project = $milestone->project;
+
+        if (!Permission::check($project->id, true, false))
+            return Permission::kickOut();
+
         $tasks = $milestone->tasks;
         return View::make('milestone.show', compact('milestone', 'project', 'tasks'));
     }
@@ -71,6 +84,10 @@ class MilestoneController extends BaseController {
             $milestone->due_date = $milestone->formatted_due_date();
 
         $project = $milestone->project;
+
+        if (!Permission::check($project->id, true, false))
+            return Permission::kickOut();
+
         return View::make('milestone.edit', compact('milestone', 'project'));
     }
 
@@ -83,6 +100,9 @@ class MilestoneController extends BaseController {
     public function postUpdate($id)
     {
         $milestone = Milestone::findOrFail($id);
+
+        if (!Permission::check($milestone->project->id, true, false))
+            return Permission::kickOut();
 
         if ($milestone->save(Input::all()))
             return Redirect::action('MilestoneController@getIndex', ['project_id' => Input::get('project_id')])
@@ -101,6 +121,10 @@ class MilestoneController extends BaseController {
     public function getDestroy($id)
     {
         $milestone = Milestone::findOrFail($id);
+
+        if (!Permission::check($milestone->project->id, true, false))
+            return Permission::kickOut();
+
         $milestone->delete();
 
         return Redirect::back()

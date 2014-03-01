@@ -7,13 +7,16 @@ class TaskController extends BaseController {
      *
      * @return Response
      */
-    // TODO: Could we merge getIndex and getProject?
-    public function getIndex()
+    public function getIndex($project_id = null)
     {
+        if (($project_id) && (!Permission::check($project_id, true, false)))
+            return Permission::kickOut();
+
         // todo : keep filters in sessions
-        list($all, $closed, $tasks) = $this->taskFilter();
-        return View::make('task.index', compact('tasks', 'closed', 'all'));
+        list($all, $closed, $tasks, $project) = $this->taskFilter($project_id);
+        return View::make('task.index', compact('project', 'tasks', 'closed', 'all'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -23,6 +26,9 @@ class TaskController extends BaseController {
      */
     public function getCreate($project_id = null)
     {
+        if (($project_id) && (!Permission::check($project_id, true, true)))
+            return Permission::kickOut();
+
         if ($project_id)
             $project = Project::findOrFail($project_id);
 
@@ -36,6 +42,9 @@ class TaskController extends BaseController {
      */
     public function postStore()
     {
+        if (!Permission::check(Input::get('project_id'), true, true))
+            return Permission::kickOut();
+
         $task = new Task;
 
         if ($task->save(Input::all()))
@@ -55,6 +64,10 @@ class TaskController extends BaseController {
     public function getShow($id)
     {
         $task = Task::findOrFail($id);
+
+        if (!Permission::check($task->project_id, true, false))
+            return Permission::kickOut();
+
         $project = $task->project;
         return View::make('task.show', compact('task', 'project'));
     }
@@ -68,6 +81,10 @@ class TaskController extends BaseController {
     public function getEdit($id)
     {
         $task = Task::findOrFail($id);
+
+        if (!Permission::check($task->project_id, true, true))
+            return Permission::kickOut();
+
         $project = $task->project;
         $milestone_id = ($task->milestone) ? $task->milestone->id : null;
 
@@ -83,6 +100,9 @@ class TaskController extends BaseController {
     public function postUpdate($id)
     {
         $task = Task::findOrFail($id);
+
+        if (!Permission::check($task->project_id, true, true))
+            return Permission::kickOut();
 
         if ($task->save(Input::all()))
             return Redirect::action('TaskController@getShow', ['id' => $task->id])
@@ -101,23 +121,15 @@ class TaskController extends BaseController {
     public function getDestroy($id)
     {
         $task = Task::findOrFail($id);
+
+        if (!Permission::check($task->project_id, true, true))
+            return Permission::kickOut();
+
         $project_id = $task->project_id;
         $task->delete();
 
-        return Redirect::action('TaskController@getProject', ['project_id' => $project_id])
+        return Redirect::action('TaskController@getIndex', ['project_id' => $project_id])
             ->withMessage(trans('task.destroy_success'))->withType('danger');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @param  int  $project_id
-     * @return Response
-     */
-    public function getProject($project_id)
-    {
-        list($all, $closed, $tasks, $project) = $this->taskFilter($project_id);
-        return View::make('task.project', compact('project', 'tasks', 'closed', 'all'));
     }
 
     /***
@@ -129,6 +141,10 @@ class TaskController extends BaseController {
     public function getClose($id, $from_task = false)
     {
         $task = Task::findOrFail($id);
+
+        if (!Permission::check($task->project_id, true, true))
+            return Permission::kickOut();
+
         $task->is_closed = true;
         $task->save();
         
@@ -136,7 +152,7 @@ class TaskController extends BaseController {
             return Redirect::action('TaskController@getShow', ['id' => $task->id])
                     ->withMessage(trans('task.closed_success'))->withType('success');    
         else
-            return Redirect::action('TaskController@getProject', ['project_id' => $task->project->id])
+            return Redirect::action('TaskController@getIndex', ['project_id' => $task->project->id])
                                 ->withMessage(trans('task.closed_success'))->withType('success');
     }
 
@@ -149,6 +165,10 @@ class TaskController extends BaseController {
     public function getReopen($id, $from_task = false)
     {
         $task = Task::findOrFail($id);
+
+        if (!Permission::check($task->project_id, true, true))
+            return Permission::kickOut();
+
         $task->is_closed = false;
         $task->save();
         
@@ -156,7 +176,7 @@ class TaskController extends BaseController {
             return Redirect::action('TaskController@getShow', ['id' => $task->id])
                     ->withMessage(trans('task.reopen_success'))->withType('success');
         else
-            return Redirect::action('TaskController@getProject', ['project_id' => $task->project->id])
+            return Redirect::action('TaskController@getIndex', ['project_id' => $task->project->id])
                                 ->withMessage(trans('task.reopen_success'))->withType('success');
     }
 
@@ -209,17 +229,24 @@ class TaskController extends BaseController {
             if (!$all)
                 $tasks = $tasks->where('is_closed', $closed);
 
+            // don't have to check for permissions here since it's already done in the action
             $tasks = $tasks->paginate(Task::$items_per_page);
 
             return [$all, $closed, $tasks, $project];
 
         } else {
-            if ($all)
-                $tasks = Task::orderBy('updated_at', 'desc')->paginate(Task::$items_per_page);
-            else
-                $tasks = Task::orderBy('updated_at', 'desc')->where('is_closed', $closed)->paginate(Task::$items_per_page);
+            $project_ids = Auth::user()->getAvailableProjectIds();
 
-            return [$all, $closed, $tasks];
+            if ($all) {
+                $tasks = Task::whereIn('project_id', $project_ids)->orderBy('updated_at', 'desc')
+                                ->paginate(Task::$items_per_page);
+
+            } else {
+                $tasks = Task::whereIn('project_id', $project_ids)->where('is_closed', $closed)
+                                ->orderBy('updated_at', 'desc')->paginate(Task::$items_per_page);
+            }
+
+            return [$all, $closed, $tasks, null];
         }
     }
 }

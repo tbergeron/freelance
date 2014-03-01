@@ -19,6 +19,7 @@ class Comment extends BaseModel {
 	protected $softDelete = false;
 	protected $fillable = array('content', 'task_id', 'user_id');
 	protected $guarded = array('id', 'timestamps');
+    protected $touches = array('task');
 
     public static $rules = array(
         'user_id'  => 'required',

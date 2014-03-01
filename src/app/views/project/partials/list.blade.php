@@ -17,7 +17,7 @@
             <td>{{ $project->updated_at->diffForHumans() }}</td>
             @if(isset($show_actions))
             <td style="text-align: center">
-                <a title="{{ trans('project.tasks') }}" href="{{ URL::action('TaskController@getProject', ['id' => $project->id]) }}" class="btn btn-primary btn-sm">
+                <a title="{{ trans('project.tasks') }}" href="{{ URL::action('TaskController@getIndex', ['id' => $project->id]) }}" class="btn btn-primary btn-sm">
                     <i class="glyphicon glyphicon-tasks"></i>
                 </a>
 

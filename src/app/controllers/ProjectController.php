@@ -9,7 +9,7 @@ class ProjectController extends BaseController {
      */
     public function getIndex()
     {
-        $projects = Project::all();
+        $projects = Auth::user()->available_projects();
         return View::make('project.index', compact('projects'));
     }
 
@@ -20,6 +20,9 @@ class ProjectController extends BaseController {
      */
     public function getCreate()
     {
+        if (!Permission::checkIfAdmin())
+            return Permission::kickOut();
+
         return View::make('project.create');
     }
 
@@ -30,6 +33,9 @@ class ProjectController extends BaseController {
      */
     public function postStore()
     {
+        if (!Permission::checkIfAdmin())
+            return Permission::kickOut();
+
         $project = new Project;
 
         if ($project->save(Input::all()))
@@ -47,13 +53,12 @@ class ProjectController extends BaseController {
      */
     public function getShow($id)
     {
-        if (Permission::check($id, true, false)) {
-            $project = Project::findOrFail($id);
-            $tasks = $project->tasks()->limit(Task::$items_per_page)->get();
-            return View::make('project.show', compact('project', 'tasks'));
-        } else {
+        if (!Permission::check($id, true, false))
             return Permission::kickOut();
-        }
+
+        $project = Project::findOrFail($id);
+        $tasks = $project->tasks()->limit(Task::$items_per_page)->get();
+        return View::make('project.show', compact('project', 'tasks'));
     }
 
     /**
@@ -64,12 +69,11 @@ class ProjectController extends BaseController {
      */
     public function getEdit($id)
     {
-        if (Permission::check($id, true, true)) {
-            $project = Project::findOrFail($id);
-            return View::make('project.edit', compact('project'));
-        } else {
+        if (!Permission::check($id, true, true))
             return Permission::kickOut();
-        }
+
+        $project = Project::findOrFail($id);
+        return View::make('project.edit', compact('project'));
     }
 
     /**
@@ -80,12 +84,14 @@ class ProjectController extends BaseController {
      */
     public function postUpdate($id)
     {
+        if (!Permission::check($id, true, true))
+            return Permission::kickOut();
+
         $project = Project::findOrFail($id);
 
         if ($project->save(Input::all()))
             return Redirect::action('ProjectController@getIndex')
                 ->withMessage(trans('project.update_success'))->withType('success');
-
         else
             return Redirect::back()->withInput()->withErrors($project->getErrors());
     }
@@ -98,6 +104,9 @@ class ProjectController extends BaseController {
      */
     public function getDestroy($id)
     {
+        if (!Permission::check($id, true, true))
+            return Permission::kickOut();
+
         $project = Project::findOrFail($id);
         $project->delete();
 

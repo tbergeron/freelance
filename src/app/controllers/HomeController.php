@@ -23,9 +23,9 @@ class HomeController extends BaseController {
 
     public function getDashboard()
     {
-        $tasks = Task::orderBy('updated_at', 'desc')->limit(Task::$items_per_page)->get();
+        $tasks = Task::latest_activity();
         $starred_tasks = Auth::user()->starred_tasks()->get();
-        $projects = Project::all();
+        $projects = Auth::user()->available_projects();
 
         return View::make('user.dashboard', compact('tasks', 'starred_tasks', 'projects'));
     }

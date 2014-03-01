@@ -9,7 +9,7 @@
 <h2 class="section-heading">
     {{ Html::linkAction('ProjectController@getShow', $project->name_short(), ['id' => $project->id]) }}
     @include('partials.heading_separator')
-    {{ Html::linkAction('TaskController@getProject', trans('task.tasks'), ['id' => $project->id]) }}
+    {{ Html::linkAction('TaskController@getIndex', trans('task.tasks'), ['id' => $project->id]) }}
     @include('partials.heading_separator')
     {{ $task->name_short() }}
     @include('task.partials.starred_task')

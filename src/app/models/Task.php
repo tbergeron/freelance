@@ -27,6 +27,7 @@ class Task extends BaseModel {
 	protected $softDelete = false;
 	protected $fillable = ['project_id', 'user_id', 'milestone_id', 'name', 'description', 'is_closed'];
 	protected $guarded = ['id', 'timestamps'];
+    protected $touches = array('project');
 
     public static $items_per_page = 10;
 
@@ -94,6 +95,17 @@ class Task extends BaseModel {
     public function scopeOpened($query)
     {
         return $query->where('is_closed', false);
+    }
+
+    public static function latest_activity()
+    {
+        $project_ids = Auth::user()->getAvailableProjectIds();
+
+        $tasks = Task::whereIn('project_id', $project_ids)
+                        ->orderBy('updated_at', 'desc')
+                        ->limit(Task::$items_per_page)->get();
+
+        return $tasks;
     }
 
 }

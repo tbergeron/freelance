@@ -11,7 +11,7 @@ return array(
     'name' => 'Name',
     'actions' => 'Actions',
     'none' => 'None',
-    'no_permissions' => 'You need permissions on the project to access this page.',
+    'no_permissions' => 'You need higher permissions to access this page.',
     'full_name' => 'Full name',
     'email' => 'Email',
     'created_at' => 'Created',

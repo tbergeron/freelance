@@ -64,7 +64,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h3>{{ Html::linkAction('TaskController@getProject', trans('app.latest_tasks'), ['id' => $project->id]) }}</h3>
+        <h3>{{ Html::linkAction('TaskController@getIndex', trans('app.latest_tasks'), ['id' => $project->id]) }}</h3>
         @include('task.partials.list', ['tasks' => $tasks, 'show_states' => true])
     </div>
 </div>
