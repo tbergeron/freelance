@@ -66,14 +66,18 @@ class CommentController extends BaseController {
         if (!Permission::check($comment->project_id, true, false))
             return Permission::kickOut();
 
-        $data = $this->prepareData();
-
-        if ($comment->save($data))
-            return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
-                ->withMessage(trans('comment.update_success'))->withType('success');
-
-        else
-            return Redirect::back()->withInput()->withErrors($comment->getErrors());
+        if ($comment->user_id = Auth::user()->id) {
+            $data = $this->prepareData();
+    
+            if ($comment->save($data))
+                return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
+                    ->withMessage(trans('comment.update_success'))->withType('success');
+    
+            else
+                return Redirect::back()->withInput()->withErrors($comment->getErrors());
+        } else {
+            return Permission::kickOut();
+        }
     }
 
     /**
@@ -89,10 +93,14 @@ class CommentController extends BaseController {
         if (!Permission::check($comment->project_id, true, false))
             return Permission::kickOut();
 
-        $comment->delete();
-
-        return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
-            ->withMessage(trans('comment.destroy_success'))->withType('danger');
+        if ($comment->user_id = Auth::user()->id) {
+            $comment->delete();
+    
+            return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
+                ->withMessage(trans('comment.destroy_success'))->withType('danger');
+        } else {
+            return Permission::kickOut();
+        }
     }
 
     /**
