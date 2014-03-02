@@ -38,7 +38,7 @@ class CommentController extends BaseController {
         if (!Permission::check($comment->task->project_id, true, false))
             return Permission::kickOut();
 
-        if ($comment->user_id = Auth::user()->id) {
+        if ($comment->user_id == Auth::user()->id) {
             $task = $comment->task;
             $edit = true;
 
@@ -66,7 +66,7 @@ class CommentController extends BaseController {
         if (!Permission::check($comment->task->project_id, true, false))
             return Permission::kickOut();
 
-        if ($comment->user_id = Auth::user()->id) {
+        if ($comment->user_id == Auth::user()->id) {
             $data = $this->prepareData();
     
             if ($comment->save($data))
@@ -93,7 +93,7 @@ class CommentController extends BaseController {
         if (!Permission::check($comment->task->project_id, true, false))
             return Permission::kickOut();
 
-        if ($comment->user_id = Auth::user()->id) {
+        if ($comment->user_id == Auth::user()->id) {
             $comment->delete();
     
             return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
