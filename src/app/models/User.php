@@ -25,7 +25,7 @@ class User extends BaseModel implements UserInterface {
     protected $hidden = array('password');
 
     public static $rules = [
-        'email'     => 'sometimes|required|min:4|max:16|unique:users',
+        'email'     => 'sometimes|required|min:4|unique:users',
         'password'  => 'sometimes|required|min:6',
         'full_name' => 'required|min:4'
     ];
