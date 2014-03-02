@@ -15,7 +15,7 @@ class CommentController extends BaseController {
         
         $task = Task::findOrFail($data['task_id']);
 
-        if (!Permission::check($task->project->id, true, false))
+        if (!Permission::check($task->project_id, true, false))
             return Permission::kickOut();
 
         if ($comment->save($data))
@@ -35,7 +35,7 @@ class CommentController extends BaseController {
     {
         $comment = Comment::findOrFail($id);
 
-        if (!Permission::check($comment->project_id, true, false))
+        if (!Permission::check($comment->task->project_id, true, false))
             return Permission::kickOut();
 
         if ($comment->user_id = Auth::user()->id) {
@@ -63,7 +63,7 @@ class CommentController extends BaseController {
     {
         $comment = Comment::findOrFail($id);
 
-        if (!Permission::check($comment->project_id, true, false))
+        if (!Permission::check($comment->task->project_id, true, false))
             return Permission::kickOut();
 
         if ($comment->user_id = Auth::user()->id) {
@@ -90,7 +90,7 @@ class CommentController extends BaseController {
     {
         $comment = Comment::findOrFail($id);
 
-        if (!Permission::check($comment->project_id, true, false))
+        if (!Permission::check($comment->task->project_id, true, false))
             return Permission::kickOut();
 
         if ($comment->user_id = Auth::user()->id) {
