@@ -26,7 +26,7 @@ class MilestoneController extends BaseController {
      */
     public function getCreate($project_id)
     {
-        if (!Permission::check($project_id, true, false))
+        if (!Permission::check($project_id, true, true))
             return Permission::kickOut();
 
         return View::make('milestone.create', compact('project_id'));
@@ -39,7 +39,7 @@ class MilestoneController extends BaseController {
      */
     public function postStore()
     {
-        if (!Permission::check(Input::get('project_id'), true, false))
+        if (!Permission::check(Input::get('project_id'), true, true))
             return Permission::kickOut();
 
         $milestone = new Milestone;
@@ -85,7 +85,7 @@ class MilestoneController extends BaseController {
 
         $project = $milestone->project;
 
-        if (!Permission::check($project->id, true, false))
+        if (!Permission::check($project->id, true, true))
             return Permission::kickOut();
 
         return View::make('milestone.edit', compact('milestone', 'project'));
@@ -101,7 +101,7 @@ class MilestoneController extends BaseController {
     {
         $milestone = Milestone::findOrFail($id);
 
-        if (!Permission::check($milestone->project->id, true, false))
+        if (!Permission::check($milestone->project->id, true, true))
             return Permission::kickOut();
 
         if ($milestone->save(Input::all()))
@@ -122,7 +122,7 @@ class MilestoneController extends BaseController {
     {
         $milestone = Milestone::findOrFail($id);
 
-        if (!Permission::check($milestone->project->id, true, false))
+        if (!Permission::check($milestone->project->id, true, true))
             return Permission::kickOut();
 
         $milestone->delete();

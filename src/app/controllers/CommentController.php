@@ -12,8 +12,10 @@ class CommentController extends BaseController {
     {
         $comment = new Comment;
         $data = $this->prepareData();
+        
+        $task = Task::findOrFail($data['task_id']);
 
-        if (!Permission::check($data['project_id'], true, false))
+        if (!Permission::check($task->project->id, true, false))
             return Permission::kickOut();
 
         if ($comment->save($data))

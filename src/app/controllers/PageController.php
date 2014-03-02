@@ -9,6 +9,9 @@ class PageController extends BaseController {
      */
     public function getIndex($project_id)
     {
+        if (!Permission::check($project_id, true, false))
+            return Permission::kickOut();
+
         $project = Project::findOrFail($project_id);
         $pages = $project->pages;
 
@@ -22,6 +25,9 @@ class PageController extends BaseController {
      */
     public function getCreate($project_id = null)
     {
+        if (!Permission::check($project_id, true, true))
+            return Permission::kickOut();
+
         $project = Project::findOrFail($project_id);
         return View::make('page.create', compact('project'));
     }
@@ -33,6 +39,9 @@ class PageController extends BaseController {
      */
     public function postStore()
     {
+        if (!Permission::check(Input::get('project_id'), true, true))
+            return Permission::kickOut();
+
         $page = new Page;
 
         if ($page->save(Input::all()))
@@ -53,6 +62,10 @@ class PageController extends BaseController {
     {
         $page = Page::findOrFail($id);
         $project = $page->project;
+        
+        if (!Permission::check($project->id, true, false))
+            return Permission::kickOut();
+
         return View::make('page.show', compact('page', 'project'));
     }
 
@@ -66,6 +79,10 @@ class PageController extends BaseController {
     {
         $page = Page::findOrFail($id);
         $project = $page->project;
+        
+        if (!Permission::check($project->id, true, true))
+            return Permission::kickOut();
+
         return View::make('page.edit', compact('page', 'project'));
     }
 
@@ -78,6 +95,9 @@ class PageController extends BaseController {
     public function postUpdate($id)
     {
         $page = Page::findOrFail($id);
+
+        if (!Permission::check($page->project->id, true, true))
+            return Permission::kickOut();
 
         if ($page->save(Input::all()))
             return Redirect::action('PageController@getShow', ['id' => $page->id])
@@ -97,6 +117,10 @@ class PageController extends BaseController {
     {
         $page = Page::findOrFail($id);
         $project_id = $page->project_id;
+        
+        if (!Permission::check($project_id, true, true))
+            return Permission::kickOut();
+
         $page->delete();
 
         return Redirect::action('PageController@getIndex', ['project_id' => $project_id])
