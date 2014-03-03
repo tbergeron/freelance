@@ -5,7 +5,7 @@ Because who the fuck needs a "like" button in a project management software?!
 
 ###### Contribute! Try the latest build following [this quick get started guide](https://github.com/tbergeron/freelance/wiki/Get-Started).
 
-### Changelog; last update 2014-03-01
+### Changelog; last update 2014-03-03
 - Basic login/auth
 - Basic project/milestone/task/ management
 - Basic dashboard/project/milestone/task pages
@@ -21,6 +21,7 @@ Because who the fuck needs a "like" button in a project management software?!
 - Project dashboard widget
 - Replace ace editor for a better markdown editor
 - Basic user management (with permissions)
+- Gravatar support
 
 #### What I'm planning to do next
 - Better list filters and search (with order by column)
