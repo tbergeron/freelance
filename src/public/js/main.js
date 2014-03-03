@@ -6,8 +6,9 @@ $(function(){
 
     // Starring tasks
     $('.starred').click(function(){
-        var id = $(this).data('id');
-        var star = this;
+        var id = $(this).data('id'),
+            type = $(this).data('type'),
+            star = this;
 
         var emptyStar = function() {
             $(star).children('i').addClass('glyphicon-star-empty');
@@ -19,8 +20,10 @@ $(function(){
             $(star).children('i').removeClass('glyphicon-star-empty');
         };
 
+        console.log(((type == 'task') ? '/task/stare' : '/project/stare'))
+
         $.ajax({
-            url: '/task/stare',
+            url: ((type == 'task') ? '/task/stare' : '/project/stare'),
             data: { id: id }
         }).done(function (data) {
             if (data.success) {

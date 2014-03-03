@@ -22,5 +22,6 @@ return array(
     'update_success' => 'This project has been updated successfully.',
     'create_success' => 'This project has been created successfully.',
     'pages' => 'Pages',
+    'starred' => 'Starred',
 
 );

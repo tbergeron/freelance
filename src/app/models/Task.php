@@ -56,10 +56,6 @@ class Task extends BaseModel {
 		return $this->belongsTo('User');
 	}
 
-    public function users() {
-        return $this->belongsToMany('User');
-    }
-
     public function is_starred()
     {
         $starred = StarredTask::where('user_id', Auth::user()->id)->where('task_id', $this->id)->first();

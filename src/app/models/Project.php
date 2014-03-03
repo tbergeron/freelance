@@ -73,4 +73,10 @@ class Project extends BaseModel {
         return $projects_array;
     }
 
+    public function is_starred()
+    {
+        $starred = StarredProject::where('user_id', Auth::user()->id)->where('project_id', $this->id)->first();
+        return ($starred) ? true : false;
+    }
+
 }

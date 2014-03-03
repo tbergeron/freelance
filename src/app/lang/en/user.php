@@ -31,7 +31,7 @@ return array(
     'project' => 'Project',
     'edit_profile' => 'Edit my profile',
     'last_activity' => 'Last activity',
-    'email_gravatar' => 'Avatar change based on the <a href="http://gravatar.com/" target="_blank">Gravatar</a> account linked to it.',
+    'email_gravatar' => 'Avatar changes based on the <a href="http://gravatar.com/" target="_blank">Gravatar</a> account linked to it.',
     'last_login' => 'Last login',
 
 );

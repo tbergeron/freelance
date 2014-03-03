@@ -55,6 +55,11 @@ class User extends BaseModel implements UserInterface {
         return $this->belongsToMany('Task', 'starred_tasks');
     }
 
+    public function starred_projects()
+    {
+        return $this->belongsToMany('Project', 'starred_projects');
+    }
+
     public function permissions()
     {
         return $this->hasMany('Permission');

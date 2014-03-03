@@ -114,4 +114,36 @@ class ProjectController extends BaseController {
             ->withMessage(trans('project.destroy_success'))->withType('danger');
     }
 
+    /***
+     * Star/Toggle a project (ajax request)
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getStare()
+    {
+        $user = Auth::user();
+        $project = Project::findOrFail(Input::get('id'));
+
+        if ($user && $project) {
+            if (Permission::check($project->id, true, false)) {
+                $is_starred = false;
+
+                $starred = StarredProject::where('user_id', $user->id)->where('project_id', $project->id)->first();
+
+                if ($starred) {
+                    $starred->delete();
+                } else {
+                    $is_starred = true;
+                    $starred = new StarredProject;
+                    $starred->user_id = $user->id;
+                    $starred->project_id = $project->id;
+                    $starred->save();
+                }
+
+                return Response::json(['success' => true, 'starred' => $is_starred]);
+            }
+        }
+
+        return Response::json(['success' => false]);
+    }
+
 }

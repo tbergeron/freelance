@@ -25,7 +25,11 @@ class HomeController extends BaseController {
     {
         $tasks = Task::latest_activity();
         $starred_tasks = Auth::user()->starred_tasks()->get();
-        $projects = Auth::user()->available_projects();
+        $projects = Auth::user()->starred_projects()->get();
+
+        // if no starred projects, list available projects
+        if (count($projects) == 0)
+            $projects = Auth::user()->available_projects();
 
         return View::make('user.dashboard', compact('tasks', 'starred_tasks', 'projects'));
     }

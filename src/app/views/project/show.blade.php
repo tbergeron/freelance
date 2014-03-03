@@ -11,6 +11,7 @@
         <h2 class="section-heading">
             <div class="pull-left">
                 {{ $project->name }}
+                @include('project.partials.starred_project')
             </div>
             <div class="pull-right">
                 <a title="{{ trans('task.create') }}" href="{{ URL::action('TaskController@getCreate', ['project_id' => $project->id]) }}"

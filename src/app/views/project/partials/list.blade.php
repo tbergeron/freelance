@@ -1,7 +1,8 @@
 <div class="table-responsive">
     <table class="table table-hover table-striped">
         <tr>
-            <th>{{ trans('project.code') }}</th>
+            <th style="width: 25px;">{{ trans('project.code') }}</th>
+            <th style="width: 20px;">{{ trans('project.starred') }}</th>
             <th>{{ trans('project.name') }}</th>
             <th style="width: 12%;">{{ trans('project.last_update') }}</th>
             @if(isset($show_actions))
@@ -13,6 +14,9 @@
 
         <tr>
             <td>{{ $project->code }}</td>
+            <td style="text-align: center;">
+                @include('project.partials.starred_project')
+            </td>
             <td>{{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}</td>
             <td>{{ $project->updated_at->diffForHumans() }}</td>
             @if(isset($show_actions))
