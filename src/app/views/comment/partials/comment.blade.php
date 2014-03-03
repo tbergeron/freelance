@@ -1,10 +1,11 @@
 <div class="row">
-    <div class="col-lg-1">
-        @include('user.partials.avatar', ['user' => $comment->user, 'link' => true])
-    </div>
-    <div class="col-lg-11">
+    <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
+                <div>
+                    @include('user.partials.avatar', ['user' => $comment->user, 'link' => true])
+                </div>
+
                 <div class="pull-right" style="margin-top:-5px">
                     @if($comment->user_id == Auth::user()->id)
                     <a data-id="{{ $comment->id }}" href="{{ URL::action('CommentController@getEdit', ['id' => $comment->id]) }}" title="{{ trans('comment.edit') }}" class="btn btn-default btn-sm comment-edit">

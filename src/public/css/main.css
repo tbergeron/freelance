@@ -313,3 +313,13 @@ td .img-circle {
     margin-right: 5px;
     margin-top: -2px;
 }
+
+.task-comments .panel {
+    margin-left: 100px;
+}
+
+.task-comments .panel-heading .img-circle {
+    float: left;
+    margin-top: 0;
+    margin-left: -115px;
+}
