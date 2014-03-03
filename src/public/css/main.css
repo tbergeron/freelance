@@ -92,26 +92,24 @@ a.code-link-project {
 
 .page-grid-element {
     cursor: pointer;
+    margin-bottom: 25px;
 }
 
 .page-grid-element:hover .content {
-    -webkit-box-shadow: 0 0 2px rgba(10,10,10,10.3);
-    -moz-box-shadow: 0 0 2px rgba(10,10,10,0.3);
-    box-shadow: 0 0 2px rgba(10,10,10,0.3);
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.9) !important;
+    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.9) !important;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.9) !important;
 }
 
 .page-grid-element .content {
     background-image: url('/images/notepad_background.gif');
-    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.3);
-    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
     background-repeat: repeat-y;
     background-position: -1px top;
     background-color: #ffffcc;
-    height: 200px;
-    font-size: 12px;
-    overflow: hidden;
-    margin-bottom: 25px;
+    padding-bottom: 18px;
 }
 
 .page-grid-element .content .name {
@@ -126,6 +124,8 @@ a.code-link-project {
 .page-grid-element .content .info {
     margin-top: 22px;
     margin-left: 20px;
+    height: 140px;
+    overflow: hidden;
 }
 
 .page-grid-element .content .info p {
