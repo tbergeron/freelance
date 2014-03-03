@@ -23,5 +23,6 @@ return array(
     'create_success' => 'This project has been created successfully.',
     'pages' => 'Pages',
     'starred' => 'Starred',
+    'starred_dashboard' => '* Starred projects are shown on the dashboard.',
 
 );

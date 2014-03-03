@@ -15,4 +15,5 @@
 
 @include('project.partials.list', ['show_actions' => true])
 
+<small>{{ trans('project.starred_dashboard') }}</small>
 @stop
