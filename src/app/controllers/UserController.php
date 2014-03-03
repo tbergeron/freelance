@@ -44,6 +44,32 @@ class UserController extends \BaseController {
             ->withType('info');
     }
 
+    public function getProfile()
+    {
+        $user = Auth::user();
+        $hide_permissions = true;
+        $edit = true;
+        return View::make('user.profile', compact('user', 'hide_permissions', 'edit'));
+    }
+
+    public function postProfile()
+    {
+        $user = Auth::user();
+
+        if (strlen(Input::get('password')) == 0) {
+            // If there's no password specified, ignore the field.
+            $data = Input::except(['email', 'password']);
+        } else {
+            $data = Input::except('email');
+        }
+
+        if ($user->save($data)) {
+            return Redirect::action('UserController@getProfile')
+                ->withMessage(trans('user.update_success'))->withType('success');
+        } else
+            return Redirect::back()->withInput()->withErrors($user->getErrors());
+    }
+
     /*
      * Management
      */
@@ -59,8 +85,8 @@ class UserController extends \BaseController {
 
     public function getShow($id)
     {
-        // TODO: User profiles
         $user = User::findOrFail($id);
+
         return View::make('user.show', compact('user'));
     }
 

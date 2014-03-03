@@ -25,7 +25,7 @@
             @if(isset($show_states))
             <td>@include('task.partials.state')</td>
             @endif
-            <td>@if($task->user) {{ $task->user->full_name }} @endif</td>
+            <td>@include('user.partials.profile_link', ['user' => $task->user])</td>
             <td>{{ $task->updated_at->diffForHumans() }}</td>
             @if(isset($show_actions))
             <td style="text-align: center">

@@ -27,7 +27,7 @@
             <th>{{ trans('task.code') }}</th>
             <td>{{ $task->code() }}</td>
             <th>{{ trans('task.assignee') }}</th>
-            <td>{{ $task->user->full_name }}</td>
+            <td>@include('user.partials.profile_link', ['user' => $task->user])</td>
         </tr>
         <tr class="warning">
             <th>{{ trans('task.status') }}</th>

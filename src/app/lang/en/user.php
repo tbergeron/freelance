@@ -29,5 +29,7 @@ return array(
     'destroy_success' => 'This user has been deleted with success.',
     'read_notice' => '* Don\'t bother setting permissions for admins ;-)',
     'project' => 'Project',
+    'edit_profile' => 'Edit my profile',
+    'last_activity' => 'Last activity',
 
 );

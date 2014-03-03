@@ -12,6 +12,8 @@
     {{ $user->full_name }}
 </h2>
 
+{{ trans('user.last_activity') }} <strong>{{ $user->updated_at->diffForHumans() }}</strong>.
+
 @stop
 
 @section('scripts')
