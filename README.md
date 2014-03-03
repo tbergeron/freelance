@@ -22,11 +22,11 @@ Because who the fuck needs a "like" button in a project management software?!
 - Replace ace editor for a better markdown editor
 - Basic user management (with permissions)
 - Gravatar support
+- Starred projects (for dashboard widget)
 
 #### What I'm planning to do next
 - Better list filters and search (with order by column)
 - Reference tasks in other tasks and comments
-- Starred projects (for dashboard widget)
 - Milestones close to their due date should be shown on Dashboard
 
 #### Bugs I'm aware of
