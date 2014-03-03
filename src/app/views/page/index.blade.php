@@ -19,6 +19,35 @@
     </div>
 </h2>
 
-@include('page.partials.list', ['show_actions' => true])
+<div class="row">
+    @foreach ($pages as $page)
+    <div class="col-md-4 page-grid-element" data-id="{{ $page->id }}">
+        <div>
+            <div class="col-xs-12 col-md-12 no-horizontal-padding content">
+                <div class="name">
+                    <h4>
+                        {{ Html::linkAction('PageController@getShow', $page->name_short(22), ['id' => $page->id]) }}
+                    </h4>
+                </div>
+                <div class="info">
+                    {{ Markdown::render(Str::limit($page->content, 200)) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
 
+@stop
+
+@section('scripts')
+<script>
+    $(function(){
+        var url = '{{ URL::action('PageController@getShow') }}';
+        $('.page-grid-element').click(function(){
+            document.location.href = url + '/' + $(this).data('id');
+            return false;
+        });
+    })
+</script>
 @stop
