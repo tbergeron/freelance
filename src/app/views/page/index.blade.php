@@ -26,13 +26,14 @@
             <div class="col-xs-12 col-md-12 no-horizontal-padding content">
                 <div class="name">
                     <h4>
-                        {{ Html::linkAction('PageController@getShow', $page->name_short(22), ['id' => $page->id]) }}
+                        {{ Html::linkAction('PageController@getShow', $page->name_short(30), ['id' => $page->id]) }}
                     </h4>
                 </div>
                 <div class="info">
                     {{ Markdown::render(Str::limit($page->content, 200)) }}
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
     </div>
     @endforeach

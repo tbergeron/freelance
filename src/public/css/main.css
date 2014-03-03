@@ -108,7 +108,10 @@ a.code-link-project {
     background-repeat: repeat-y;
     background-position: -1px top;
     background-color: #ffffcc;
-    min-height: 100px;
+    height: 200px;
+    font-size: 12px;
+    overflow: hidden;
+    margin-bottom: 25px;
 }
 
 .page-grid-element .content .name {
