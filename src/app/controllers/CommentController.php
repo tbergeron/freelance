@@ -33,24 +33,21 @@ class CommentController extends BaseController {
      */
     public function getEdit($id)
     {
-        $comment = Comment::findOrFail($id);
+        if (Request::ajax()) {
+            $comment = Comment::findOrFail($id);
 
-        if (!Permission::check($comment->task->project_id, true, false))
-            return Permission::kickOut();
+            if (!Permission::check($comment->task->project_id, true, false))
+                return Permission::kickOut();
 
-        if ($comment->user_id == Auth::user()->id) {
-            $task = $comment->task;
-            $edit = true;
+            if ($comment->user_id == Auth::user()->id) {
+                $task = $comment->task;
+                $edit = true;
 
-            if (Request::ajax()) {
-                // respond to AJAX requests by simply outputting the form
                 return View::make('comment.partials.form', compact('comment', 'task', 'edit'));
-            } else {
-                return View::make('comment.edit', compact('comment', 'task', 'edit'));
             }
-        } else {
-            return Permission::kickOut();
         }
+
+        return Permission::kickOut();
     }
 
     /**

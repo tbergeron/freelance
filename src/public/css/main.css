@@ -294,3 +294,7 @@ a.code-link-project {
 .user-form .checkbox {
     margin-top: 20px;
 }
+
+.comment-info a {
+    color: #555555;
+}

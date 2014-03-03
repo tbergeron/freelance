@@ -2,7 +2,7 @@
 
 return array(
     'create' => 'Post a new comment',
-    'posted_by' => '<strong>:fullname</strong> commented',
+    'commented' => 'commented',
     'edit' => 'Edit',
     'edit_title' => 'Editing comment',
     'destroy' => 'Delete',
