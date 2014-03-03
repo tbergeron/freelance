@@ -20,8 +20,6 @@ $(function(){
             $(star).children('i').removeClass('glyphicon-star-empty');
         };
 
-        console.log(((type == 'task') ? '/task/stare' : '/project/stare'))
-
         $.ajax({
             url: ((type == 'task') ? '/task/stare' : '/project/stare'),
             data: { id: id }
