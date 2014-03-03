@@ -30,10 +30,13 @@ class User extends BaseModel implements UserInterface {
         'full_name' => 'required|min:4'
     ];
 
-    public function afterValidate()
+    public function save(array $data = null)
     {
         // hashing the password after validation and before saving
-        $this->password = Hash::make($this->password);
+        if (isset($data['password']))
+            $data['password'] = Hash::make($data['password']);
+
+        return parent::save($data);
     }
 
     public function __toString()
