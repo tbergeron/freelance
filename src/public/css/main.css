@@ -298,3 +298,18 @@ a.code-link-project {
 .comment-info a {
     color: #555555;
 }
+
+.task-comments .img-circle {
+    margin-top: 10px;
+}
+
+td .img-circle {
+    width: 20px;
+}
+
+.dropdown-toggle .img-circle {
+    float: left;
+    width: 24px;
+    margin-right: 5px;
+    margin-top: -2px;
+}

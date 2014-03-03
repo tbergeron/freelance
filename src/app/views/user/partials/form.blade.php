@@ -39,6 +39,9 @@
                 <div class="controls">
                     {{ $errors->first('email') }}
                     {{ Form::text('email', null, ['placeholder' => trans('user.email_placeholder'), 'class' => 'form-control']) }}
+                    <p class="help-block">
+                        {{ trans('user.email_gravatar') }}
+                    </p>
                 </div>
             </div>
         </div>

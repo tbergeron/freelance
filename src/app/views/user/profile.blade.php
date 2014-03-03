@@ -17,11 +17,18 @@
     {{ trans('user.edit_profile') }}
 </h2>
 
-@include('user.partials.form')
+<div class="row">
+    <div class="col-lg-1">
+        @include('user.partials.avatar', ['user' => $user])
+    </div>
+    <div class="col-lg-11">
+        @include('user.partials.form')
 
-{{ Form::close() }}
+        {{ Form::close() }}
 
-@stop
+        @stop
+    </div>
+</div>
 
 @section('scripts')
 @include('partials.markdown_editor')

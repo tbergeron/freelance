@@ -126,6 +126,9 @@ return array(
         // NOTE: tbergeron 2014-02-19
         'GrahamCampbell\Markdown\MarkdownServiceProvider',
 
+        // NOTE: tbergeron 2014-03-03
+        'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
+
     ),
 
 	/*
@@ -197,6 +200,9 @@ return array(
 
         // NOTE: tbergeron 2014-02-19
         'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown',
+
+        // NOTE: tbergeron 2014-03-03
+        'Gravatar' => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
 
     ),
 

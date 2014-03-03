@@ -27,7 +27,10 @@
             <th>{{ trans('task.code') }}</th>
             <td>{{ $task->code() }}</td>
             <th>{{ trans('task.assignee') }}</th>
-            <td>@include('user.partials.profile_link', ['user' => $task->user])</td>
+            <td>
+                @include('user.partials.profile_link', ['user' => $task->user])
+                @include('user.partials.avatar', ['user' => $task->user, 'link' => true])
+            </td>
         </tr>
         <tr class="warning">
             <th>{{ trans('task.status') }}</th>
@@ -48,11 +51,16 @@
     </table>
 </div>
 
-<h4>{{ $task->name }}</h4>
+<div class="row">
+    <div class="col-lg-12">
+        <h4>{{ $task->name }}</h4>
 
-<div class="markdown_content">
-    {{ Markdown::render($task->description) }}
+        <div class="markdown_content">
+            {{ Markdown::render($task->description) }}
+        </div>
+    </div>
 </div>
+
 
 <hr/>
 

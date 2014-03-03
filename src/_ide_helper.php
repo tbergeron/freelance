@@ -12330,3 +12330,173 @@ class Markdown extends GrahamCampbell\Markdown\Facades\Markdown{
 
 }
 
+class Gravatar extends Thomaswelton\LaravelGravatar\Facades\Gravatar{
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function __construct(){
+		 Thomaswelton\LaravelGravatar\Gravatar::__construct();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function src($email, $size = null, $rating = null){
+		 Thomaswelton\LaravelGravatar\Gravatar::src($email, $size, $rating);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function image($email, $alt = null, $attributes = array(), $rating = null){
+		 Thomaswelton\LaravelGravatar\Gravatar::image($email, $alt, $attributes, $rating);
+	 }
+
+	/**
+	 * Get the currently set avatar size.
+	 *
+	 * @return integer - The current avatar size in use.
+	 * @static 
+	 */
+	 public static function getAvatarSize(){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		return Thomaswelton\LaravelGravatar\Gravatar::getAvatarSize();
+	 }
+
+	/**
+	 * Set the avatar size to use.
+	 *
+	 * @param integer $size - The avatar size to use, must be less than 512 and greater than 0.
+	 * @return \thomaswelton\GravatarLib\Gravatar - Provides a fluent interface.
+	 * @throws \InvalidArgumentException
+	 * @static 
+	 */
+	 public static function setAvatarSize($size){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		return Thomaswelton\LaravelGravatar\Gravatar::setAvatarSize($size);
+	 }
+
+	/**
+	 * Get the current default image setting.
+	 *
+	 * @return mixed - False if no default image set, string if one is set.
+	 * @static 
+	 */
+	 public static function getDefaultImage(){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		return Thomaswelton\LaravelGravatar\Gravatar::getDefaultImage();
+	 }
+
+	/**
+	 * Set the default image to use for avatars.
+	 *
+	 * @param mixed $image - The default image to use. Use boolean false for the gravatar default, a string containing a valid image URL, or a string specifying a recognized gravatar "default".
+	 * @return \thomaswelton\GravatarLib\Gravatar - Provides a fluent interface.
+	 * @throws \InvalidArgumentException
+	 * @static 
+	 */
+	 public static function setDefaultImage($image){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		return Thomaswelton\LaravelGravatar\Gravatar::setDefaultImage($image);
+	 }
+
+	/**
+	 * Get the current maximum allowed rating for avatars.
+	 *
+	 * @return string - The string representing the current maximum allowed rating ('g', 'pg', 'r', 'x').
+	 * @static 
+	 */
+	 public static function getMaxRating(){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		return Thomaswelton\LaravelGravatar\Gravatar::getMaxRating();
+	 }
+
+	/**
+	 * Set the maximum allowed rating for avatars.
+	 *
+	 * @param string $rating - The maximum rating to use for avatars ('g', 'pg', 'r', 'x').
+	 * @return \thomaswelton\GravatarLib\Gravatar - Provides a fluent interface.
+	 * @throws \InvalidArgumentException
+	 * @static 
+	 */
+	 public static function setMaxRating($rating){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		return Thomaswelton\LaravelGravatar\Gravatar::setMaxRating($rating);
+	 }
+
+	/**
+	 * Check if we are using the secure protocol for the image URLs.
+	 *
+	 * @return boolean - Are we supposed to use the secure protocol?
+	 * @static 
+	 */
+	 public static function usingSecureImages(){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		return Thomaswelton\LaravelGravatar\Gravatar::usingSecureImages();
+	 }
+
+	/**
+	 * Enable the use of the secure protocol for image URLs.
+	 *
+	 * @return \thomaswelton\GravatarLib\Gravatar - Provides a fluent interface.
+	 * @static 
+	 */
+	 public static function enableSecureImages(){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		return Thomaswelton\LaravelGravatar\Gravatar::enableSecureImages();
+	 }
+
+	/**
+	 * Disable the use of the secure protocol for image URLs.
+	 *
+	 * @return \thomaswelton\GravatarLib\Gravatar - Provides a fluent interface.
+	 * @static 
+	 */
+	 public static function disableSecureImages(){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		return Thomaswelton\LaravelGravatar\Gravatar::disableSecureImages();
+	 }
+
+	/**
+	 * Build the avatar URL based on the provided email address.
+	 *
+	 * @param string $email - The email to get the gravatar for.
+	 * @param string $hash_email - Should we hash the $email variable?  (Useful if the email address has a hash stored already)
+	 * @return string - The XHTML-safe URL to the gravatar.
+	 * @static 
+	 */
+	 public static function buildGravatarURL($email, $hash_email = true){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		return Thomaswelton\LaravelGravatar\Gravatar::buildGravatarURL($email, $hash_email);
+	 }
+
+	/**
+	 * Get the email hash to use (after cleaning the string).
+	 *
+	 * @param string $email - The email to get the hash for.
+	 * @return string - The hashed form of the email, post cleaning.
+	 * @static 
+	 */
+	 public static function getEmailHash($email){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		return Thomaswelton\LaravelGravatar\Gravatar::getEmailHash($email);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function get($email, $hash_email = true){
+		//Method inherited from thomaswelton\GravatarLib\Gravatar
+		 Thomaswelton\LaravelGravatar\Gravatar::get($email, $hash_email);
+	 }
+
+}
+

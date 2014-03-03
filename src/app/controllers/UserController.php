@@ -56,11 +56,14 @@ class UserController extends \BaseController {
     {
         $user = Auth::user();
 
-        if (strlen(Input::get('password')) == 0) {
-            // If there's no password specified, ignore the field.
-            $data = Input::except(['email', 'password']);
-        } else {
-            $data = Input::except('email');
+        $data = Input::except(['email', 'password']);
+
+        if (strlen(Input::get('password')) != 0) {
+            $data['password'] = Input::get('password');
+        }
+
+        if ($user->email != Input::get('email')) {
+            $data['email'] = Input::get('email');
         }
 
         if ($user->save($data)) {

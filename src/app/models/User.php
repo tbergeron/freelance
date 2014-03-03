@@ -15,6 +15,7 @@ use Illuminate\Auth\UserInterface;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $tasks
  * @property-read \Illuminate\Database\Eloquent\Collection|\Task[] $starred_tasks
  * @property boolean $is_admin
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Permission[] $permissions
  */
 class User extends BaseModel implements UserInterface {
     protected $table = 'users';
