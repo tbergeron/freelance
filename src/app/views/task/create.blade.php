@@ -5,10 +5,10 @@
 @stop
 
 @section('content')
+
+@if(isset($project))
 <div class="row">
     <div class="col-sm-10">
-@if(isset($project))
-
 @endif
 
 {{ Form::open(['action' => 'TaskController@postStore']) }}
@@ -25,13 +25,13 @@
 {{ Form::close() }}
 
 @if(isset($project))
-
-@endif
     </div> <!-- /col-lg-10 -->
     <div class="col-sm-2">
         @include('project.partials.sidebar')
     </div>
 </div>
+@endif
+
 @stop
 
 @section('scripts')
