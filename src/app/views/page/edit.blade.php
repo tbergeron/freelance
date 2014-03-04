@@ -9,7 +9,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-lg-10">
+    <div class="col-sm-10">
         {{ Form::model($page, ['action' => ['PageController@postUpdate', $page->id]]) }}
 
         <div class="page-top-container">
@@ -68,7 +68,7 @@
 
         {{ Form::close() }}
     </div> <!-- /col-lg-10 -->
-    <div class="col-lg-2">
+    <div class="col-sm-2">
         @include('project.partials.sidebar')
     </div>
 </div>

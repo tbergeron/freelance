@@ -9,7 +9,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-lg-10">
+    <div class="col-sm-10">
         {{ Form::model($milestone, ['action' => ['MilestoneController@postUpdate', $milestone->id], 'files' => true]) }}
 
         <h2>
@@ -23,7 +23,7 @@
 
         {{ Form::close() }}
     </div> <!-- /col-lg-10 -->
-    <div class="col-lg-2">
+    <div class="col-sm-2">
         @include('project.partials.sidebar')
     </div>
 </div>

@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-lg-10">
+    <div class="col-sm-10">
         <div class="page-top-container">
             <div class="col-lg-9">
                 <div class="paper-container">
@@ -40,7 +40,7 @@
             <div class="clear"></div>
         </div>
     </div> <!-- /col-lg-10 -->
-    <div class="col-lg-2">
+    <div class="col-sm-2">
         @include('project.partials.sidebar')
     </div>
 </div>
