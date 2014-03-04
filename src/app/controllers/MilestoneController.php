@@ -29,7 +29,9 @@ class MilestoneController extends BaseController {
         if (!Permission::check($project_id, true, true))
             return Permission::kickOut();
 
-        return View::make('milestone.create', compact('project_id'));
+        $project = Project::findOrFail($project_id);
+
+        return View::make('milestone.create', compact('project'));
     }
 
     /**
