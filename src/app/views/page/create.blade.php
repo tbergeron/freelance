@@ -15,7 +15,7 @@
                 <div class="inner-paper">
                     <br/>
                     <div class="form-group @if($errors->has('name')) has-feedback has-error @endif">
-                        {{ Form::label('name', trans('page.name')) }} @include('page.partials.display_project')
+                        {{ Form::label('name', trans('page.name')) }}
                         {{ $errors->first('name') }}
                         <div class="controls">
                             {{ Form::text('name', null, ['placeholder' => trans('page.name_placeholder'), 'class' => 'form-control']) }}
