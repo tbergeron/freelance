@@ -6,19 +6,25 @@
 
 @section('content')
 
-{{ Form::open(['action' => 'MilestoneController@postStore']) }}
+<div class="row">
+    <div class="col-sm-10">
+        {{ Form::open(['action' => 'MilestoneController@postStore']) }}
 
-    <h2>
-        {{ trans('milestone.create') }}
-        <div class="pull-right">
-            {{ Form::submit(trans('app.save'), ['class' => 'btn btn-primary']) }}
-        </div>
-    </h2>
+            <h2>
+                {{ trans('milestone.create') }}
+                <div class="pull-right">
+                    {{ Form::submit(trans('app.save'), ['class' => 'btn btn-primary']) }}
+                </div>
+            </h2>
 
-    @include('milestone.partials.form')
+            @include('milestone.partials.form')
 
-{{ Form::close() }}
-
+        {{ Form::close() }}
+    </div> <!-- /col-lg-10 -->
+    <div class="col-sm-2">
+        @include('project.partials.sidebar')
+    </div>
+</div>
 @stop
 
 @section('scripts')
