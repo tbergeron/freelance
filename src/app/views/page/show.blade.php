@@ -15,7 +15,6 @@
                         <div class="inner-paper">
                             <h4>
                                 {{ $page->name }}<br/>
-                                @include('page.partials.display_project')
                             </h4>
                             <div class="paper-content">
                                 <div class="markdown_content">

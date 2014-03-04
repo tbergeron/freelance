@@ -11,10 +11,6 @@
     <div class="col-lg-10">
 @endif
         <h2>
-            @if(isset($project))
-            {{ Html::linkAction('ProjectController@getShow', $project->name, ['id' => $project->id]) }}
-            @include('partials.heading_separator')
-            @endif
             {{ trans('task.tasks') }}
         </h2>
 
