@@ -24,6 +24,7 @@ Because who the fuck needs a "like" button in a project management software?!
 - Gravatar support
 - Starred projects (for dashboard widget)
 - Project sidebar
+- /CODE-123 urls support for tasks
 
 #### What I'm planning to do next
 - Better list filters and search (with order by column)
