@@ -6,6 +6,14 @@
 |--------------------------------------------------------------------------
 */
 
+Route::pattern('code', '.*-[0-9]*');
+
+Route::get('/{code}', ['as' => 'task_code', function($code)
+{
+    $task_id = substr($code, strpos($code, '-')+1, strlen($code));
+    return App::make('TaskController')->{'getShow'}($task_id);
+}]);
+
 Route::controller('page',       'PageController');
 Route::controller('milestone',  'MilestoneController');
 Route::controller('comment',    'CommentController');

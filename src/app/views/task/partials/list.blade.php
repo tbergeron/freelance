@@ -21,7 +21,7 @@
             <td style="text-align: center;">
                 @include('task.partials.starred_task')
             </td>
-            <td>{{ Html::linkAction('TaskController@getShow', $task->name_short(60), ['id' => $task->id]) }}</td>
+            <td>{{ Html::linkRoute('task_code', $task->name_short(60), ['code' => $task->code()]) }}</td>
             @if(isset($show_states))
             <td>@include('task.partials.state')</td>
             @endif

@@ -67,7 +67,7 @@ class CommentController extends BaseController {
             $data = $this->prepareData();
     
             if ($comment->save($data))
-                return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
+                return Redirect::route('task_code', ['code' => $comment->task->code()])
                     ->withMessage(trans('comment.update_success'))->withType('success');
     
             else
@@ -93,7 +93,7 @@ class CommentController extends BaseController {
         if ($comment->user_id == Auth::user()->id) {
             $comment->delete();
     
-            return Redirect::action('TaskController@getShow', ['id' => $comment->task->id])
+            return Redirect::route('task_code', ['code' => $comment->task->code()])
                 ->withMessage(trans('comment.destroy_success'))->withType('danger');
         } else {
             return Permission::kickOut();

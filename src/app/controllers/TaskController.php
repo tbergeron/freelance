@@ -48,7 +48,7 @@ class TaskController extends BaseController {
         $task = new Task;
 
         if ($task->save(Input::all()))
-            return Redirect::action('TaskController@getShow', ['id' => $task->id])
+            return Redirect::action('task_code', ['code' => $task->code()])
                 ->withMessage(trans('task.create_success'))->withType('success');
 
         else
@@ -105,7 +105,7 @@ class TaskController extends BaseController {
             return Permission::kickOut();
 
         if ($task->save(Input::all()))
-            return Redirect::action('TaskController@getShow', ['id' => $task->id])
+            return Redirect::action('task_code', ['code' => $task->code()])
                 ->withMessage(trans('task.update_success'))->withType('success');
 
         else
@@ -149,7 +149,7 @@ class TaskController extends BaseController {
         $task->save();
         
         if ($from_task)
-            return Redirect::action('TaskController@getShow', ['id' => $task->id])
+            return Redirect::action('task_code', ['code' => $task->code()])
                     ->withMessage(trans('task.closed_success'))->withType('success');    
         else
             return Redirect::action('TaskController@getIndex', ['project_id' => $task->project->id])
@@ -173,7 +173,7 @@ class TaskController extends BaseController {
         $task->save();
         
         if ($from_task)
-            return Redirect::action('TaskController@getShow', ['id' => $task->id])
+            return Redirect::action('task_code', ['code' => $task->code()])
                     ->withMessage(trans('task.reopen_success'))->withType('success');
         else
             return Redirect::action('TaskController@getIndex', ['project_id' => $task->project->id])
