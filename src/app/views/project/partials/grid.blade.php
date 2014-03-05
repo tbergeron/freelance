@@ -3,7 +3,7 @@
     <div class="col-md-4 project-grid-element">
         <div class="content">
             <div class="col-xs-2 col-md-2 content-icon">
-                <i class="glyphicon glyphicon-info-sign"></i>
+                <i class="glyphicon glyphicon-{{ ($project->icon) ? $project->icon : 'info-sign' }}"></i>
             </div>
             <div class="col-xs-10 col-md-10 content-text no-horizontal-padding">
                 <div class="name">

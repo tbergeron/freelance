@@ -24,5 +24,6 @@ return array(
     'pages' => 'Pages',
     'starred' => 'Starred',
     'starred_dashboard' => '* Starred projects are shown on the dashboard.',
+    'icon' => 'Icon',
 
 );
