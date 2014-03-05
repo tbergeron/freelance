@@ -78,7 +78,8 @@
             })
             this.map = map;
             if (selected) {
-                this.$element.val(selected);
+                // NOTE: tbergeron 2014-03-05 Removing html from selected string
+                this.$element.val(strip_html(selected).trim());
                 this.$target.val(selectedValue);
                 this.$container.addClass('combobox-selected');
                 this.selected = true;
@@ -102,7 +103,8 @@
 
         , select: function () {
             var val = this.$menu.find('.active').attr('data-value');
-            this.$element.val(this.updater(val)).trigger('change');
+            // NOTE: tbergeron 2014-03-05 Removing html from selected string
+            this.$element.val(strip_html(this.updater(val)).trim()).trigger('change');
             this.$target.val(this.map[val]).trigger('change');
             this.$source.val(this.map[val]).trigger('change');
             this.$container.addClass('combobox-selected');
@@ -189,7 +191,8 @@
 
             items = $(items).map(function (i, item) {
                 i = $(that.options.item).attr('data-value', item);
-                i.find('a').html(that.highlighter(item));
+                // NOTE: tbergeron 2014-0305 Removed highlighter to use HTML in dropdowns
+                i.find('a').html(item);
                 return i[0];
             })
 
@@ -413,3 +416,20 @@
     $.fn.combobox.Constructor = Combobox;
 
 }( window.jQuery );
+
+String.prototype.decodeHTML = function() {
+    var map = {"gt":">" /* , … */};
+    return this.replace(/&(#(?:x[0-9a-f]+|\d+)|[a-z]+);?/gi, function($0, $1) {
+        if ($1[0] === "#") {
+            return String.fromCharCode($1[1].toLowerCase() === "x" ? parseInt($1.substr(2), 16)  : parseInt($1.substr(1), 10));
+        } else {
+            return map.hasOwnProperty($1) ? map[$1] : $0;
+        }
+    });
+};
+
+function strip_html(str) {
+    var div = document.createElement("div");
+    div.innerHTML = str;
+    return div.textContent || div.innerText || "";
+}

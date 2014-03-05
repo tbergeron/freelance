@@ -72,7 +72,7 @@ class Project extends BaseModel {
     {
         $items = [];
         foreach(static::$icons as $icon){
-            $items[$icon] = $icon;
+            $items[$icon] = '<i class="glyphicon glyphicon-' . $icon . '"></i> ' . $icon;
         }
         return $items;
     }
