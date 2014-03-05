@@ -26,7 +26,7 @@
             </div>
             <div class="panel-body comment-content">
                 <div class="markdown_content">
-                    {{ Markdown::render($comment->content) }}
+                    {{ Markdown::render($comment->content()) }}
                 </div>
             </div>
         </div>

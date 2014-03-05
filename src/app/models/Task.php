@@ -73,6 +73,17 @@ class Task extends BaseModel {
         return $this->project->code . '-' . sprintf("%03s", $this->id);
     }
 
+    public function description()
+    {
+        return static::convertTaskCodesToMarkdownLinks($this->description);
+    }
+
+    public static function convertTaskCodesToMarkdownLinks($str)
+    {
+        // replaces #CODE-123 to markdown links to /CODE-123
+        return preg_replace('/#(.*-[0-9]*)/i', '[${0}](${1})', $str);
+    }
+
     public function codeWithLink()
     {
         $project = $this->project;

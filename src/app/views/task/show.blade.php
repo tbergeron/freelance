@@ -53,7 +53,7 @@
                 <h4>{{ $task->name }}</h4>
 
                 <div class="markdown_content">
-                    {{ Markdown::render($task->description) }}
+                    {{ Markdown::render($task->description()) }}
                 </div>
             </div>
         </div>

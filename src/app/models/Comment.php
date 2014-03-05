@@ -37,4 +37,9 @@ class Comment extends BaseModel {
 		return $this->belongsTo('User');
 	}
 
+    public function content()
+    {
+        return Task::convertTaskCodesToMarkdownLinks($this->content);
+    }
+
 }
