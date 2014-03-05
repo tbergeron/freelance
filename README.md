@@ -5,7 +5,7 @@ Because who the fuck needs a "like" button in a project management software?!
 
 ###### Contribute! Try the latest build following [this quick get started guide](https://github.com/tbergeron/freelance/wiki/Get-Started).
 
-### Changelog; last update 2014-03-04
+### Changelog; last update 2014-03-05
 - Basic login/auth
 - Basic project/milestone/task/ management
 - Basic dashboard/project/milestone/task pages
