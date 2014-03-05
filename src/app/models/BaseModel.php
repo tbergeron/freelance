@@ -134,4 +134,20 @@ class BaseModel extends Eloquent
 
     }
 
+    public static function prepareArrayForDropdown($items)
+    {
+        $items_array = [trans('app.none')];
+        foreach ($items as $item) {
+            $items_array[$item->id] = $item;
+        }
+
+        return $items_array;
+    }
+
+    public static function forDropdown()
+    {
+        $items = static::get();
+        return static::prepareArrayForDropdown($items);
+    }
+
 }

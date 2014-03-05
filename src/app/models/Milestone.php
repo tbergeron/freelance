@@ -58,13 +58,8 @@ class Milestone extends BaseModel {
 
     public static function forDropdown($project_id = null)
     {
-        $milestones = Milestone::where('project_id', $project_id)->get(array('id', 'name'));
-        $milestones_array = [trans('app.none')];
-        foreach ($milestones as $milestone) {
-            $milestones_array[$milestone->id] = $milestone->name;
-        }
-
-        return $milestones_array;
+        $milestones = Milestone::where('project_id', $project_id)->get();
+        return parent::prepareArrayForDropdown($milestones);
     }
 
     public function scopeUpcoming($query)

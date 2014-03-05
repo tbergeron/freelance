@@ -109,15 +109,4 @@ class User extends BaseModel implements UserInterface {
 		return $this->password;
 	}
 
-    public static function forDropdown()
-    {
-        $users = User::get(array('id', 'full_name'));
-        $users_array = [trans('app.none')];
-        foreach ($users as $user) {
-            $users_array[$user->id] = $user->full_name;
-        }
-
-        return $users_array;
-    }
-
 }

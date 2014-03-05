@@ -60,18 +60,6 @@ class Project extends BaseModel {
         $this->code = strtoupper(Str::slug($this->code));
     }
 
-    // TODO: Find someway of making this DRYer
-    public static function forDropdown()
-    {
-        $projects = Project::get(array('id', 'name'));
-        $projects_array = [trans('app.none')];
-        foreach ($projects as $project) {
-            $projects_array[$project->id] = $project->name;
-        }
-
-        return $projects_array;
-    }
-
     public function is_starred()
     {
         $starred = StarredProject::where('user_id', Auth::user()->id)->where('project_id', $this->id)->first();

@@ -4,7 +4,7 @@
             {{ $project->name_short() }}
         </a>
     </li>
-    <li class="@if(strpos(Route::currentRouteAction(), 'TaskController') !== false)active@endif">
+    <li class="@if((strpos(Route::currentRouteAction(), 'TaskController') !== false) || (strpos(Route::currentRouteName(), 'task_code') !== false))active@endif">
         <a href="{{ URL::action('TaskController@getIndex', ['project_id' => $project->id]) }}">
             <span class="badge pull-right hidden-sm">{{ count($project->tasks) }}</span>
             Tasks
