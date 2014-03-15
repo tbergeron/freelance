@@ -1,7 +1,7 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "tbergeron/freelance",
+	"description": "Project management for freelancers.",
+	"keywords": ["project-management"],
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
@@ -25,16 +25,16 @@
     "scripts": {
         "post-install-cmd": [
             "php artisan clear-compiled",
+            "php artisan debugbar:publish",
+            "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/js' bootstrap/js",
+            "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/css' bootstrap/css",
+            "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/fonts' bootstrap/fonts",
             "php artisan optimize"
         ],
         "post-update-cmd": [
             "php artisan clear-compiled",
             "php artisan ide-helper:generate",
             "php artisan ide-helper:models --dir='app/models'",
-            "php artisan debugbar:publish",
-            "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/js' bootstrap/js",
-            "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/css' bootstrap/css",
-            "php artisan asset:publish --path='vendor/twitter/bootstrap/dist/fonts' bootstrap/fonts",
             "php artisan optimize"
         ],
         "post-create-project-cmd": [
